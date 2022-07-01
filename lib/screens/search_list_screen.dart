@@ -1,4 +1,5 @@
 import 'package:borong/models/shop_item.dart';
+import 'package:borong/screens/detail_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import 'package:borong/widgets/contra/button_round_with_shadow.dart';
 import 'package:borong/widgets/contra/chips_filter_widget.dart';
@@ -95,43 +96,51 @@ class _ShoppingSearchListPageState extends State<ShoppingSearchListPage> {
     return Scaffold(
       backgroundColor: white,
       appBar: CustomAppBar(
-        height: 120,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Expanded(
-              flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 24.0),
-                child: Align(
-                  alignment: Alignment.bottomLeft,
-                  child: ButtonRoundWithShadow(
-                      size: 48,
-                      borderColor: wood_smoke,
-                      color: white,
-                      callback: () {
-                        Navigator.pop(context);
-                      },
-                      shadowColor: wood_smoke,
-                      iconPath: "assets/icons/arrow_back.svg"),
-                ),
+        height: 96,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 24),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Expanded(
+                    flex: 1,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 24.0),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: ButtonRoundWithShadow(
+                            size: 48,
+                            borderColor: wood_smoke,
+                            color: white,
+                            callback: () {
+                              Navigator.pop(context);
+                            },
+                            shadowColor: wood_smoke,
+                            iconPath: "assets/icons/arrow_back.svg"),
+                      ),
+                    ),
+                  ),
+                  const Expanded(
+                    // flex: 1,
+                    child: ContraText(
+                      size: 27,
+                      alignment: Alignment.center,
+                      text: "T-shirts",
+                    ),
+                  ),
+                  const Expanded(
+                    flex: 1,
+                    child: SizedBox(
+                      width: 20,
+                    ),
+                  )
+                ],
               ),
             ),
-            const Expanded(
-              flex: 1,
-              child: ContraText(
-                size: 27,
-                alignment: Alignment.bottomCenter,
-                text: "T-shirts",
-              ),
-            ),
-            const Expanded(
-              flex: 1,
-              child: SizedBox(
-                width: 20,
-              ),
-            )
           ],
         ),
       ),
@@ -156,7 +165,14 @@ class _ShoppingSearchListPageState extends State<ShoppingSearchListPage> {
                   return ShopListItemWidget(
                     shopItem: _items[index],
                     onTap: () {
-                      Navigator.pushNamed(context, "/shopping_detail_page_two");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ShoppingDetailPage(
+                            item: _items[index],
+                          ),
+                        ),
+                      );
                     },
                   );
                 }),

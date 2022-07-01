@@ -10,12 +10,14 @@ class ContraText extends StatelessWidget {
   final TextAlign? textAlign;
 
   const ContraText(
-      {required this.alignment,
+      {Key? key,
+      required this.alignment,
       required this.text,
       this.size,
       this.color,
       this.weight,
-      this.textAlign});
+      this.textAlign})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

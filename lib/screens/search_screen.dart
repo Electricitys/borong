@@ -1,15 +1,13 @@
-import 'dart:io';
-
 import 'package:borong/models/shop_item.dart';
+import 'package:borong/screens/detail_screen.dart';
 import 'package:borong/screens/search_list_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';
-import 'package:borong/widgets/contra/contra_text.dart';
-import 'package:borong/widgets/contra/custom_app_bar.dart';
 import 'package:borong/widgets/contra/custom_search_text.dart';
 import 'package:borong/widgets/contra/shop_card_item.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
+
+import '../widgets/contra/custom_app_bar.dart';
 
 class ShoppingSearchPage extends StatefulWidget {
   const ShoppingSearchPage({Key? key}) : super(key: key);
@@ -92,10 +90,13 @@ class _ShoppingSearchPageState extends State<ShoppingSearchPage> {
       appBar: CustomAppBar(
         height: 96,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(
+              height: MediaQuery.of(context).viewPadding.top,
+            ),
             Padding(
-              padding: const EdgeInsets.all(24.0),
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -105,13 +106,23 @@ class _ShoppingSearchPageState extends State<ShoppingSearchPage> {
                     icon: const Icon(Icons.menu),
                     onPressed: () {},
                   ),
-                  const Expanded(
-                    flex: 1,
-                    child: ContraText(
-                      size: 27,
-                      alignment: Alignment.bottomCenter,
-                      text: "T-shirts",
+                  const SizedBox(
+                    width: 12,
+                  ),
+                  Flexible(
+                    child: CustomSearchText(
+                      iconPath: "assets/icons/ic_search.svg",
+                      text: "Search with love ...",
+                      enable: false,
+                      callback: () {
+                        Navigator.pushNamed(
+                            context, ShoppingSearchListPage.routeName);
+                      },
+                      controller: _textEditingController,
                     ),
+                  ),
+                  const SizedBox(
+                    width: 12,
                   ),
                   IconButton(
                     color: wood_smoke,
@@ -127,22 +138,6 @@ class _ShoppingSearchPageState extends State<ShoppingSearchPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: CustomSearchText(
-                iconPath: "assets/icons/ic_search.svg",
-                text: "Search with love ...",
-                enable: false,
-                callback: () {
-                  Navigator.pushNamed(
-                      context, ShoppingSearchListPage.routeName);
-                },
-                controller: _textEditingController,
-              ),
-            ),
             ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
@@ -152,7 +147,14 @@ class _ShoppingSearchPageState extends State<ShoppingSearchPage> {
                   return ShopCardItemWidget(
                     shopItem: _items[index],
                     onTap: () {
-                      Navigator.pushNamed(context, "/shopping_detail_page_two");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ShoppingDetailPage(
+                            item: _items[index],
+                          ),
+                        ),
+                      );
                     },
                   );
                 }),
