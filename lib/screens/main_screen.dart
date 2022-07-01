@@ -1,3 +1,4 @@
+import 'package:borong/screens/cart_screen.dart';
 import 'package:borong/screens/search_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import "package:flutter/material.dart";
@@ -17,8 +18,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _childrenWidgets = [
     const ShoppingHomePage(),
     const ShoppingSearchPage(),
-    const ShoppingHomePage(),
-    const ShoppingSearchPage(),
+    const ShoppingCartScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -37,8 +37,8 @@ class _MainScreenState extends State<MainScreen> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
-          BottomNavigationBarItem(icon: Icon(Icons.chat_bubble), label: "Chat"),
-          BottomNavigationBarItem(icon: Icon(Icons.info), label: "About"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_basket), label: "Cart"),
         ],
         currentIndex: _currentIndex,
         onTap: _onItemTapped,
