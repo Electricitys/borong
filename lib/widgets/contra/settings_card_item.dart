@@ -49,7 +49,7 @@ class _SettingsCardItemState extends State<SettingsCardItem> {
       decoration: ShapeDecoration(
           color: bgColor,
           shape: const RoundedRectangleBorder(
-              side: BorderSide(color: wood_smoke, width: 2),
+              side: BorderSide(color: woodSmoke, width: 2),
               borderRadius: BorderRadius.all(Radius.circular(16)))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,8 +79,8 @@ class _SettingsCardItemState extends State<SettingsCardItem> {
           Switch(
             value: isChanged,
             onChanged: onChanged,
-            activeTrackColor: lightening_yellow,
-            inactiveTrackColor: santas_gray,
+            activeTrackColor: lighteningYellow,
+            inactiveTrackColor: santasGray,
             inactiveThumbColor: white,
           )
         ],

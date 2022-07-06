@@ -81,7 +81,7 @@ class _PagerImageViewState extends State<PagerImageView> {
                 CircleDotWidget(
                   isActive: false,
                   color: flamingo,
-                  borderColor: wood_smoke,
+                  borderColor: woodSmoke,
                 ),
           ],
         ),

@@ -7,10 +7,11 @@ class BadgeText extends StatelessWidget {
   final double? size;
 
   const BadgeText({
+    Key? key,
     required this.color,
     required this.text,
     this.size,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

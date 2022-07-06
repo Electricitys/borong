@@ -92,7 +92,7 @@ class SignUpScreen extends StatelessWidget {
                           height: 48,
                         ),
                         ButtonSolid(
-                          color: wood_smoke,
+                          color: woodSmoke,
                           textColor: white,
                           rightIcon:
                               ButtonSolid.Icon("assets/icons/arrow_next.svg"),

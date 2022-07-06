@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 
 class ButtonPlain extends StatelessWidget {
@@ -12,14 +13,16 @@ class ButtonPlain extends StatelessWidget {
   final double? textSize;
 
   const ButtonPlain(
-      {required this.color,
+      {Key? key,
+      required this.color,
       required this.textColor,
       required this.borderColor,
       this.size,
       required this.text,
       this.height,
       this.textSize,
-      required this.onTap});
+      required this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,19 +30,18 @@ class ButtonPlain extends StatelessWidget {
       height: height != null ? height! : 48,
       minWidth: size != null ? size! : MediaQuery.of(context).size.width,
       child: RaisedButton(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         color: color,
         onPressed: onTap,
         textColor: textColor,
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
         child: Text(
           text,
           maxLines: 1,
-          style: TextStyle(
-              fontSize: textSize != null ? textSize : 12,
-              fontWeight: FontWeight.w800),
+          style:
+              TextStyle(fontSize: textSize ?? 12, fontWeight: FontWeight.w800),
         ),
-        shape: RoundedRectangleBorder(
-            borderRadius: new BorderRadius.circular(16.0)),
       ),
     );
   }

@@ -25,7 +25,7 @@ class ShopGridItemWidget extends StatelessWidget {
                 color: shopItem.bgColor,
                 shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(16)),
-                    side: BorderSide(color: wood_smoke, width: 2))),
+                    side: BorderSide(color: woodSmoke, width: 2))),
             child: Hero(
               tag: 'hero-${shopItem.id}',
               child: SvgPicture.asset(
@@ -45,7 +45,7 @@ class ShopGridItemWidget extends StatelessWidget {
               textAlign: TextAlign.start,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
-                  color: wood_smoke, fontSize: 17, fontWeight: FontWeight.bold),
+                  color: woodSmoke, fontSize: 17, fontWeight: FontWeight.bold),
             ),
           ),
           const SizedBox(

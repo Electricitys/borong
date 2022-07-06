@@ -21,20 +21,28 @@ class SettingsCardDetail {
   Color borderColor;
   List<SettingsCardItemDetail> items;
 
-  SettingsCardDetail(
-      {required this.title,
-      required this.bgColor,
-      required this.borderColor,
-      required this.items});
+  SettingsCardDetail({
+    required this.title,
+    required this.bgColor,
+    required this.borderColor,
+    required this.items,
+  });
 }
 
 class SettingsCardItemDetail {
   String title;
+  String? value;
   Color textColor;
   Color color;
+  VoidCallback onTap;
 
-  SettingsCardItemDetail(
-      {required this.title, required this.color, required this.textColor});
+  SettingsCardItemDetail({
+    required this.title,
+    required this.color,
+    required this.textColor,
+    required this.onTap,
+    this.value,
+  });
 }
 
 class SettingsItem {

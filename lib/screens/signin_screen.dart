@@ -7,7 +7,6 @@ import 'package:borong/widgets/contra/login_input_password_text.dart';
 import 'package:borong/widgets/contra/rich_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:page_transition/page_transition.dart';
 
 class SignInScreen extends StatelessWidget {
   static const routeName = 'SignIn Screen';
@@ -75,7 +74,7 @@ class SignInScreen extends StatelessWidget {
                           height: 48,
                         ),
                         ButtonSolid(
-                          color: wood_smoke,
+                          color: woodSmoke,
                           textColor: white,
                           rightIcon:
                               ButtonSolid.Icon("assets/icons/arrow_next.svg"),

@@ -7,9 +7,10 @@ import 'color_widget.dart';
 class ColorsSelectWidget extends StatefulWidget {
   final List<Color> colors;
 
-  const ColorsSelectWidget({required this.colors});
+  const ColorsSelectWidget({Key? key, required this.colors}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _ColorsSelectWidgetState createState() => _ColorsSelectWidgetState();
 }
 
@@ -35,8 +36,8 @@ class _ColorsSelectWidgetState extends State<ColorsSelectWidget> {
           (int index) {
             return ColorWidget(
               bgColor: options[index],
-              borderColor: wood_smoke,
-              shadowColor: wood_smoke,
+              borderColor: woodSmoke,
+              shadowColor: woodSmoke,
               selected: selectedChoices.contains(index),
               onTap: () {
                 setState(() {

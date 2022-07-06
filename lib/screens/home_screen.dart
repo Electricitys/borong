@@ -7,7 +7,6 @@ import 'package:borong/utilities/contra/colors.dart';
 import 'package:borong/widgets/contra/button_round_with_shadow.dart';
 import 'package:borong/widgets/contra/contra_text.dart';
 import 'package:borong/widgets/contra/custom_app_bar.dart';
-import 'package:borong/widgets/contra/custom_search_text.dart';
 import 'package:borong/widgets/contra/shop_card_item_small.dart';
 import 'package:borong/widgets/contra/shopping_card_pager.dart';
 import 'package:borong/widgets/contra/star_widget.dart';
@@ -26,10 +25,9 @@ class ShoppingHomePage extends StatefulWidget {
 }
 
 class _ShoppingHomePageState extends State<ShoppingHomePage> {
-  var uuid = Uuid();
+  var uuid = const Uuid();
   final List<ShopItem> _items = <ShopItem>[];
   final List<Category> _categories = <Category>[];
-  final TextEditingController _textEditingController = TextEditingController();
 
   @override
   void initState() {
@@ -46,21 +44,21 @@ class _ShoppingHomePageState extends State<ShoppingHomePage> {
         image: "assets/images/shopping/shirt_and_coat.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: carribean_green,
+        bgColor: carribeanGreen,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/striped_tee.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: lightening_yellow,
+        bgColor: lighteningYellow,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/thunder_tshirt.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: pink_salomn,
+        bgColor: pinkSalmon,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
@@ -92,17 +90,21 @@ class _ShoppingHomePageState extends State<ShoppingHomePage> {
         by: "Company name"));
 
     _categories.add(const Category(
-        bgColor: bareley_white, startColor: wood_smoke, name: "Men"));
+        bgColor: bareleyWhite,
+        startColor: ContraColors.woodSmoke,
+        name: "Men"));
     _categories.add(const Category(
-        bgColor: fair_pink, startColor: wood_smoke, name: "Woman"));
-    _categories.add(
-        const Category(bgColor: foam, startColor: wood_smoke, name: "Kid"));
+        bgColor: fairPink, startColor: ContraColors.woodSmoke, name: "Woman"));
     _categories.add(const Category(
-        bgColor: bareley_white, startColor: wood_smoke, name: "Adult"));
+        bgColor: foam, startColor: ContraColors.woodSmoke, name: "Kid"));
     _categories.add(const Category(
-        bgColor: fair_pink, startColor: wood_smoke, name: "Men"));
-    _categories.add(
-        const Category(bgColor: foam, startColor: wood_smoke, name: "Men"));
+        bgColor: bareleyWhite,
+        startColor: ContraColors.woodSmoke,
+        name: "Adult"));
+    _categories.add(const Category(
+        bgColor: fairPink, startColor: ContraColors.woodSmoke, name: "Men"));
+    _categories.add(const Category(
+        bgColor: foam, startColor: ContraColors.woodSmoke, name: "Men"));
   }
 
   @override
@@ -123,12 +125,12 @@ class _ShoppingHomePageState extends State<ShoppingHomePage> {
                   foundation.kIsWeb || Platform.isIOS
                       ? ButtonRoundWithShadow(
                           size: 48,
-                          borderColor: wood_smoke,
+                          borderColor: ContraColors.woodSmoke,
                           color: white,
                           callback: () {
                             Navigator.pop(context);
                           },
-                          shadowColor: wood_smoke,
+                          shadowColor: ContraColors.woodSmoke,
                           iconPath: "assets/icons/arrow_back.svg")
                       : const SizedBox(),
                   foundation.kIsWeb || Platform.isIOS

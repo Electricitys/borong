@@ -44,21 +44,21 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
         image: "assets/images/shopping/shirt_and_coat.svg",
         name: "Rebousa - White striped tee",
         price: "189",
-        bgColor: carribean_green,
+        bgColor: carribeanGreen,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/striped_tee.svg",
         name: "Rebousa - White striped tee",
         price: "189",
-        bgColor: lightening_yellow,
+        bgColor: lighteningYellow,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/thunder_tshirt.svg",
         name: "Rebousa - White striped tee",
         price: "189",
-        bgColor: pink_salomn,
+        bgColor: pinkSalmon,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
@@ -108,12 +108,12 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
                   alignment: Alignment.bottomLeft,
                   child: ButtonRoundWithShadow(
                       size: 48,
-                      borderColor: wood_smoke,
+                      borderColor: woodSmoke,
                       color: white,
                       callback: () {
                         Navigator.pop(context);
                       },
-                      shadowColor: wood_smoke,
+                      shadowColor: woodSmoke,
                       iconPath: "assets/icons/arrow_back.svg"),
                 ),
               ),

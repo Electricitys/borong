@@ -1,5 +1,4 @@
 import 'package:borong/models/settings.dart';
-import 'package:borong/screens/settings/settings_manage_account_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import 'package:borong/widgets/contra/button_round_with_shadow.dart';
 import 'package:borong/widgets/contra/contra_text.dart';
@@ -7,19 +6,24 @@ import 'package:borong/widgets/contra/custom_app_bar.dart';
 import 'package:borong/widgets/contra/settings_list_card_item.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'dart:developer' as developer;
 
-class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+class SettingsManageAccountScreen extends StatefulWidget {
+  final String title;
+  const SettingsManageAccountScreen({
+    Key? key,
+    this.title = "Account",
+  }) : super(key: key);
 
-  static String routeName = "/settings-screen";
+  static String routeName = "/settings-manage-account-screen";
 
   @override
   // ignore: library_private_types_in_public_api
-  _SettingsScreenState createState() => _SettingsScreenState();
+  _SettingsManageAccountScreenState createState() =>
+      _SettingsManageAccountScreenState();
 }
 
-class _SettingsScreenState extends State<SettingsScreen> {
+class _SettingsManageAccountScreenState
+    extends State<SettingsManageAccountScreen> {
   late PackageInfo packageInfo = PackageInfo(
     appName: 'Unknown',
     packageName: 'Unknown',
@@ -28,62 +32,37 @@ class _SettingsScreenState extends State<SettingsScreen> {
     buildSignature: 'Unknown',
   );
   late SettingsCardDetail detailOne;
-  late SettingsCardDetail detailTwo;
 
   List<SettingsCardItemDetail> detailsOne = <SettingsCardItemDetail>[];
-  List<SettingsCardItemDetail> detailsTwo = <SettingsCardItemDetail>[];
 
   @override
   void initState() {
     super.initState();
     _initPackageInfo();
     detailsOne.add(SettingsCardItemDetail(
-        onTap: () {
-          Navigator.pushNamed(context, SettingsManageAccountScreen.routeName);
-        },
-        title: "Manage account",
-        color: lighteningYellow,
+        onTap: () => {},
+        title: "Email",
+        value: "ilomon10@gmail.com",
+        color: ContraColors.lighteningYellow,
         textColor: woodSmoke));
     detailsOne.add(SettingsCardItemDetail(
-        onTap: () {
-          developer.log("Pressed");
-        },
-        title: "Privacy",
-        color: lighteningYellow,
+        onTap: () => {},
+        title: "Name",
+        value: "Imanuel Pundoko",
+        color: ContraColors.caribbeanColor,
         textColor: woodSmoke));
-
-    detailsTwo.add(SettingsCardItemDetail(
-        onTap: () {
-          developer.log("Pressed");
-        },
-        title: "Orders",
-        color: lighteningYellow,
-        textColor: woodSmoke));
-    detailsTwo.add(SettingsCardItemDetail(
-        onTap: () {
-          developer.log("Pressed");
-        },
-        title: "Transaction",
-        color: turquoiseBlue,
-        textColor: woodSmoke));
-    detailsTwo.add(SettingsCardItemDetail(
-        onTap: () {
-          developer.log("Pressed");
-        },
-        title: "Products",
-        color: monaLisa,
+    detailsOne.add(SettingsCardItemDetail(
+        onTap: () => {},
+        title: "Phone number",
+        value: "+62 852-9948-2331",
+        color: ContraColors.pastelPink,
         textColor: woodSmoke));
 
     detailOne = SettingsCardDetail(
-        title: "Account",
+        title: "Personal Information",
         bgColor: white,
-        borderColor: woodSmoke,
+        borderColor: ContraColors.woodSmoke,
         items: detailsOne);
-    detailTwo = SettingsCardDetail(
-        title: "Store",
-        bgColor: white,
-        borderColor: woodSmoke,
-        items: detailsTwo);
   }
 
   Future<void> _initPackageInfo() async {
@@ -130,13 +109,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       ),
                     ),
                   ),
-                  const Expanded(
+                  Expanded(
                     flex: 2,
                     child: ContraText(
+                      overflow: TextOverflow.ellipsis,
                       size: 27,
                       color: woodSmoke,
                       alignment: Alignment.bottomCenter,
-                      text: "Settings",
+                      text: widget.title,
                     ),
                   ),
                   const Expanded(
@@ -156,33 +136,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
           children: <Widget>[
             SettingsListCardItem(
               detail: detailOne,
-            ),
-            SettingsListCardItem(
-              detail: detailTwo,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20.0)
-                  .add(const EdgeInsets.only(bottom: 24)),
-              child: Column(
-                children: <Widget>[
-                  ContraText(
-                    alignment: Alignment.center,
-                    textAlign: TextAlign.center,
-                    color: woodSmoke,
-                    weight: FontWeight.w800,
-                    text: packageInfo.appName,
-                    size: 21,
-                  ),
-                  ContraText(
-                    alignment: Alignment.center,
-                    textAlign: TextAlign.center,
-                    color: woodSmoke,
-                    weight: FontWeight.bold,
-                    text: packageInfo.version,
-                    size: 21,
-                  ),
-                ],
-              ),
             ),
           ],
         ),

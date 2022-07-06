@@ -37,21 +37,21 @@ class _ShoppingSearchPageState extends State<ShoppingSearchPage> {
         image: "assets/images/shopping/shirt_and_coat.svg",
         name: "Rebousa - White striped tee",
         price: "189",
-        bgColor: carribean_green,
+        bgColor: carribeanGreen,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/striped_tee.svg",
         name: "Rebousa - White striped tee",
         price: "189",
-        bgColor: lightening_yellow,
+        bgColor: lighteningYellow,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/thunder_tshirt.svg",
         name: "Rebousa - White striped tee",
         price: "189",
-        bgColor: pink_salomn,
+        bgColor: pinkSalmon,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
@@ -85,11 +85,6 @@ class _ShoppingSearchPageState extends State<ShoppingSearchPage> {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    double statusBarHeight = MediaQuery.of(context).padding.top;
-    /*24 is for notification bar on Android*/
-    final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
-    final double itemWidth = size.width / 2;
     return Scaffold(
       backgroundColor: white,
       appBar: CustomAppBar(

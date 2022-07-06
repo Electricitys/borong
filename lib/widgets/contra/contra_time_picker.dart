@@ -36,9 +36,11 @@ class ItemScrollPhysics extends ScrollPhysics {
   double _getTargetPixels(
       ScrollMetrics position, Tolerance tolerance, double velocity) {
     double item = _getItem(position);
-    if (velocity < -tolerance.velocity)
+    if (velocity < -tolerance.velocity) {
       item -= targetPixelsLimit;
-    else if (velocity > tolerance.velocity) item += targetPixelsLimit;
+    } else if (velocity > tolerance.velocity) {
+      item += targetPixelsLimit;
+    }
     return _getPixels(position, item.roundToDouble());
   }
 
@@ -53,9 +55,10 @@ class ItemScrollPhysics extends ScrollPhysics {
     if (position != null) {
       Tolerance tolerance = this.tolerance;
       final double target = _getTargetPixels(position, tolerance, velocity);
-      if (target != position.pixels)
+      if (target != position.pixels) {
         return ScrollSpringSimulation(spring, position.pixels, target, velocity,
             tolerance: tolerance);
+      }
     }
     return null;
   }
@@ -82,7 +85,7 @@ class ContraTimePickerSpinner extends StatefulWidget {
   final bool isForce2Digits;
   final TimePickerCallback? onTimeChange;
 
-  ContraTimePickerSpinner(
+  const ContraTimePickerSpinner(
       {Key? key,
       this.time,
       this.minutesInterval = 1,
@@ -100,15 +103,16 @@ class ContraTimePickerSpinner extends StatefulWidget {
       : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _ContraTimePickerSpinnerState createState() =>
-      new _ContraTimePickerSpinnerState();
+      _ContraTimePickerSpinnerState();
 }
 
 class _ContraTimePickerSpinnerState extends State<ContraTimePickerSpinner> {
-  ScrollController hourController = new ScrollController();
-  ScrollController minuteController = new ScrollController();
-  ScrollController secondController = new ScrollController();
-  ScrollController apController = new ScrollController();
+  ScrollController hourController = ScrollController();
+  ScrollController minuteController = ScrollController();
+  ScrollController secondController = ScrollController();
+  ScrollController apController = ScrollController();
   int currentSelectedHourIndex = -1;
   int currentSelectedMinuteIndex = -1;
   int currentSelectedSecondIndex = -1;
@@ -121,9 +125,9 @@ class _ContraTimePickerSpinnerState extends State<ContraTimePickerSpinner> {
 
   /// default settings
   TextStyle defaultHighlightTextStyle =
-      new TextStyle(fontSize: 32, color: Colors.black);
+      const TextStyle(fontSize: 32, color: Colors.black);
   TextStyle defaultNormalTextStyle =
-      new TextStyle(fontSize: 32, color: Colors.black54);
+      const TextStyle(fontSize: 32, color: Colors.black54);
   double defaultItemHeight = 60;
   double defaultItemWidth = 45;
   double defaultSpacing = 20;
@@ -194,13 +198,13 @@ class _ContraTimePickerSpinnerState extends State<ContraTimePickerSpinner> {
 
     currentSelectedHourIndex =
         (currentTime.hour % (widget.is24HourMode ? 24 : 12)) + _getHourCount();
-    hourController = new ScrollController(
+    hourController = ScrollController(
         initialScrollOffset: (currentSelectedHourIndex - 1) * _getItemHeight());
 
     currentSelectedMinuteIndex =
         (currentTime.minute / widget.minutesInterval).floor() +
             (isLoop(_getMinuteCount()) ? _getMinuteCount() : 1);
-    minuteController = new ScrollController(
+    minuteController = ScrollController(
         initialScrollOffset:
             (currentSelectedMinuteIndex - 1) * _getItemHeight());
     print(currentSelectedMinuteIndex);
@@ -209,18 +213,18 @@ class _ContraTimePickerSpinnerState extends State<ContraTimePickerSpinner> {
     currentSelectedSecondIndex =
         (currentTime.second / widget.secondsInterval).floor() +
             (isLoop(_getSecondCount()) ? _getSecondCount() : 1);
-    secondController = new ScrollController(
+    secondController = ScrollController(
         initialScrollOffset:
             (currentSelectedSecondIndex - 1) * _getItemHeight());
 
     currentSelectedAPIndex = currentTime.hour >= 12 ? 2 : 1;
-    apController = new ScrollController(
+    apController = ScrollController(
         initialScrollOffset: (currentSelectedAPIndex - 1) * _getItemHeight());
 
     super.initState();
 
     if (widget.onTimeChange != null) {
-      WidgetsBinding.instance!
+      WidgetsBinding.instance
           .addPostFrameCallback((_) => widget.onTimeChange!(getDateTime()));
     }
   }
@@ -229,7 +233,7 @@ class _ContraTimePickerSpinnerState extends State<ContraTimePickerSpinner> {
   Widget build(BuildContext context) {
     // print(minuteController.offset);
     List<Widget> contents = [
-      new SizedBox(
+      SizedBox(
         width: _getItemWidth(),
         height: _getItemHeight() * 3,
         child: spinner(
@@ -246,7 +250,7 @@ class _ContraTimePickerSpinnerState extends State<ContraTimePickerSpinner> {
         ),
       ),
       spacer(),
-      new SizedBox(
+      SizedBox(
         width: _getItemWidth(),
         height: _getItemHeight() * 3,
         child: spinner(
@@ -266,7 +270,7 @@ class _ContraTimePickerSpinnerState extends State<ContraTimePickerSpinner> {
 
     if (widget.isShowSeconds) {
       contents.add(spacer());
-      contents.add(new SizedBox(
+      contents.add(SizedBox(
         width: _getItemWidth(),
         height: _getItemHeight() * 3,
         child: spinner(
@@ -286,14 +290,14 @@ class _ContraTimePickerSpinnerState extends State<ContraTimePickerSpinner> {
 
     if (!widget.is24HourMode) {
       contents.add(spacer());
-      contents.add(new SizedBox(
+      contents.add(SizedBox(
         width: _getItemWidth() * 1.2,
         height: _getItemHeight() * 3,
         child: apSpinner(),
       ));
     }
 
-    return new Row(
+    return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: contents,
@@ -301,7 +305,7 @@ class _ContraTimePickerSpinnerState extends State<ContraTimePickerSpinner> {
   }
 
   Widget spacer() {
-    return new Container(
+    return SizedBox(
       width: _getSpacing(),
       height: _getItemHeight() * 3,
     );
@@ -350,7 +354,7 @@ class _ContraTimePickerSpinnerState extends State<ContraTimePickerSpinner> {
         }
         return true;
       },
-      child: new ListView.builder(
+      child: ListView.builder(
         itemBuilder: (context, index) {
           String text = '';
           if (isLoop(max)) {
@@ -366,10 +370,10 @@ class _ContraTimePickerSpinnerState extends State<ContraTimePickerSpinner> {
           if (widget.isForce2Digits && text != '') {
             text = text.padLeft(2, '0');
           }
-          return new Container(
+          return Container(
             height: _getItemHeight(),
             alignment: _getAlignment(),
-            child: new Text(
+            child: Text(
               text,
               style: selectedIndex == index
                   ? _getHighlightedTextStyle()
@@ -384,15 +388,15 @@ class _ContraTimePickerSpinnerState extends State<ContraTimePickerSpinner> {
       ),
     );
 
-    return new Stack(
+    return Stack(
       children: <Widget>[
         Positioned.fill(child: _spinner),
         isScrolling
             ? Positioned.fill(
-                child: new Container(
+                child: Container(
                 color: Colors.black.withOpacity(0),
               ))
-            : new Container()
+            : Container()
       ],
     );
   }
@@ -417,13 +421,13 @@ class _ContraTimePickerSpinnerState extends State<ContraTimePickerSpinner> {
         }
         return true;
       },
-      child: new ListView.builder(
+      child: ListView.builder(
         itemBuilder: (context, index) {
           String text = index == 1 ? 'AM' : (index == 2 ? 'PM' : '');
-          return new Container(
+          return Container(
             height: _getItemHeight(),
             alignment: Alignment.center,
-            child: new Text(
+            child: Text(
               text,
               style: currentSelectedAPIndex == index
                   ? _getHighlightedTextStyle()
@@ -440,12 +444,10 @@ class _ContraTimePickerSpinnerState extends State<ContraTimePickerSpinner> {
       ),
     );
 
-    return new Stack(
+    return Stack(
       children: <Widget>[
         Positioned.fill(child: _spinner),
-        isAPScrolling
-            ? Positioned.fill(child: new Container())
-            : new Container()
+        isAPScrolling ? Positioned.fill(child: Container()) : Container()
       ],
     );
   }

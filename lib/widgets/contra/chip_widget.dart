@@ -9,7 +9,11 @@ class ChipWidget extends StatelessWidget {
   final VoidCallback onTap;
 
   const ChipWidget(
-      {required this.text, required this.selected, required this.onTap});
+      {Key? key,
+      required this.text,
+      required this.selected,
+      required this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,23 +21,28 @@ class ChipWidget extends StatelessWidget {
       onTap: onTap,
       child: Container(
           height: 48,
-          padding: EdgeInsets.all(12),
+          padding: const EdgeInsets.all(12),
+          decoration: ShapeDecoration(
+              color: selected ? pastelPink : white,
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(44)),
+                  side: BorderSide(color: woodSmoke, width: 2))),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Text(
                 text,
-                style:
-                    TextStyle(color: wood_smoke, fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                  color: woodSmoke,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              selected ? SvgPicture.asset("assets/icons/close.svg") : SizedBox()
+              if (selected)
+                SvgPicture.asset("assets/icons/close.svg")
+              else
+                const SizedBox()
             ],
-          ),
-          decoration: ShapeDecoration(
-              color: selected ? pastel_pink : white,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(44)),
-                  side: BorderSide(color: wood_smoke, width: 2)))),
+          )),
     );
   }
 }

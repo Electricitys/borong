@@ -6,6 +6,7 @@ class ContraText extends StatelessWidget {
   final String text;
   final double? size;
   final Color? color;
+  final TextOverflow? overflow;
   final FontWeight? weight;
   final TextAlign? textAlign;
 
@@ -16,7 +17,8 @@ class ContraText extends StatelessWidget {
       this.size,
       this.color,
       this.weight,
-      this.textAlign})
+      this.textAlign,
+      this.overflow})
       : super(key: key);
 
   @override
@@ -25,11 +27,13 @@ class ContraText extends StatelessWidget {
       alignment: alignment,
       child: Text(
         text,
-        textAlign: textAlign != null ? textAlign : TextAlign.start,
+        textAlign: textAlign ?? TextAlign.start,
+        overflow: overflow,
+        maxLines: 1,
         style: TextStyle(
-            fontSize: size == null ? 36 : size,
-            fontWeight: weight != null ? weight : FontWeight.w800,
-            color: color != null ? color : black),
+            fontSize: size ?? 36,
+            fontWeight: weight ?? FontWeight.w800,
+            color: color ?? black),
       ),
     );
   }

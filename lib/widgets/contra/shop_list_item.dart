@@ -29,7 +29,7 @@ class ShopListItemWidget extends StatelessWidget {
                       color: shopItem.bgColor,
                       shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(16)),
-                          side: BorderSide(color: wood_smoke, width: 2))),
+                          side: BorderSide(color: woodSmoke, width: 2))),
                   child: Hero(
                     tag: 'hero-${shopItem.id}',
                     child: SvgPicture.asset(
@@ -69,7 +69,7 @@ class ShopListItemWidget extends StatelessWidget {
                               shopItem.name,
                               maxLines: 2,
                               style: const TextStyle(
-                                  color: wood_smoke,
+                                  color: woodSmoke,
                                   fontSize: 21,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -84,11 +84,11 @@ class ShopListItemWidget extends StatelessWidget {
                       Text(
                         "\$${shopItem.price}",
                         style: const TextStyle(
-                            color: wood_smoke,
+                            color: woodSmoke,
                             fontSize: 24,
                             fontWeight: FontWeight.w800),
                       ),
-                      CartAddRemoveButton()
+                      const CartAddRemoveButton()
                     ],
                   )
                 ],

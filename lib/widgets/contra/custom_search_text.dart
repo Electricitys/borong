@@ -1,5 +1,4 @@
 import 'package:borong/utilities/contra/colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -11,19 +10,21 @@ class CustomSearchText extends StatelessWidget {
   final TextEditingController controller;
 
   const CustomSearchText(
-      {required this.text,
+      {Key? key,
+      required this.text,
       required this.iconPath,
       required this.enable,
       required this.callback,
-      required this.controller});
+      required this.controller})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: ShapeDecoration(
+      decoration: const ShapeDecoration(
           shadows: [
             BoxShadow(
-              color: wood_smoke,
+              color: woodSmoke,
               offset: Offset(
                 0.0, // Move to right 10  horizontally
                 2.0, // Move to bottom 5 Vertically
@@ -33,7 +34,7 @@ class CustomSearchText extends StatelessWidget {
           color: white,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(16)),
-              side: BorderSide(color: wood_smoke, width: 2))),
+              side: BorderSide(color: woodSmoke, width: 2))),
       child: TextField(
         onTap: callback,
         readOnly: !enable,
@@ -43,19 +44,19 @@ class CustomSearchText extends StatelessWidget {
         enableSuggestions: enable,
         decoration: InputDecoration(
             hintText: text,
-            hintStyle: TextStyle(
-                fontSize: 21, fontWeight: FontWeight.w500, color: wood_smoke),
-            contentPadding: EdgeInsets.all(16),
-            enabledBorder: OutlineInputBorder(
+            hintStyle: const TextStyle(
+                fontSize: 21, fontWeight: FontWeight.w500, color: woodSmoke),
+            contentPadding: const EdgeInsets.all(16),
+            enabledBorder: const OutlineInputBorder(
                 borderSide: BorderSide.none,
                 borderRadius: BorderRadius.all(Radius.circular(16))),
-            disabledBorder: OutlineInputBorder(
+            disabledBorder: const OutlineInputBorder(
                 borderSide: BorderSide.none,
                 borderRadius: BorderRadius.all(Radius.circular(16))),
-            focusedBorder: OutlineInputBorder(
+            focusedBorder: const OutlineInputBorder(
                 borderSide: BorderSide.none,
                 borderRadius: BorderRadius.all(Radius.circular(16))),
-            border: OutlineInputBorder(
+            border: const OutlineInputBorder(
                 borderSide: BorderSide.none,
                 borderRadius: BorderRadius.all(Radius.circular(16))),
             suffixIcon: Padding(

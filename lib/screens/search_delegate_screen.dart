@@ -2,10 +2,6 @@ import 'package:borong/models/shop_item.dart';
 import 'package:borong/screens/detail_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import 'package:borong/widgets/contra/button_round_with_shadow.dart';
-import 'package:borong/widgets/contra/chips_filter_widget.dart';
-import 'package:borong/widgets/contra/contra_text.dart';
-import 'package:borong/widgets/contra/custom_app_bar.dart';
-import 'package:borong/widgets/contra/shop_card_item.dart';
 import 'package:borong/widgets/contra/shop_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
@@ -49,12 +45,12 @@ class ShoppingSearchDelegate extends SearchDelegate {
       padding: const EdgeInsets.only(left: 24),
       child: ButtonRoundWithShadow(
         size: 48,
-        borderColor: wood_smoke,
+        borderColor: woodSmoke,
         color: white,
         callback: () {
           Navigator.pop(context);
         },
-        shadowColor: wood_smoke,
+        shadowColor: woodSmoke,
         iconPath: "assets/icons/arrow_back.svg",
       ),
     );

@@ -25,7 +25,7 @@ class ShopCardItemWidget extends StatelessWidget {
                   color: shopItem.bgColor,
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(16)),
-                      side: BorderSide(color: wood_smoke, width: 2))),
+                      side: BorderSide(color: woodSmoke, width: 2))),
               child: Hero(
                 tag: 'hero-${shopItem.id}',
                 child: SvgPicture.asset(
@@ -47,7 +47,7 @@ class ShopCardItemWidget extends StatelessWidget {
                       shopItem.name,
                       maxLines: 2,
                       style: const TextStyle(
-                          color: wood_smoke,
+                          color: woodSmoke,
                           fontSize: 21,
                           fontWeight: FontWeight.w800),
                     ),
@@ -64,7 +64,7 @@ class ShopCardItemWidget extends StatelessWidget {
                 Text(
                   "\$${shopItem.price}",
                   style: const TextStyle(
-                      color: wood_smoke,
+                      color: woodSmoke,
                       fontSize: 27,
                       fontWeight: FontWeight.w800),
                 ),

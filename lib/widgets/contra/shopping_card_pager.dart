@@ -21,22 +21,22 @@ class _ShoppingCardPagerState extends State<ShoppingCardPager> {
   final List<Widget> _cards = const [
     ShoppingCardPagerItem(
       categoryBig: CategoryBig(
-          bgColor: lightening_yellow,
-          startColor: lightening_yellow,
+          bgColor: lighteningYellow,
+          startColor: lighteningYellow,
           name: "Summer \nCollection",
           image: "assets/images/shopping/peep_glass.svg"),
     ),
     ShoppingCardPagerItem(
       categoryBig: CategoryBig(
-          bgColor: lightening_yellow,
-          startColor: lightening_yellow,
+          bgColor: lighteningYellow,
+          startColor: lighteningYellow,
           name: "Tee \nShirts",
           image: "assets/images/shopping/peep_glass.svg"),
     ),
     ShoppingCardPagerItem(
       categoryBig: CategoryBig(
-          bgColor: lightening_yellow,
-          startColor: lightening_yellow,
+          bgColor: lighteningYellow,
+          startColor: lighteningYellow,
           name: "Formal \nPants",
           image: "assets/images/shopping/peep_glass.svg"),
     )
@@ -89,7 +89,7 @@ class _ShoppingCardPagerState extends State<ShoppingCardPager> {
                   const CircleDotWidget(
                     isActive: false,
                     color: white,
-                    borderColor: wood_smoke,
+                    borderColor: woodSmoke,
                   ),
             ],
           ),

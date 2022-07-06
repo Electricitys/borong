@@ -1,18 +1,11 @@
-import 'dart:developer';
-import 'dart:io';
-
 import 'package:borong/models/category_item.dart';
 import 'package:borong/models/shop_item.dart';
 import 'package:borong/screens/detail_screen.dart';
 import 'package:borong/screens/setting_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';
-import 'package:borong/widgets/contra/button_round_with_shadow.dart';
 import 'package:borong/widgets/contra/contra_text.dart';
 import 'package:borong/widgets/contra/custom_app_bar.dart';
-import 'package:borong/widgets/contra/shop_card_item_small.dart';
 import 'package:borong/widgets/contra/shop_grid_item.dart';
-import 'package:borong/widgets/contra/shopping_card_pager.dart';
-import 'package:borong/widgets/contra/star_widget.dart';
 import 'package:flutter/foundation.dart' as foundation;
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
@@ -57,21 +50,21 @@ class _ProfilePageState extends State<ProfilePage> {
         image: "assets/images/shopping/shirt_and_coat.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: carribean_green,
+        bgColor: carribeanGreen,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/striped_tee.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: lightening_yellow,
+        bgColor: lighteningYellow,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/thunder_tshirt.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: pink_salomn,
+        bgColor: pinkSalmon,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
@@ -103,17 +96,17 @@ class _ProfilePageState extends State<ProfilePage> {
         by: "Company name"));
 
     _categories.add(const Category(
-        bgColor: bareley_white, startColor: wood_smoke, name: "Men"));
+        bgColor: bareleyWhite, startColor: woodSmoke, name: "Men"));
     _categories.add(const Category(
-        bgColor: fair_pink, startColor: wood_smoke, name: "Woman"));
+        bgColor: fairPink, startColor: woodSmoke, name: "Woman"));
+    _categories
+        .add(const Category(bgColor: foam, startColor: woodSmoke, name: "Kid"));
+    _categories.add(const Category(
+        bgColor: bareleyWhite, startColor: woodSmoke, name: "Adult"));
     _categories.add(
-        const Category(bgColor: foam, startColor: wood_smoke, name: "Kid"));
-    _categories.add(const Category(
-        bgColor: bareley_white, startColor: wood_smoke, name: "Adult"));
-    _categories.add(const Category(
-        bgColor: fair_pink, startColor: wood_smoke, name: "Men"));
-    _categories.add(
-        const Category(bgColor: foam, startColor: wood_smoke, name: "Men"));
+        const Category(bgColor: fairPink, startColor: woodSmoke, name: "Men"));
+    _categories
+        .add(const Category(bgColor: foam, startColor: woodSmoke, name: "Men"));
   }
 
   @override
@@ -157,7 +150,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     },
                     icon: const Icon(
                       Icons.menu,
-                      color: wood_smoke,
+                      color: woodSmoke,
                     ),
                   )
                 ],
@@ -187,6 +180,14 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 child: Container(
                   decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                      colors: [
+                        Colors.grey.shade700,
+                        Colors.grey.shade900,
+                      ],
+                    ),
                     border: Border.all(color: Colors.black, width: 2),
                     shape: BoxShape.circle,
                   ),

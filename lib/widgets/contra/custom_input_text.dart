@@ -1,5 +1,4 @@
 import 'package:borong/utilities/contra/colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomInputText extends StatelessWidget {
@@ -10,11 +9,13 @@ class CustomInputText extends StatelessWidget {
   final VoidCallback callback;
 
   const CustomInputText(
-      {required this.text,
+      {Key? key,
+      required this.text,
       required this.borderColor,
       required this.color,
       required this.shadowColor,
-      required this.callback});
+      required this.callback})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class CustomInputText extends StatelessWidget {
       decoration: ShapeDecoration(
           color: color,
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(60)),
+              borderRadius: const BorderRadius.all(Radius.circular(60)),
               side: BorderSide(color: borderColor, width: 2))),
       child: Row(
         children: <Widget>[
@@ -30,34 +31,34 @@ class CustomInputText extends StatelessWidget {
             child: TextField(
               decoration: InputDecoration(
                 hintText: text,
-                hintStyle: TextStyle(
+                hintStyle: const TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w500,
-                    color: santas_gray),
-                contentPadding: EdgeInsets.all(16),
-                enabledBorder: OutlineInputBorder(
+                    color: santasGray),
+                contentPadding: const EdgeInsets.all(16),
+                enabledBorder: const OutlineInputBorder(
                   borderSide: BorderSide.none,
                 ),
-                disabledBorder: OutlineInputBorder(
+                disabledBorder: const OutlineInputBorder(
                   borderSide: BorderSide.none,
                 ),
-                focusedBorder: OutlineInputBorder(
+                focusedBorder: const OutlineInputBorder(
                   borderSide: BorderSide.none,
                 ),
-                border: OutlineInputBorder(
+                border: const OutlineInputBorder(
                   borderSide: BorderSide.none,
                 ),
               ),
             ),
           ),
           IconButton(
-            color: wood_smoke,
-            icon: Icon(Icons.keyboard_voice),
+            color: woodSmoke,
+            icon: const Icon(Icons.keyboard_voice),
             onPressed: () {},
           ),
           IconButton(
-            color: wood_smoke,
-            icon: Icon(Icons.send),
+            color: woodSmoke,
+            icon: const Icon(Icons.send),
             onPressed: callback,
           )
         ],

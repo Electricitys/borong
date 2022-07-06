@@ -1,4 +1,3 @@
-import 'package:borong/screens/signup_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';

@@ -13,38 +13,30 @@ class ButtonPlainWithShadow extends StatelessWidget {
   final double? height;
 
   const ButtonPlainWithShadow(
-      {required this.borderColor,
+      {Key? key,
+      required this.borderColor,
       required this.shadowColor,
       required this.color,
       this.textColor,
       required this.text,
       this.size,
       this.height,
-      required this.callback});
+      required this.callback})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: callback,
       child: Container(
-        width: size != null ? size : MediaQuery.of(context).size.width,
-        height: height != null ? height : 48,
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: Center(
-          child: Text(
-            text,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                color: textColor != null ? textColor : wood_smoke,
-                fontSize: 21,
-                fontWeight: FontWeight.w800),
-          ),
-        ),
+        width: size ?? MediaQuery.of(context).size.width,
+        height: height ?? 48,
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         decoration: ShapeDecoration(
             shadows: [
               BoxShadow(
                 color: shadowColor,
-                offset: Offset(
+                offset: const Offset(
                   0.0, // Move to right 10  horizontally
                   4.0, // Move to bottom 5 Vertically
                 ),
@@ -52,8 +44,18 @@ class ButtonPlainWithShadow extends StatelessWidget {
             ],
             color: color,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(16)),
+                borderRadius: const BorderRadius.all(Radius.circular(16)),
                 side: BorderSide(color: borderColor, width: 2))),
+        child: Center(
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                color: textColor ?? woodSmoke,
+                fontSize: 21,
+                fontWeight: FontWeight.w800),
+          ),
+        ),
       ),
     );
   }

@@ -25,7 +25,7 @@ class LoginEmailText extends StatelessWidget {
       style: textStyle,
       decoration: InputDecoration(
           hintText: text,
-          hintStyle: textStyle.apply(color: wood_smoke),
+          hintStyle: textStyle.apply(color: woodSmoke),
           contentPadding: const EdgeInsets.all(16),
           enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(width: 2, color: black),

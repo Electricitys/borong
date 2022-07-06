@@ -28,7 +28,6 @@ class SettingsListCardItem extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.symmetric(vertical: 16),
-            // height: 220,
             decoration: ShapeDecoration(
                 color: detail.bgColor,
                 shadows: const [BoxShadow(offset: Offset(0, 4))],
@@ -38,52 +37,71 @@ class SettingsListCardItem extends StatelessWidget {
             child: ListView.builder(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
+              itemCount: detail.items.length,
               itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  child: Row(
-                    children: <Widget>[
-                      Expanded(
-                        flex: 1,
-                        child: Container(
-                          decoration: ShapeDecoration(
-                              shape: const CircleBorder(),
-                              color: detail.borderColor),
-                          child: Padding(
-                            padding: const EdgeInsets.all(2.0),
+                return Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    onTap: (() => {detail.items[index].onTap()}),
+                    child: Ink(
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            flex: 1,
                             child: Container(
-                              decoration: const ShapeDecoration(
-                                  shape: CircleBorder(),
-                                  color: lightening_yellow),
-                              width: 24,
-                              height: 24,
+                              decoration: ShapeDecoration(
+                                  shape: const CircleBorder(),
+                                  color: detail.borderColor),
+                              child: Padding(
+                                padding: const EdgeInsets.all(2.0),
+                                child: Container(
+                                  decoration: ShapeDecoration(
+                                      shape: const CircleBorder(),
+                                      color: detail.items[index].color),
+                                  width: 24,
+                                  height: 24,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+                          Expanded(
+                            flex: 2,
+                            child: Column(
+                              children: [
+                                ContraText(
+                                  text: detail.items[index].title,
+                                  textAlign: TextAlign.left,
+                                  weight: FontWeight.w800,
+                                  size: 17,
+                                  alignment: Alignment.centerLeft,
+                                  color: ContraColors.woodSmoke,
+                                ),
+                                if (detail.items[index].value != null)
+                                  ContraText(
+                                    text: detail.items[index].value!,
+                                    textAlign: TextAlign.left,
+                                    weight: FontWeight.w700,
+                                    size: 17,
+                                    alignment: Alignment.centerLeft,
+                                    color: ContraColors.trout,
+                                  ),
+                              ],
+                            ),
+                          ),
+                          const Expanded(
+                            flex: 1,
+                            child: Icon(
+                              Icons.arrow_forward_ios,
+                              color: ContraColors.woodSmoke,
+                            ),
+                          )
+                        ],
                       ),
-                      Expanded(
-                        flex: 2,
-                        child: ContraText(
-                          text: detail.items[index].title,
-                          textAlign: TextAlign.left,
-                          weight: FontWeight.w800,
-                          size: 17,
-                          alignment: Alignment.centerLeft,
-                          color: wood_smoke,
-                        ),
-                      ),
-                      const Expanded(
-                        flex: 1,
-                        child: Icon(
-                          Icons.arrow_forward_ios,
-                          color: wood_smoke,
-                        ),
-                      )
-                    ],
+                    ),
                   ),
                 );
               },
-              itemCount: detail.items.length,
             ),
           )
         ],

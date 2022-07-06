@@ -19,7 +19,8 @@ class ContraButton extends StatelessWidget {
   final double? textSize;
 
   const ContraButton(
-      {required this.borderColor,
+      {Key? key,
+      required this.borderColor,
       required this.shadowColor,
       required this.color,
       required this.textColor,
@@ -31,16 +32,31 @@ class ContraButton extends StatelessWidget {
       this.isSuffix = false,
       this.textSize,
       required this.iconPath,
-      this.iconColor});
+      this.iconColor})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: callback,
       child: Container(
-        width: size != null ? size : MediaQuery.of(context).size.width,
-        height: height != null ? height : 48,
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        width: size ?? MediaQuery.of(context).size.width,
+        height: height ?? 48,
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        decoration: ShapeDecoration(
+            shadows: [
+              BoxShadow(
+                color: shadowColor,
+                offset: const Offset(
+                  0.0, // Move to right 10  horizontally
+                  4.0, // Move to bottom 5 Vertically
+                ),
+              )
+            ],
+            color: color,
+            shape: RoundedRectangleBorder(
+                borderRadius: const BorderRadius.all(Radius.circular(16)),
+                side: BorderSide(color: borderColor, width: 2))),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -52,13 +68,13 @@ class ContraButton extends StatelessWidget {
                       color: white,
                     ),
                   )
-                : SizedBox(),
+                : const SizedBox(),
             Text(
               text,
               textAlign: TextAlign.center,
               style: TextStyle(
-                  color: textColor != null ? textColor : wood_smoke,
-                  fontSize: textSize != null ? textSize : 21,
+                  color: textColor ?? woodSmoke,
+                  fontSize: textSize ?? 21,
                   fontWeight: FontWeight.w800),
             ),
             isSuffix
@@ -66,23 +82,9 @@ class ContraButton extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: SvgPicture.asset(iconPath),
                   )
-                : SizedBox()
+                : const SizedBox()
           ],
         ),
-        decoration: ShapeDecoration(
-            shadows: [
-              BoxShadow(
-                color: shadowColor,
-                offset: Offset(
-                  0.0, // Move to right 10  horizontally
-                  4.0, // Move to bottom 5 Vertically
-                ),
-              )
-            ],
-            color: color,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(16)),
-                side: BorderSide(color: borderColor, width: 2))),
       ),
     );
   }

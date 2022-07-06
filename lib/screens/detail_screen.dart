@@ -34,8 +34,8 @@ class _ShoppingDetailPageState extends State<ShoppingDetailPage> {
     _filters.add("M");
     _filters.add("L");
     _colors.add(flamingo);
-    _colors.add(lightening_yellow);
-    _colors.add(carribean_green);
+    _colors.add(lighteningYellow);
+    _colors.add(carribeanGreen);
     super.initState();
   }
 
@@ -50,12 +50,12 @@ class _ShoppingDetailPageState extends State<ShoppingDetailPage> {
               children: <Widget>[
                 Container(
                   height: kToolbarHeight + statusBarHeight,
-                  color: lightening_yellow,
+                  color: lighteningYellow,
                 ),
                 Container(
                   height: 400,
                   width: MediaQuery.of(context).size.width,
-                  color: lightening_yellow,
+                  color: lighteningYellow,
                   child: Hero(
                     tag: 'hero-${widget.item.id}',
                     child: SvgPicture.asset(
@@ -104,7 +104,7 @@ class _ShoppingDetailPageState extends State<ShoppingDetailPage> {
                       const Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "\$" + "565",
+                          "\$565",
                           textAlign: TextAlign.start,
                           style: TextStyle(
                               color: Colors.black,
@@ -118,7 +118,7 @@ class _ShoppingDetailPageState extends State<ShoppingDetailPage> {
                       Container(
                         alignment: Alignment.bottomCenter,
                         child: const Divider(
-                          color: wood_smoke,
+                          color: woodSmoke,
                           thickness: 3,
                           height: 0,
                         ),
@@ -167,8 +167,8 @@ class _ShoppingDetailPageState extends State<ShoppingDetailPage> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.end,
-                              children: <Widget>[
-                                const Padding(
+                              children: const <Widget>[
+                                Padding(
                                   padding: EdgeInsets.only(left: 4.0),
                                   child: ContraText(
                                     alignment: Alignment.centerLeft,
@@ -179,8 +179,8 @@ class _ShoppingDetailPageState extends State<ShoppingDetailPage> {
                                 Align(
                                   alignment: Alignment.centerLeft,
                                   child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 20.0, left: 4),
+                                    padding:
+                                        EdgeInsets.only(top: 20.0, left: 4),
                                     child: CartAddRemoveButton(),
                                   ),
                                 ),
@@ -196,9 +196,9 @@ class _ShoppingDetailPageState extends State<ShoppingDetailPage> {
                         height: 60,
                         textSize: 21,
                         text: "Add to Bag",
-                        color: wood_smoke,
-                        textColor: white,
-                        borderColor: wood_smoke,
+                        color: ContraColors.woodSmoke,
+                        textColor: ContraColors.white,
+                        borderColor: ContraColors.woodSmoke,
                         onTap: () {},
                       )
                     ],
@@ -212,12 +212,12 @@ class _ShoppingDetailPageState extends State<ShoppingDetailPage> {
             top: (kToolbarHeight / 2) + statusBarHeight,
             child: ButtonRoundWithShadow(
                 size: 48,
-                borderColor: wood_smoke,
+                borderColor: ContraColors.woodSmoke,
                 color: white,
                 callback: () {
                   Navigator.pop(context);
                 },
-                shadowColor: wood_smoke,
+                shadowColor: ContraColors.woodSmoke,
                 iconPath: "assets/icons/arrow_back.svg"),
           )
         ],
