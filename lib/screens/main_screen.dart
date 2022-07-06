@@ -20,7 +20,7 @@ class _MainScreenState extends State<MainScreen> {
     const ShoppingHomePage(),
     const ShoppingSearchPage(),
     const ShoppingCartScreen(),
-    const ProfilePage()
+    const ProfilePage(),
   ];
 
   void _onItemTapped(int index) {

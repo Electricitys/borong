@@ -165,15 +165,19 @@ class _ShoppingDetailPageState extends State<ShoppingDetailPage> {
                           Expanded(
                             flex: 1,
                             child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: <Widget>[
-                                const ContraText(
-                                  alignment: Alignment.center,
-                                  text: "Quantity",
-                                  size: 15,
+                                const Padding(
+                                  padding: EdgeInsets.only(left: 4.0),
+                                  child: ContraText(
+                                    alignment: Alignment.centerLeft,
+                                    text: "Quantity",
+                                    size: 15,
+                                  ),
                                 ),
                                 Align(
-                                  alignment: Alignment.center,
+                                  alignment: Alignment.centerLeft,
                                   child: Padding(
                                     padding: const EdgeInsets.only(
                                         top: 20.0, left: 4),
@@ -205,7 +209,7 @@ class _ShoppingDetailPageState extends State<ShoppingDetailPage> {
           ),
           Positioned(
             left: 24,
-            top: kToolbarHeight + statusBarHeight,
+            top: (kToolbarHeight / 2) + statusBarHeight,
             child: ButtonRoundWithShadow(
                 size: 48,
                 borderColor: wood_smoke,

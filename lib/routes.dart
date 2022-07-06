@@ -1,4 +1,5 @@
 import 'package:borong/screens/profil_screen.dart';
+import 'package:borong/screens/setting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:borong/screens/signup_screen.dart';
 import 'package:borong/screens/signin_screen.dart';
@@ -11,6 +12,7 @@ class Routes {
       SignInScreen.routeName: (context) => const SignInScreen(),
       SignUpScreen.routeName: (context) => const SignUpScreen(),
       ProfilePage.routeName: (context) => const ProfilePage(),
+      SettingsScreen.routeName: (context) => const SettingsScreen(),
       // ShoppingDetailPage.routeName: (context) => const ShoppingDetailPage(),
     };
   }

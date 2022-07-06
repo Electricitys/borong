@@ -1,8 +1,10 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:borong/models/category_item.dart';
 import 'package:borong/models/shop_item.dart';
 import 'package:borong/screens/detail_screen.dart';
+import 'package:borong/screens/setting_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import 'package:borong/widgets/contra/button_round_with_shadow.dart';
 import 'package:borong/widgets/contra/contra_text.dart';
@@ -124,18 +126,24 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       backgroundColor: white,
       appBar: CustomAppBar(
-        height: 76,
+        height: 72,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.all(24.0),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 12.0,
+                vertical: 12.0,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const <Widget>[
-                  Expanded(
+                children: <Widget>[
+                  const SizedBox(
+                    width: 48,
+                  ),
+                  const Expanded(
                     flex: 1,
                     child: ContraText(
                       size: 27,
@@ -143,6 +151,15 @@ class _ProfilePageState extends State<ProfilePage> {
                       text: "Profile",
                     ),
                   ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, SettingsScreen.routeName);
+                    },
+                    icon: const Icon(
+                      Icons.menu,
+                      color: wood_smoke,
+                    ),
+                  )
                 ],
               ),
             ),
@@ -157,6 +174,7 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Container(
                 padding: const EdgeInsets.all(6.0),
                 decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black, width: 2),
                   shape: BoxShape.circle,
                   gradient: LinearGradient(
                     begin: Alignment.bottomLeft,
@@ -167,11 +185,17 @@ class _ProfilePageState extends State<ProfilePage> {
                     ],
                   ),
                 ),
-                child: ClipOval(
-                  child: Image.network(
-                    "https://i.pravatar.cc/300?u=fake@pravatar.com",
-                    width: 128,
-                    height: 128,
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black, width: 2),
+                    shape: BoxShape.circle,
+                  ),
+                  child: ClipOval(
+                    child: Image.network(
+                      "https://i.pravatar.cc/300?u=fake@pravatar.com",
+                      width: 128,
+                      height: 128,
+                    ),
                   ),
                 ),
               ),
