@@ -110,7 +110,7 @@ class _ShoppingHomePageState extends State<ShoppingHomePage> {
     return Scaffold(
       backgroundColor: white,
       appBar: CustomAppBar(
-        height: 96,
+        height: 94,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -146,17 +146,6 @@ class _ShoppingHomePageState extends State<ShoppingHomePage> {
                       text: "Borong",
                     ),
                   ),
-                  Expanded(
-                    flex: 1,
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: Image.asset(
-                        "assets/images/peep_avatar.png",
-                        width: 48,
-                        height: 48,
-                      ),
-                    ),
-                  )
                 ],
               ),
             ),
@@ -166,16 +155,6 @@ class _ShoppingHomePageState extends State<ShoppingHomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: CustomSearchText(
-                iconPath: "assets/icons/ic_search.svg",
-                text: "Search with love ...",
-                enable: true,
-                callback: () {},
-                controller: _textEditingController,
-              ),
-            ),
             SizedBox(
               height: 180,
               child: ListView.builder(

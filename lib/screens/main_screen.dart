@@ -1,4 +1,5 @@
 import 'package:borong/screens/cart_screen.dart';
+import 'package:borong/screens/profil_screen.dart';
 import 'package:borong/screens/search_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import "package:flutter/material.dart";
@@ -19,6 +20,7 @@ class _MainScreenState extends State<MainScreen> {
     const ShoppingHomePage(),
     const ShoppingSearchPage(),
     const ShoppingCartScreen(),
+    const ProfilePage()
   ];
 
   void _onItemTapped(int index) {
@@ -34,11 +36,47 @@ class _MainScreenState extends State<MainScreen> {
         child: _childrenWidgets.elementAt(_currentIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
+        items: [
+          const BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.search), label: "Search"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_basket), label: "Cart"),
+            icon: Stack(
+              clipBehavior: Clip.none,
+              children: <Widget>[
+                const Icon(Icons.shopping_basket),
+                // const Positioned(
+                //   top: 0.0,
+                //   right: 0.0,
+                //   child: Icon(
+                //     Icons.brightness_1,
+                //     size: 8.0,
+                //     color: Colors.redAccent,
+                //   ),
+                // ),
+                Positioned(
+                  top: 0.0,
+                  right: -4.0,
+                  child: InkWell(
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 6, vertical: 2),
+                      decoration: const BoxDecoration(
+                          shape: BoxShape.circle, color: Colors.red),
+                      alignment: Alignment.center,
+                      child: const Text(
+                        "1",
+                        style: TextStyle(fontSize: 8, color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            label: "Cart",
+          ),
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.person), label: "Profile"),
         ],
         currentIndex: _currentIndex,
         onTap: _onItemTapped,

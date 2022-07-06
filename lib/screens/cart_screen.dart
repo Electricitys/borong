@@ -89,34 +89,25 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
     return Scaffold(
       backgroundColor: white,
       appBar: CustomAppBar(
-        height: 96,
+        height: 82,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(
+              height: MediaQuery.of(context).viewPadding.top,
+            ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 24),
+              padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: const <Widget>[
                   Expanded(
                     flex: 1,
-                    child: SizedBox(
-                      width: 20,
-                    ),
-                  ),
-                  Expanded(
-                    // flex: 1,
                     child: ContraText(
                       size: 27,
                       alignment: Alignment.center,
                       text: "Cart",
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: SizedBox(
-                      width: 20,
                     ),
                   ),
                 ],
@@ -128,9 +119,6 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const SizedBox(
-              height: 20,
-            ),
             ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),

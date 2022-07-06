@@ -1,6 +1,6 @@
 import 'package:borong/models/shop_item.dart';
 import 'package:borong/screens/detail_screen.dart';
-import 'package:borong/screens/search_list_screen.dart';
+import 'package:borong/screens/search_delegate_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import 'package:borong/widgets/contra/custom_search_text.dart';
 import 'package:borong/widgets/contra/shop_card_item.dart';
@@ -85,6 +85,11 @@ class _ShoppingSearchPageState extends State<ShoppingSearchPage> {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    double statusBarHeight = MediaQuery.of(context).padding.top;
+    /*24 is for notification bar on Android*/
+    final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
+    final double itemWidth = size.width / 2;
     return Scaffold(
       backgroundColor: white,
       appBar: CustomAppBar(
@@ -96,39 +101,25 @@ class _ShoppingSearchPageState extends State<ShoppingSearchPage> {
               height: MediaQuery.of(context).viewPadding.top,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  IconButton(
-                    color: wood_smoke,
-                    icon: const Icon(Icons.menu),
-                    onPressed: () {},
-                  ),
-                  const SizedBox(
-                    width: 12,
-                  ),
                   Flexible(
                     child: CustomSearchText(
                       iconPath: "assets/icons/ic_search.svg",
                       text: "Search with love ...",
                       enable: false,
                       callback: () {
-                        Navigator.pushNamed(
-                            context, ShoppingSearchListPage.routeName);
+                        showSearch(
+                          context: context,
+                          delegate: ShoppingSearchDelegate(),
+                        );
                       },
                       controller: _textEditingController,
                     ),
                   ),
-                  const SizedBox(
-                    width: 12,
-                  ),
-                  IconButton(
-                    color: wood_smoke,
-                    icon: const Icon(Icons.notifications),
-                    onPressed: () {},
-                  )
                 ],
               ),
             ),

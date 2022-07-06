@@ -1,4 +1,5 @@
 import 'package:borong/models/category_item.dart';
+import 'package:borong/screens/shopping_list_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import 'package:borong/widgets/contra/button_plain.dart';
 import 'package:flutter/cupertino.dart';
@@ -49,7 +50,12 @@ class ShoppingCardPagerItem extends StatelessWidget {
                     text: "Shop now",
                     size: 96,
                     onTap: () {
-                      Navigator.pushNamed(context, "/shopping_list_page_two");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ShoppingListScreen(),
+                        ),
+                      );
                     },
                   ),
                 )

@@ -1,14 +1,14 @@
 import 'package:borong/widgets/contra/chip_widget.dart';
 import 'package:borong/utilities/contra/colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ChipsFilterWidget extends StatefulWidget {
   final List<String> filters;
 
-  const ChipsFilterWidget({required this.filters});
+  const ChipsFilterWidget({Key? key, required this.filters}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _ChipsFilterWidgetState createState() => _ChipsFilterWidgetState();
 }
 
@@ -38,29 +38,6 @@ class _ChipsFilterWidgetState extends State<ChipsFilterWidget> {
               selected: selectedChoices.contains(index),
               text: options[index],
               onTap: () {
-                setState(() {
-                  selectedChoices.contains(index)
-                      ? selectedChoices.remove(index)
-                      : selectedChoices.add(index);
-                });
-              },
-            );
-            ChoiceChip(
-              disabledColor: white,
-              selectedColor: pastel_pink,
-              padding: EdgeInsets.all(12),
-              avatarBorder: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  side: BorderSide(color: wood_smoke, width: 2)),
-              label: Text(
-                options[index],
-                style: TextStyle(
-                    color: wood_smoke,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 12),
-              ),
-              selected: selectedChoices.contains(index),
-              onSelected: (bool selected) {
                 setState(() {
                   selectedChoices.contains(index)
                       ? selectedChoices.remove(index)

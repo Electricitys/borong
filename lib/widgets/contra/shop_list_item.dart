@@ -30,10 +30,13 @@ class ShopListItemWidget extends StatelessWidget {
                       shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(16)),
                           side: BorderSide(color: wood_smoke, width: 2))),
-                  child: SvgPicture.asset(
-                    shopItem.image,
-                    width: 100,
-                    height: 120,
+                  child: Hero(
+                    tag: 'hero-${shopItem.id}',
+                    child: SvgPicture.asset(
+                      shopItem.image,
+                      width: 100,
+                      height: 120,
+                    ),
                   ),
                 )),
             const SizedBox(
