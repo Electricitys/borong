@@ -39,16 +39,17 @@ class SettingsListCardItem extends StatelessWidget {
               shrinkWrap: true,
               itemCount: detail.items.length,
               itemBuilder: (BuildContext context, int index) {
+                SettingsCardItemDetail item = detail.items[index];
                 return Material(
                   color: Colors.transparent,
                   child: InkWell(
-                    onTap: (() => {detail.items[index].onTap()}),
+                    onTap: (() => {if (item.onTap != null) item.onTap!()}),
                     child: Ink(
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       child: Row(
                         children: <Widget>[
-                          Expanded(
-                            flex: 1,
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 24),
                             child: Container(
                               decoration: ShapeDecoration(
                                   shape: const CircleBorder(),
@@ -58,7 +59,7 @@ class SettingsListCardItem extends StatelessWidget {
                                 child: Container(
                                   decoration: ShapeDecoration(
                                       shape: const CircleBorder(),
-                                      color: detail.items[index].color),
+                                      color: item.color),
                                   width: 24,
                                   height: 24,
                                 ),
@@ -66,10 +67,11 @@ class SettingsListCardItem extends StatelessWidget {
                             ),
                           ),
                           Expanded(
-                            flex: 2,
+                            flex: 1,
                             child: Column(
                               children: [
                                 ContraText(
+                                  overflow: TextOverflow.ellipsis,
                                   text: detail.items[index].title,
                                   textAlign: TextAlign.left,
                                   weight: FontWeight.w800,
@@ -77,8 +79,9 @@ class SettingsListCardItem extends StatelessWidget {
                                   alignment: Alignment.centerLeft,
                                   color: ContraColors.woodSmoke,
                                 ),
-                                if (detail.items[index].value != null)
+                                if (item.value != null)
                                   ContraText(
+                                    overflow: TextOverflow.ellipsis,
                                     text: detail.items[index].value!,
                                     textAlign: TextAlign.left,
                                     weight: FontWeight.w700,
@@ -89,13 +92,15 @@ class SettingsListCardItem extends StatelessWidget {
                               ],
                             ),
                           ),
-                          const Expanded(
-                            flex: 1,
-                            child: Icon(
-                              Icons.arrow_forward_ios,
-                              color: ContraColors.woodSmoke,
-                            ),
-                          )
+                          // ignore: unnecessary_null_comparison
+                          if (item.onTap != null)
+                            const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 24),
+                              child: Icon(
+                                Icons.arrow_forward_ios,
+                                color: ContraColors.woodSmoke,
+                              ),
+                            )
                         ],
                       ),
                     ),

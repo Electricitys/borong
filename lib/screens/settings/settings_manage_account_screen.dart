@@ -32,19 +32,15 @@ class _SettingsManageAccountScreenState
     buildSignature: 'Unknown',
   );
   late SettingsCardDetail detailOne;
+  late SettingsCardDetail detailTwo;
 
   List<SettingsCardItemDetail> detailsOne = <SettingsCardItemDetail>[];
+  List<SettingsCardItemDetail> detailsTwo = <SettingsCardItemDetail>[];
 
   @override
   void initState() {
     super.initState();
     _initPackageInfo();
-    detailsOne.add(SettingsCardItemDetail(
-        onTap: () => {},
-        title: "Email",
-        value: "ilomon10@gmail.com",
-        color: ContraColors.lighteningYellow,
-        textColor: woodSmoke));
     detailsOne.add(SettingsCardItemDetail(
         onTap: () => {},
         title: "Name",
@@ -53,9 +49,26 @@ class _SettingsManageAccountScreenState
         textColor: woodSmoke));
     detailsOne.add(SettingsCardItemDetail(
         onTap: () => {},
+        title: "Birthday",
+        value: "May 7, 1999",
+        color: ContraColors.pastelPink,
+        textColor: woodSmoke));
+    detailsOne.add(SettingsCardItemDetail(
+        onTap: () => {},
+        title: "Gender",
+        value: "Male",
+        color: ContraColors.foam,
+        textColor: woodSmoke));
+
+    detailsTwo.add(SettingsCardItemDetail(
+        title: "Email",
+        value: "ilomon10@gmail.com",
+        color: ContraColors.lighteningYellow,
+        textColor: woodSmoke));
+    detailsTwo.add(SettingsCardItemDetail(
         title: "Phone number",
         value: "+62 852-9948-2331",
-        color: ContraColors.pastelPink,
+        color: ContraColors.caribbeanColor,
         textColor: woodSmoke));
 
     detailOne = SettingsCardDetail(
@@ -63,6 +76,11 @@ class _SettingsManageAccountScreenState
         bgColor: white,
         borderColor: ContraColors.woodSmoke,
         items: detailsOne);
+    detailTwo = SettingsCardDetail(
+        title: "Contact",
+        bgColor: white,
+        borderColor: ContraColors.woodSmoke,
+        items: detailsTwo);
   }
 
   Future<void> _initPackageInfo() async {
@@ -136,6 +154,9 @@ class _SettingsManageAccountScreenState
           children: <Widget>[
             SettingsListCardItem(
               detail: detailOne,
+            ),
+            SettingsListCardItem(
+              detail: detailTwo,
             ),
           ],
         ),

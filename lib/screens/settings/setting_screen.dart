@@ -1,5 +1,6 @@
 import 'package:borong/models/settings.dart';
 import 'package:borong/screens/settings/settings_manage_account_screen.dart';
+import 'package:borong/screens/signin_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import 'package:borong/widgets/contra/button_round_with_shadow.dart';
 import 'package:borong/widgets/contra/contra_text.dart';
@@ -42,47 +43,80 @@ class _SettingsScreenState extends State<SettingsScreen> {
           Navigator.pushNamed(context, SettingsManageAccountScreen.routeName);
         },
         title: "Manage account",
-        color: lighteningYellow,
-        textColor: woodSmoke));
+        color: ContraColors.lighteningYellow,
+        textColor: ContraColors.woodSmoke));
     detailsOne.add(SettingsCardItemDetail(
         onTap: () {
           developer.log("Pressed");
         },
         title: "Privacy",
-        color: lighteningYellow,
-        textColor: woodSmoke));
+        color: ContraColors.lighteningYellow,
+        textColor: ContraColors.woodSmoke));
+    detailsOne.add(SettingsCardItemDetail(
+        onTap: () {
+          Navigator.pushAndRemoveUntil(
+            context,
+            PageRouteBuilder(
+              pageBuilder: (
+                BuildContext context,
+                Animation animation,
+                Animation secondaryAnimation,
+              ) {
+                return const SignInScreen();
+              },
+              transitionsBuilder: (
+                BuildContext context,
+                Animation<double> animation,
+                Animation<double> secondaryAnimation,
+                Widget child,
+              ) {
+                return SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(1.0, 0.0),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                );
+              },
+            ),
+            (Route route) => false,
+          );
+        },
+        title: "Logout",
+        color: ContraColors.flamingo,
+        textColor: ContraColors.woodSmoke));
 
     detailsTwo.add(SettingsCardItemDetail(
         onTap: () {
           developer.log("Pressed");
         },
         title: "Orders",
-        color: lighteningYellow,
-        textColor: woodSmoke));
+        color: ContraColors.lighteningYellow,
+        textColor: ContraColors.woodSmoke));
     detailsTwo.add(SettingsCardItemDetail(
         onTap: () {
           developer.log("Pressed");
         },
         title: "Transaction",
-        color: turquoiseBlue,
-        textColor: woodSmoke));
+        color: ContraColors.turquoiseBlue,
+        textColor: ContraColors.woodSmoke));
     detailsTwo.add(SettingsCardItemDetail(
         onTap: () {
           developer.log("Pressed");
         },
         title: "Products",
-        color: monaLisa,
-        textColor: woodSmoke));
+        color: ContraColors.monaLisa,
+        textColor: ContraColors.woodSmoke));
 
     detailOne = SettingsCardDetail(
         title: "Account",
-        bgColor: white,
-        borderColor: woodSmoke,
+        bgColor: ContraColors.white,
+        borderColor: ContraColors.woodSmoke,
         items: detailsOne);
     detailTwo = SettingsCardDetail(
         title: "Store",
-        bgColor: white,
-        borderColor: woodSmoke,
+        bgColor: ContraColors.white,
+        borderColor: ContraColors.woodSmoke,
         items: detailsTwo);
   }
 

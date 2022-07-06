@@ -1,7 +1,7 @@
 import 'package:borong/models/category_item.dart';
 import 'package:borong/models/shop_item.dart';
 import 'package:borong/screens/detail_screen.dart';
-import 'package:borong/screens/setting_screen.dart';
+import 'package:borong/screens/settings/setting_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import 'package:borong/widgets/contra/contra_text.dart';
 import 'package:borong/widgets/contra/custom_app_bar.dart';

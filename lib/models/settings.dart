@@ -34,13 +34,13 @@ class SettingsCardItemDetail {
   String? value;
   Color textColor;
   Color color;
-  VoidCallback onTap;
+  VoidCallback? onTap;
 
   SettingsCardItemDetail({
     required this.title,
     required this.color,
     required this.textColor,
-    required this.onTap,
+    this.onTap,
     this.value,
   });
 }

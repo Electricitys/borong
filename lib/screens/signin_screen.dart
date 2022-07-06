@@ -1,3 +1,4 @@
+import 'package:borong/screens/main_screen.dart';
 import 'package:borong/screens/signup_screen.dart';
 import 'package:borong/widgets/contra/button_solid.dart';
 import 'package:borong/utilities/contra/colors.dart';
@@ -79,7 +80,9 @@ class SignInScreen extends StatelessWidget {
                           rightIcon:
                               ButtonSolid.Icon("assets/icons/arrow_next.svg"),
                           text: "Sign in",
-                          callback: () {},
+                          callback: () {
+                            Navigator.pushNamed(context, MainScreen.routeName);
+                          },
                         ),
                         const SizedBox(
                           height: 36,
