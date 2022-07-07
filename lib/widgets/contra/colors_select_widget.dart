@@ -36,8 +36,8 @@ class _ColorsSelectWidgetState extends State<ColorsSelectWidget> {
           (int index) {
             return ColorWidget(
               bgColor: options[index],
-              borderColor: woodSmoke,
-              shadowColor: woodSmoke,
+              borderColor: ContraColors.woodSmoke,
+              shadowColor: ContraColors.woodSmoke,
               selected: selectedChoices.contains(index),
               onTap: () {
                 setState(() {

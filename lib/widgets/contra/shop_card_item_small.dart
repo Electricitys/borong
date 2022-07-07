@@ -31,7 +31,8 @@ class ShopCardSmallItemWidget extends StatelessWidget {
                   color: shopItem.bgColor,
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(16)),
-                      side: BorderSide(color: woodSmoke, width: 2))),
+                      side:
+                          BorderSide(color: ContraColors.woodSmoke, width: 2))),
               child: Hero(
                 tag: 'hero-${shopItem.id}',
                 child: SvgPicture.asset(
@@ -49,7 +50,7 @@ class ShopCardSmallItemWidget extends StatelessWidget {
                 maxLines: 2,
                 textAlign: TextAlign.start,
                 style: const TextStyle(
-                    color: woodSmoke,
+                    color: ContraColors.woodSmoke,
                     fontSize: 15,
                     fontWeight: FontWeight.w800),
               ),
@@ -61,7 +62,9 @@ class ShopCardSmallItemWidget extends StatelessWidget {
                 "\$${shopItem.price}",
                 textAlign: TextAlign.start,
                 style: const TextStyle(
-                    color: trout, fontSize: 13, fontWeight: FontWeight.bold),
+                    color: ContraColors.trout,
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold),
               ),
             )
           ],

@@ -16,7 +16,7 @@ class SettingsListCardItem extends StatelessWidget {
       child: Column(
         children: <Widget>[
           ContraText(
-            color: trout,
+            color: ContraColors.trout,
             text: detail.title,
             textAlign: TextAlign.left,
             weight: FontWeight.bold,

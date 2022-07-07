@@ -22,7 +22,7 @@ class SignUpScreen extends StatelessWidget {
             SliverFillRemaining(
               hasScrollBody: false,
               child: Container(
-                color: white,
+                color: ContraColors.white,
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Column(
                   children: <Widget>[
@@ -62,7 +62,7 @@ class SignUpScreen extends StatelessWidget {
                           textAlign: TextAlign.start,
                           style: TextStyle(
                               fontSize: 21,
-                              color: trout,
+                              color: ContraColors.trout,
                               fontWeight: FontWeight.w500),
                         ),
                         const SizedBox(
@@ -92,8 +92,8 @@ class SignUpScreen extends StatelessWidget {
                           height: 48,
                         ),
                         ButtonSolid(
-                          color: woodSmoke,
-                          textColor: white,
+                          color: ContraColors.woodSmoke,
+                          textColor: ContraColors.white,
                           rightIcon:
                               ButtonSolid.Icon("assets/icons/arrow_next.svg"),
                           text: "Sign up",

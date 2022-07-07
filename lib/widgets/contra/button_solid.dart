@@ -56,7 +56,7 @@ class ButtonSolid extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: SvgPicture.asset(
                       leftIcon!.path,
-                      color: white,
+                      color: ContraColors.white,
                     ),
                   )
                 : const SizedBox(),
@@ -73,7 +73,7 @@ class ButtonSolid extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: SvgPicture.asset(
                       rightIcon!.path,
-                      color: white,
+                      color: ContraColors.white,
                     ),
                   )
                 : const SizedBox(),

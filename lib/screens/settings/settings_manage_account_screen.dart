@@ -7,6 +7,7 @@ import 'package:borong/widgets/contra/contra_input_text.dart';
 import 'package:borong/widgets/contra/contra_text.dart';
 import 'package:borong/widgets/contra/custom_app_bar.dart';
 import 'package:borong/widgets/contra/settings_list_card_item.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'dart:developer' as developer;
@@ -49,7 +50,7 @@ class _SettingsManageAccountScreenState
         title: "Name",
         value: "Imanuel Pundoko",
         color: ContraColors.caribbeanColor,
-        textColor: woodSmoke,
+        textColor: ContraColors.woodSmoke,
         onTap: () {
           FocusNode fieldFocusNode = FocusNode();
           _showModalSheet(
@@ -79,7 +80,7 @@ class _SettingsManageAccountScreenState
         title: "Birthday",
         value: "May 7, 1999",
         color: ContraColors.pastelPink,
-        textColor: woodSmoke,
+        textColor: ContraColors.woodSmoke,
         onTap: () {
           FocusNode fieldFocusNode = FocusNode();
           _showModalSheet(
@@ -108,7 +109,7 @@ class _SettingsManageAccountScreenState
         title: "Gender",
         value: "Male",
         color: ContraColors.foam,
-        textColor: woodSmoke,
+        textColor: ContraColors.woodSmoke,
         onTap: () {
           FocusNode fieldFocusNode = FocusNode();
           _showModalSheet(
@@ -138,7 +139,7 @@ class _SettingsManageAccountScreenState
         title: "Email",
         value: "ilomon10@gmail.com",
         color: ContraColors.lighteningYellow,
-        textColor: woodSmoke,
+        textColor: ContraColors.woodSmoke,
         onTap: () {
           FocusNode fieldFocusNode = FocusNode();
           _showModalSheet(
@@ -168,7 +169,7 @@ class _SettingsManageAccountScreenState
         title: "Phone number",
         value: "+62 852-9948-2331",
         color: ContraColors.caribbeanColor,
-        textColor: woodSmoke,
+        textColor: ContraColors.woodSmoke,
         onTap: () {
           FocusNode fieldFocusNode = FocusNode();
           _showModalSheet(
@@ -197,12 +198,12 @@ class _SettingsManageAccountScreenState
 
     detailOne = SettingsCardDetail(
         title: "Personal Information",
-        bgColor: white,
+        bgColor: CupertinoColors.white,
         borderColor: ContraColors.woodSmoke,
         items: detailsOne);
     detailTwo = SettingsCardDetail(
         title: "Contact",
-        bgColor: white,
+        bgColor: CupertinoColors.white,
         borderColor: ContraColors.woodSmoke,
         items: detailsTwo);
   }
@@ -262,7 +263,12 @@ class _SettingsManageAccountScreenState
             ),
           )
         ]),
-        child: Padding(padding: const EdgeInsets.all(24.0), child: child),
+        child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24.0,
+              vertical: 12.0,
+            ),
+            child: child),
       ),
     );
   }
@@ -301,12 +307,12 @@ class _SettingsManageAccountScreenState
                         alignment: Alignment.bottomLeft,
                         child: ButtonRoundWithShadow(
                             size: 48,
-                            borderColor: woodSmoke,
-                            color: white,
+                            borderColor: ContraColors.woodSmoke,
+                            color: ContraColors.white,
                             callback: () {
                               Navigator.pop(context);
                             },
-                            shadowColor: woodSmoke,
+                            shadowColor: ContraColors.woodSmoke,
                             iconPath: "assets/icons/arrow_back.svg"),
                       ),
                     ),
@@ -316,7 +322,7 @@ class _SettingsManageAccountScreenState
                     child: ContraText(
                       overflow: TextOverflow.ellipsis,
                       size: 27,
-                      color: woodSmoke,
+                      color: ContraColors.woodSmoke,
                       alignment: Alignment.bottomCenter,
                       text: widget.title,
                     ),

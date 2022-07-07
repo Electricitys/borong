@@ -43,70 +43,82 @@ class _ProfilePageState extends State<ProfilePage> {
         image: "assets/images/shopping/coat_fur.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: flamingo,
+        bgColor: ContraColors.flamingo,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/shirt_and_coat.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: carribeanGreen,
+        bgColor: ContraColors.carribeanGreen,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/striped_tee.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: lighteningYellow,
+        bgColor: ContraColors.lighteningYellow,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/thunder_tshirt.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: pinkSalmon,
+        bgColor: ContraColors.pinkSalmon,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/coat_fur.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: flamingo,
+        bgColor: ContraColors.flamingo,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/shirt_and_coat.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: flamingo,
+        bgColor: ContraColors.flamingo,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/striped_tee.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: flamingo,
+        bgColor: ContraColors.flamingo,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/thunder_tshirt.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: flamingo,
+        bgColor: ContraColors.flamingo,
         by: "Company name"));
 
     _categories.add(const Category(
-        bgColor: bareleyWhite, startColor: woodSmoke, name: "Men"));
+        bgColor: ContraColors.bareleyWhite,
+        startColor: ContraColors.woodSmoke,
+        name: "Men"));
     _categories.add(const Category(
-        bgColor: fairPink, startColor: woodSmoke, name: "Woman"));
-    _categories
-        .add(const Category(bgColor: foam, startColor: woodSmoke, name: "Kid"));
+        bgColor: ContraColors.fairPink,
+        startColor: ContraColors.woodSmoke,
+        name: "Woman"));
     _categories.add(const Category(
-        bgColor: bareleyWhite, startColor: woodSmoke, name: "Adult"));
-    _categories.add(
-        const Category(bgColor: fairPink, startColor: woodSmoke, name: "Men"));
-    _categories
-        .add(const Category(bgColor: foam, startColor: woodSmoke, name: "Men"));
+        bgColor: ContraColors.foam,
+        startColor: ContraColors.woodSmoke,
+        name: "Kid"));
+    _categories.add(const Category(
+        bgColor: ContraColors.bareleyWhite,
+        startColor: ContraColors.woodSmoke,
+        name: "Adult"));
+    _categories.add(const Category(
+        bgColor: ContraColors.fairPink,
+        startColor: ContraColors.woodSmoke,
+        name: "Men"));
+    _categories.add(const Category(
+        bgColor: ContraColors.foam,
+        startColor: ContraColors.woodSmoke,
+        name: "Men"));
   }
 
   @override
@@ -117,7 +129,7 @@ class _ProfilePageState extends State<ProfilePage> {
       _KeyVal(label: "Rate", value: (5.0).toString()),
     ];
     return Scaffold(
-      backgroundColor: white,
+      backgroundColor: ContraColors.white,
       appBar: CustomAppBar(
         height: 72,
         child: Column(
@@ -150,7 +162,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     },
                     icon: const Icon(
                       Icons.menu,
-                      color: woodSmoke,
+                      color: ContraColors.woodSmoke,
                     ),
                   )
                 ],

@@ -20,19 +20,21 @@ class ContraInputBox extends StatelessWidget {
       decoration: InputDecoration(
           hintText: hintText,
           hintStyle: const TextStyle(
-              fontSize: 21, fontWeight: FontWeight.w500, color: woodSmoke),
+              fontSize: 21,
+              fontWeight: FontWeight.w500,
+              color: ContraColors.woodSmoke),
           contentPadding: const EdgeInsets.all(16),
           enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(width: 2, color: black),
+              borderSide: BorderSide(width: 2, color: ContraColors.black),
               borderRadius: BorderRadius.all(Radius.circular(16))),
           disabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(width: 2, color: black),
+              borderSide: BorderSide(width: 2, color: ContraColors.black),
               borderRadius: BorderRadius.all(Radius.circular(16))),
           focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(width: 2, color: black),
+              borderSide: BorderSide(width: 2, color: ContraColors.black),
               borderRadius: BorderRadius.all(Radius.circular(16))),
           border: const OutlineInputBorder(
-              borderSide: BorderSide(width: 2, color: black),
+              borderSide: BorderSide(width: 2, color: ContraColors.black),
               borderRadius: BorderRadius.all(Radius.circular(16))),
           prefixIcon: showPrefix
               ? Padding(

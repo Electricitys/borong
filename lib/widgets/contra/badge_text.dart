@@ -25,7 +25,9 @@ class BadgeText extends StatelessWidget {
         child: Text(
           text,
           style: const TextStyle(
-              color: white, fontWeight: FontWeight.bold, fontSize: 12),
+              color: ContraColors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 12),
         ),
       ),
     );

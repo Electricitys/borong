@@ -33,7 +33,7 @@ class ContraText extends StatelessWidget {
         style: TextStyle(
             fontSize: size ?? 36,
             fontWeight: weight ?? FontWeight.w800,
-            color: color ?? black),
+            color: color ?? ContraColors.black),
       ),
     );
   }

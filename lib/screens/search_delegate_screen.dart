@@ -45,12 +45,12 @@ class ShoppingSearchDelegate extends SearchDelegate {
       padding: const EdgeInsets.only(left: 24),
       child: ButtonRoundWithShadow(
         size: 48,
-        borderColor: woodSmoke,
-        color: white,
+        borderColor: ContraColors.woodSmoke,
+        color: ContraColors.white,
         callback: () {
           Navigator.pop(context);
         },
-        shadowColor: woodSmoke,
+        shadowColor: ContraColors.woodSmoke,
         iconPath: "assets/icons/arrow_back.svg",
       ),
     );
@@ -63,14 +63,14 @@ class ShoppingSearchDelegate extends SearchDelegate {
         image: "assets/images/shopping/striped_tee.svg",
         name: "Rebousa - White striped tee",
         price: "189",
-        bgColor: flamingo,
+        bgColor: ContraColors.flamingo,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/thunder_tshirt.svg",
         name: "Rebousa - White striped tee",
         price: "189",
-        bgColor: flamingo,
+        bgColor: ContraColors.flamingo,
         by: "Company name"));
     return ListView.builder(
         shrinkWrap: true,

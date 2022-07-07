@@ -25,19 +25,19 @@ class LoginEmailText extends StatelessWidget {
       style: textStyle,
       decoration: InputDecoration(
           hintText: text,
-          hintStyle: textStyle.apply(color: woodSmoke),
+          hintStyle: textStyle.apply(color: ContraColors.woodSmoke),
           contentPadding: const EdgeInsets.all(16),
           enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(width: 2, color: black),
+              borderSide: BorderSide(width: 2, color: ContraColors.black),
               borderRadius: BorderRadius.all(Radius.circular(16))),
           disabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(width: 2, color: black),
+              borderSide: BorderSide(width: 2, color: ContraColors.black),
               borderRadius: BorderRadius.all(Radius.circular(16))),
           focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(width: 2, color: black),
+              borderSide: BorderSide(width: 2, color: ContraColors.black),
               borderRadius: BorderRadius.all(Radius.circular(16))),
           border: const OutlineInputBorder(
-              borderSide: BorderSide(width: 2, color: black),
+              borderSide: BorderSide(width: 2, color: ContraColors.black),
               borderRadius: BorderRadius.all(Radius.circular(16))),
           prefixIcon: Padding(
             padding: const EdgeInsets.all(16.0),

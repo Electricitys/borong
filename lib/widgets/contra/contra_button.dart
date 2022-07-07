@@ -65,7 +65,7 @@ class ContraButton extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: SvgPicture.asset(
                       iconPath,
-                      color: white,
+                      color: ContraColors.white,
                     ),
                   )
                 : const SizedBox(),
@@ -73,7 +73,7 @@ class ContraButton extends StatelessWidget {
               text,
               textAlign: TextAlign.center,
               style: TextStyle(
-                  color: textColor ?? woodSmoke,
+                  color: textColor ?? ContraColors.woodSmoke,
                   fontSize: textSize ?? 21,
                   fontWeight: FontWeight.w800),
             ),

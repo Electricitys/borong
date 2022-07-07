@@ -32,7 +32,8 @@ class SizeWidget extends StatelessWidget {
                 ),
               )
             ],
-            color: selected ? lighteningYellow : white,
+            color:
+                selected ? ContraColors.lighteningYellow : ContraColors.white,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(16)),
                 side: BorderSide(color: borderColor, width: 2))),
@@ -41,7 +42,9 @@ class SizeWidget extends StatelessWidget {
             text,
             textAlign: TextAlign.center,
             style: TextStyle(
-                fontWeight: FontWeight.w800, fontSize: 24, color: woodSmoke),
+                fontWeight: FontWeight.w800,
+                fontSize: 24,
+                color: ContraColors.woodSmoke),
           ),
         ),
       ),

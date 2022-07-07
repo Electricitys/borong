@@ -20,7 +20,7 @@ class StartWidget extends StatelessWidget {
             decoration: ShapeDecoration(
                 shadows: [
                   BoxShadow(
-                    color: woodSmoke,
+                    color: ContraColors.woodSmoke,
                     offset: Offset(
                       0.0, // Move to right 10  horizontally
                       2.0, // Move to bottom 5 Vertically
@@ -30,7 +30,7 @@ class StartWidget extends StatelessWidget {
                 color: category.bgColor,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(16)),
-                    side: BorderSide(color: woodSmoke, width: 2))),
+                    side: BorderSide(color: ContraColors.woodSmoke, width: 2))),
             child: Icon(
               Icons.star_border,
               size: 32,

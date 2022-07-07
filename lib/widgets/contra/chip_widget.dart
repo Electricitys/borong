@@ -23,17 +23,17 @@ class ChipWidget extends StatelessWidget {
           height: 48,
           padding: const EdgeInsets.all(12),
           decoration: ShapeDecoration(
-              color: selected ? pastelPink : white,
+              color: selected ? ContraColors.pastelPink : ContraColors.white,
               shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(44)),
-                  side: BorderSide(color: woodSmoke, width: 2))),
+                  side: BorderSide(color: ContraColors.woodSmoke, width: 2))),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Text(
                 text,
                 style: const TextStyle(
-                  color: woodSmoke,
+                  color: ContraColors.woodSmoke,
                   fontWeight: FontWeight.bold,
                 ),
               ),

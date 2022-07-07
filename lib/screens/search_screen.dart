@@ -30,63 +30,63 @@ class _ShoppingSearchPageState extends State<ShoppingSearchPage> {
         image: "assets/images/shopping/coat_fur.svg",
         name: "Rebousa - White striped tee",
         price: "189",
-        bgColor: flamingo,
+        bgColor: ContraColors.flamingo,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/shirt_and_coat.svg",
         name: "Rebousa - White striped tee",
         price: "189",
-        bgColor: carribeanGreen,
+        bgColor: ContraColors.carribeanGreen,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/striped_tee.svg",
         name: "Rebousa - White striped tee",
         price: "189",
-        bgColor: lighteningYellow,
+        bgColor: ContraColors.lighteningYellow,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/thunder_tshirt.svg",
         name: "Rebousa - White striped tee",
         price: "189",
-        bgColor: pinkSalmon,
+        bgColor: ContraColors.pinkSalmon,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/coat_fur.svg",
         name: "Rebousa - White striped tee",
         price: "189",
-        bgColor: flamingo,
+        bgColor: ContraColors.flamingo,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/shirt_and_coat.svg",
         name: "Rebousa - White striped tee",
         price: "189",
-        bgColor: flamingo,
+        bgColor: ContraColors.flamingo,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/striped_tee.svg",
         name: "Rebousa - White striped tee",
         price: "189",
-        bgColor: flamingo,
+        bgColor: ContraColors.flamingo,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/thunder_tshirt.svg",
         name: "Rebousa - White striped tee",
         price: "189",
-        bgColor: flamingo,
+        bgColor: ContraColors.flamingo,
         by: "Company name"));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
+      backgroundColor: ContraColors.white,
       appBar: CustomAppBar(
         height: 96,
         child: Column(

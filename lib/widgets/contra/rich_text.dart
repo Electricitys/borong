@@ -27,13 +27,15 @@ class CustomRichText extends StatelessWidget {
               style: const TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 13,
-                color: black,
+                color: ContraColors.black,
               )),
           TextSpan(
             text: textSecond,
             recognizer: TapGestureRecognizer()..onTap = textSecoundOnTap,
             style: const TextStyle(
-                fontSize: 13, fontWeight: FontWeight.w500, color: flamingo),
+                fontSize: 13,
+                fontWeight: FontWeight.w500,
+                color: ContraColors.flamingo),
           ),
         ]),
       ),

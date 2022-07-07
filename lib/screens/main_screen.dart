@@ -82,19 +82,21 @@ class _MainScreenState extends State<MainScreen> {
         ],
         currentIndex: _currentIndex,
         onTap: _onItemTapped,
-        selectedItemColor: woodSmoke,
-        unselectedItemColor: trout,
+        selectedItemColor: ContraColors.woodSmoke,
+        unselectedItemColor: ContraColors.trout,
         showSelectedLabels: true,
         showUnselectedLabels: true,
-        selectedIconTheme: const IconThemeData(color: woodSmoke, opacity: 1),
-        unselectedIconTheme: const IconThemeData(color: trout, opacity: 0.6),
+        selectedIconTheme:
+            const IconThemeData(color: ContraColors.woodSmoke, opacity: 1),
+        unselectedIconTheme:
+            const IconThemeData(color: ContraColors.trout, opacity: 0.6),
         selectedLabelStyle: const TextStyle(
-          color: woodSmoke,
+          color: ContraColors.woodSmoke,
           fontSize: 12,
           fontWeight: FontWeight.w800,
         ),
         unselectedLabelStyle: const TextStyle(
-          color: trout,
+          color: ContraColors.trout,
           fontSize: 12,
           fontWeight: FontWeight.w800,
         ),

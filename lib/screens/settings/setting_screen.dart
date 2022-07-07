@@ -155,12 +155,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         alignment: Alignment.bottomLeft,
                         child: ButtonRoundWithShadow(
                             size: 48,
-                            borderColor: woodSmoke,
-                            color: white,
+                            borderColor: ContraColors.woodSmoke,
+                            color: ContraColors.white,
                             callback: () {
                               Navigator.pop(context);
                             },
-                            shadowColor: woodSmoke,
+                            shadowColor: ContraColors.woodSmoke,
                             iconPath: "assets/icons/arrow_back.svg"),
                       ),
                     ),
@@ -169,7 +169,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     flex: 2,
                     child: ContraText(
                       size: 27,
-                      color: woodSmoke,
+                      color: ContraColors.woodSmoke,
                       alignment: Alignment.bottomCenter,
                       text: "Settings",
                     ),
@@ -203,7 +203,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ContraText(
                     alignment: Alignment.center,
                     textAlign: TextAlign.center,
-                    color: woodSmoke,
+                    color: ContraColors.woodSmoke,
                     weight: FontWeight.w800,
                     text: packageInfo.appName,
                     size: 21,
@@ -211,7 +211,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ContraText(
                     alignment: Alignment.center,
                     textAlign: TextAlign.center,
-                    color: woodSmoke,
+                    color: ContraColors.woodSmoke,
                     weight: FontWeight.bold,
                     text: packageInfo.version,
                     size: 21,

@@ -24,7 +24,7 @@ class SignInScreen extends StatelessWidget {
             SliverFillRemaining(
               hasScrollBody: false,
               child: Container(
-                color: white,
+                color: ContraColors.white,
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Column(
                   children: <Widget>[
@@ -75,8 +75,8 @@ class SignInScreen extends StatelessWidget {
                           height: 48,
                         ),
                         ButtonSolid(
-                          color: woodSmoke,
-                          textColor: white,
+                          color: ContraColors.woodSmoke,
+                          textColor: ContraColors.white,
                           rightIcon:
                               ButtonSolid.Icon("assets/icons/arrow_next.svg"),
                           text: "Sign in",

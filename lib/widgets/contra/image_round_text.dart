@@ -9,12 +9,13 @@ class RoundImageWithText extends StatelessWidget {
   final double size;
 
   const RoundImageWithText({
+    Key? key,
     required this.borderColor,
     required this.shadowColor,
     required this.color,
     required this.size,
     required this.text,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +28,10 @@ class RoundImageWithText extends StatelessWidget {
       child: Center(
           child: Text(
         text,
-        style:
-            TextStyle(fontSize: 24, fontWeight: FontWeight.w800, color: white),
+        style: const TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.w800,
+            color: ContraColors.white),
       )),
     );
   }

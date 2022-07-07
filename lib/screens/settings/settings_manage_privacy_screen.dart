@@ -6,6 +6,7 @@ import 'package:borong/widgets/contra/contra_input_text.dart';
 import 'package:borong/widgets/contra/contra_text.dart';
 import 'package:borong/widgets/contra/custom_app_bar.dart';
 import 'package:borong/widgets/contra/settings_list_card_item.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'dart:developer' as developer;
@@ -47,7 +48,7 @@ class _SettingsManagePrivacyScreenState
     detailsOne.add(SettingsCardItemDetail(
         title: "Password",
         color: ContraColors.caribbeanColor,
-        textColor: woodSmoke,
+        textColor: ContraColors.woodSmoke,
         onTap: () {
           FocusNode fieldFocusNode = FocusNode();
           _showModalSheet(
@@ -81,7 +82,7 @@ class _SettingsManagePrivacyScreenState
 
     detailOne = SettingsCardDetail(
         title: "Security",
-        bgColor: white,
+        bgColor: CupertinoColors.white,
         borderColor: ContraColors.woodSmoke,
         items: detailsOne);
   }
@@ -179,12 +180,12 @@ class _SettingsManagePrivacyScreenState
                         alignment: Alignment.bottomLeft,
                         child: ButtonRoundWithShadow(
                             size: 48,
-                            borderColor: woodSmoke,
-                            color: white,
+                            borderColor: ContraColors.woodSmoke,
+                            color: CupertinoColors.white,
                             callback: () {
                               Navigator.pop(context);
                             },
-                            shadowColor: woodSmoke,
+                            shadowColor: ContraColors.woodSmoke,
                             iconPath: "assets/icons/arrow_back.svg"),
                       ),
                     ),
@@ -194,7 +195,7 @@ class _SettingsManagePrivacyScreenState
                     child: ContraText(
                       overflow: TextOverflow.ellipsis,
                       size: 27,
-                      color: woodSmoke,
+                      color: ContraColors.woodSmoke,
                       alignment: Alignment.bottomCenter,
                       text: widget.title,
                     ),

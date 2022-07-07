@@ -33,9 +33,9 @@ class _ShoppingDetailPageState extends State<ShoppingDetailPage> {
     _filters.add("S");
     _filters.add("M");
     _filters.add("L");
-    _colors.add(flamingo);
-    _colors.add(lighteningYellow);
-    _colors.add(carribeanGreen);
+    _colors.add(ContraColors.flamingo);
+    _colors.add(ContraColors.lighteningYellow);
+    _colors.add(ContraColors.carribeanGreen);
     super.initState();
   }
 
@@ -50,12 +50,12 @@ class _ShoppingDetailPageState extends State<ShoppingDetailPage> {
               children: <Widget>[
                 Container(
                   height: kToolbarHeight + statusBarHeight,
-                  color: lighteningYellow,
+                  color: ContraColors.lighteningYellow,
                 ),
                 Container(
                   height: 400,
                   width: MediaQuery.of(context).size.width,
-                  color: lighteningYellow,
+                  color: ContraColors.lighteningYellow,
                   child: Hero(
                     tag: 'hero-${widget.item.id}',
                     child: SvgPicture.asset(
@@ -83,7 +83,7 @@ class _ShoppingDetailPageState extends State<ShoppingDetailPage> {
                           "by Amedian Company",
                           textAlign: TextAlign.start,
                           style: TextStyle(
-                              color: trout,
+                              color: ContraColors.trout,
                               fontSize: 17,
                               fontWeight: FontWeight.w800),
                         ),
@@ -94,7 +94,7 @@ class _ShoppingDetailPageState extends State<ShoppingDetailPage> {
                       const Text(
                         "Wireframe is still important for ideation. It will help you to quickly test idea.",
                         style: TextStyle(
-                            color: trout,
+                            color: ContraColors.trout,
                             fontSize: 17,
                             fontWeight: FontWeight.w500),
                       ),
@@ -118,7 +118,7 @@ class _ShoppingDetailPageState extends State<ShoppingDetailPage> {
                       Container(
                         alignment: Alignment.bottomCenter,
                         child: const Divider(
-                          color: woodSmoke,
+                          color: ContraColors.woodSmoke,
                           thickness: 3,
                           height: 0,
                         ),
@@ -213,7 +213,7 @@ class _ShoppingDetailPageState extends State<ShoppingDetailPage> {
             child: ButtonRoundWithShadow(
                 size: 48,
                 borderColor: ContraColors.woodSmoke,
-                color: white,
+                color: ContraColors.white,
                 callback: () {
                   Navigator.pop(context);
                 },

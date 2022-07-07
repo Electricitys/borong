@@ -34,7 +34,7 @@ class CustomInputText extends StatelessWidget {
                 hintStyle: const TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w500,
-                    color: santasGray),
+                    color: ContraColors.santasGray),
                 contentPadding: const EdgeInsets.all(16),
                 enabledBorder: const OutlineInputBorder(
                   borderSide: BorderSide.none,
@@ -52,12 +52,12 @@ class CustomInputText extends StatelessWidget {
             ),
           ),
           IconButton(
-            color: woodSmoke,
+            color: ContraColors.woodSmoke,
             icon: const Icon(Icons.keyboard_voice),
             onPressed: () {},
           ),
           IconButton(
-            color: woodSmoke,
+            color: ContraColors.woodSmoke,
             icon: const Icon(Icons.send),
             onPressed: callback,
           )

@@ -51,7 +51,7 @@ class ButtonPlainWithShadow extends StatelessWidget {
             text,
             textAlign: TextAlign.center,
             style: TextStyle(
-                color: textColor ?? woodSmoke,
+                color: textColor ?? ContraColors.woodSmoke,
                 fontSize: 21,
                 fontWeight: FontWeight.w800),
           ),

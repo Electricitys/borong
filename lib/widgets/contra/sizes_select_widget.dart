@@ -33,8 +33,8 @@ class _SizesSelectWidgetState extends State<SizesSelectWidget> {
           options.length,
           (int index) {
             return SizeWidget(
-              borderColor: woodSmoke,
-              shadowColor: woodSmoke,
+              borderColor: ContraColors.woodSmoke,
+              shadowColor: ContraColors.woodSmoke,
               text: options[index],
               selected: selectedChoices.contains(index),
               onTap: () {

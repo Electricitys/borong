@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Montserrat',
         primarySwatch: Colors.blue,
-        primaryColor: persianBlue,
+        primaryColor: ContraColors.persianBlue,
       ),
       routes: Routes.getRoute(),
     );

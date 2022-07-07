@@ -45,7 +45,7 @@ class _CartAddRemoveButtonState extends State<CartAddRemoveButton> {
       decoration: const ShapeDecoration(
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)),
-              side: BorderSide(color: woodSmoke, width: 2))),
+              side: BorderSide(color: ContraColors.woodSmoke, width: 2))),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -77,7 +77,7 @@ class _CartAddRemoveButtonState extends State<CartAddRemoveButton> {
                       alignment: Alignment.center,
                       height: MediaQuery.of(context).size.height,
                       decoration: const ShapeDecoration(
-                        color: lighteningYellow,
+                        color: ContraColors.lighteningYellow,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(10),
@@ -87,7 +87,7 @@ class _CartAddRemoveButtonState extends State<CartAddRemoveButton> {
                         "Add",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                            color: woodSmoke,
+                            color: ContraColors.woodSmoke,
                             fontWeight: FontWeight.w800,
                             fontSize: 18),
                       )))
@@ -97,11 +97,11 @@ class _CartAddRemoveButtonState extends State<CartAddRemoveButton> {
                       padding: const EdgeInsets.symmetric(horizontal: 8),
                       alignment: Alignment.center,
                       height: MediaQuery.of(context).size.height,
-                      color: lighteningYellow,
+                      color: ContraColors.lighteningYellow,
                       child: Text(
                         count.toString(),
                         style: const TextStyle(
-                            color: woodSmoke,
+                            color: ContraColors.woodSmoke,
                             fontWeight: FontWeight.w800,
                             fontSize: 18),
                       ))),

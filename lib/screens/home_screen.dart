@@ -37,80 +37,88 @@ class _ShoppingHomePageState extends State<ShoppingHomePage> {
         image: "assets/images/shopping/coat_fur.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: flamingo,
+        bgColor: ContraColors.flamingo,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/shirt_and_coat.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: carribeanGreen,
+        bgColor: ContraColors.carribeanGreen,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/striped_tee.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: lighteningYellow,
+        bgColor: ContraColors.lighteningYellow,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/thunder_tshirt.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: pinkSalmon,
+        bgColor: ContraColors.pinkSalmon,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/coat_fur.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: flamingo,
+        bgColor: ContraColors.flamingo,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/shirt_and_coat.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: flamingo,
+        bgColor: ContraColors.flamingo,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/striped_tee.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: flamingo,
+        bgColor: ContraColors.flamingo,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
         image: "assets/images/shopping/thunder_tshirt.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: flamingo,
+        bgColor: ContraColors.flamingo,
         by: "Company name"));
 
     _categories.add(const Category(
-        bgColor: bareleyWhite,
+        bgColor: ContraColors.bareleyWhite,
         startColor: ContraColors.woodSmoke,
         name: "Men"));
     _categories.add(const Category(
-        bgColor: fairPink, startColor: ContraColors.woodSmoke, name: "Woman"));
+        bgColor: ContraColors.fairPink,
+        startColor: ContraColors.woodSmoke,
+        name: "Woman"));
     _categories.add(const Category(
-        bgColor: foam, startColor: ContraColors.woodSmoke, name: "Kid"));
+        bgColor: ContraColors.foam,
+        startColor: ContraColors.woodSmoke,
+        name: "Kid"));
     _categories.add(const Category(
-        bgColor: bareleyWhite,
+        bgColor: ContraColors.bareleyWhite,
         startColor: ContraColors.woodSmoke,
         name: "Adult"));
     _categories.add(const Category(
-        bgColor: fairPink, startColor: ContraColors.woodSmoke, name: "Men"));
+        bgColor: ContraColors.fairPink,
+        startColor: ContraColors.woodSmoke,
+        name: "Men"));
     _categories.add(const Category(
-        bgColor: foam, startColor: ContraColors.woodSmoke, name: "Men"));
+        bgColor: ContraColors.foam,
+        startColor: ContraColors.woodSmoke,
+        name: "Men"));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
+      backgroundColor: ContraColors.white,
       appBar: CustomAppBar(
         height: 94,
         child: Column(
@@ -126,7 +134,7 @@ class _ShoppingHomePageState extends State<ShoppingHomePage> {
                       ? ButtonRoundWithShadow(
                           size: 48,
                           borderColor: ContraColors.woodSmoke,
-                          color: white,
+                          color: ContraColors.white,
                           callback: () {
                             Navigator.pop(context);
                           },

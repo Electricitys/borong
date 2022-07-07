@@ -20,7 +20,7 @@ class ShoppingCardPagerItem extends StatelessWidget {
           color: categoryBig.bgColor,
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(16)),
-              side: BorderSide(color: woodSmoke, width: 2))),
+              side: BorderSide(color: ContraColors.woodSmoke, width: 2))),
       child: Row(
         children: <Widget>[
           Expanded(
@@ -36,7 +36,7 @@ class ShoppingCardPagerItem extends StatelessWidget {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                        color: woodSmoke,
+                        color: ContraColors.woodSmoke,
                         fontSize: 22,
                         fontWeight: FontWeight.w800),
                   ),
@@ -44,9 +44,9 @@ class ShoppingCardPagerItem extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 24.0, bottom: 24),
                   child: ButtonPlain(
-                    color: woodSmoke,
-                    borderColor: woodSmoke,
-                    textColor: white,
+                    color: ContraColors.woodSmoke,
+                    borderColor: ContraColors.woodSmoke,
+                    textColor: ContraColors.white,
                     text: "Shop now",
                     size: 96,
                     onTap: () {
