@@ -1,6 +1,7 @@
 import 'package:borong/screens/profil_screen.dart';
 import 'package:borong/screens/settings/setting_screen.dart';
 import 'package:borong/screens/settings/settings_manage_account_screen.dart';
+import 'package:borong/screens/settings/settings_manage_privacy_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:borong/screens/signup_screen.dart';
 import 'package:borong/screens/signin_screen.dart';
@@ -18,6 +19,8 @@ class Routes {
       SettingsScreen.routeName: (context) => const SettingsScreen(),
       SettingsManageAccountScreen.routeName: (context) =>
           const SettingsManageAccountScreen(),
+      SettingsManagePrivacyScreen.routeName: (context) =>
+          const SettingsManagePrivacyScreen(),
     };
   }
 }

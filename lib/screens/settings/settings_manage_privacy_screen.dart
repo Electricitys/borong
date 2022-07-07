@@ -2,7 +2,6 @@ import 'package:borong/models/settings.dart';
 import 'package:borong/screens/settings/contra_sheet.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import 'package:borong/widgets/contra/button_round_with_shadow.dart';
-import 'package:borong/widgets/contra/contra_input_box.dart';
 import 'package:borong/widgets/contra/contra_input_text.dart';
 import 'package:borong/widgets/contra/contra_text.dart';
 import 'package:borong/widgets/contra/custom_app_bar.dart';
@@ -11,23 +10,23 @@ import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'dart:developer' as developer;
 
-class SettingsManageAccountScreen extends StatefulWidget {
+class SettingsManagePrivacyScreen extends StatefulWidget {
   final String title;
-  const SettingsManageAccountScreen({
+  const SettingsManagePrivacyScreen({
     Key? key,
-    this.title = "Account",
+    this.title = "Privacy",
   }) : super(key: key);
 
-  static String routeName = "/settings-manage-account-screen";
+  static String routeName = "/settings-manage-privacy-screen";
 
   @override
   // ignore: library_private_types_in_public_api
-  _SettingsManageAccountScreenState createState() =>
-      _SettingsManageAccountScreenState();
+  _SettingsManagePrivacyScreenState createState() =>
+      _SettingsManagePrivacyScreenState();
 }
 
-class _SettingsManageAccountScreenState
-    extends State<SettingsManageAccountScreen> {
+class _SettingsManagePrivacyScreenState
+    extends State<SettingsManagePrivacyScreen> {
   late PackageInfo packageInfo = PackageInfo(
     appName: 'Unknown',
     packageName: 'Unknown',
@@ -46,14 +45,13 @@ class _SettingsManageAccountScreenState
     super.initState();
     _initPackageInfo();
     detailsOne.add(SettingsCardItemDetail(
-        title: "Name",
-        value: "Imanuel Pundoko",
+        title: "Password",
         color: ContraColors.caribbeanColor,
         textColor: woodSmoke,
         onTap: () {
           FocusNode fieldFocusNode = FocusNode();
           _showModalSheet(
-            title: "Edit Fullname",
+            title: "Edit Password",
             onInitState: () {
               fieldFocusNode.requestFocus();
             },
@@ -67,128 +65,14 @@ class _SettingsManageAccountScreenState
             child: Column(
               children: [
                 ContraInputText(
-                  initialValue: "Imanuel Pundoko",
+                  obscureText: true,
                   focusNode: fieldFocusNode,
-                  placeholder: "Fullname",
+                  placeholder: "New Password",
                 ),
-              ],
-            ),
-          );
-        }));
-    detailsOne.add(SettingsCardItemDetail(
-        title: "Birthday",
-        value: "May 7, 1999",
-        color: ContraColors.pastelPink,
-        textColor: woodSmoke,
-        onTap: () {
-          FocusNode fieldFocusNode = FocusNode();
-          _showModalSheet(
-            title: "Edit Birthday",
-            onInitState: () {
-              fieldFocusNode.requestFocus();
-            },
-            onDispose: () {
-              fieldFocusNode.dispose();
-            },
-            onSubmit: () async {
-              developer.log("Submit");
-              return true;
-            },
-            child: Column(
-              children: [
-                ContraInputText(
-                  focusNode: fieldFocusNode,
-                  placeholder: "Birthday",
-                ),
-              ],
-            ),
-          );
-        }));
-    detailsOne.add(SettingsCardItemDetail(
-        title: "Gender",
-        value: "Male",
-        color: ContraColors.foam,
-        textColor: woodSmoke,
-        onTap: () {
-          FocusNode fieldFocusNode = FocusNode();
-          _showModalSheet(
-            title: "Edit Gender",
-            onInitState: () {
-              fieldFocusNode.requestFocus();
-            },
-            onDispose: () {
-              fieldFocusNode.dispose();
-            },
-            onSubmit: () async {
-              developer.log("Submit");
-              return true;
-            },
-            child: Column(
-              children: [
-                ContraInputText(
-                  focusNode: fieldFocusNode,
-                  placeholder: "Gender",
-                ),
-              ],
-            ),
-          );
-        }));
-
-    detailsTwo.add(SettingsCardItemDetail(
-        title: "Email",
-        value: "ilomon10@gmail.com",
-        color: ContraColors.lighteningYellow,
-        textColor: woodSmoke,
-        onTap: () {
-          FocusNode fieldFocusNode = FocusNode();
-          _showModalSheet(
-            title: "Edit Edit",
-            onInitState: () {
-              fieldFocusNode.requestFocus();
-            },
-            onDispose: () {
-              fieldFocusNode.dispose();
-            },
-            onSubmit: () async {
-              developer.log("Submit");
-              return true;
-            },
-            child: Column(
-              children: [
-                ContraInputText(
-                  initialValue: "ilomon10@gmail.com",
-                  focusNode: fieldFocusNode,
-                  placeholder: "Edit",
-                ),
-              ],
-            ),
-          );
-        }));
-    detailsTwo.add(SettingsCardItemDetail(
-        title: "Phone number",
-        value: "+62 852-9948-2331",
-        color: ContraColors.caribbeanColor,
-        textColor: woodSmoke,
-        onTap: () {
-          FocusNode fieldFocusNode = FocusNode();
-          _showModalSheet(
-            title: "Edit Phone Number",
-            onInitState: () {
-              fieldFocusNode.requestFocus();
-            },
-            onDispose: () {
-              fieldFocusNode.dispose();
-            },
-            onSubmit: () async {
-              developer.log("Submit");
-              return true;
-            },
-            child: Column(
-              children: [
-                ContraInputText(
-                  initialValue: "+62 852-9948-2331",
-                  focusNode: fieldFocusNode,
-                  placeholder: "Phone Number",
+                const SizedBox(height: 16),
+                const ContraInputText(
+                  obscureText: true,
+                  placeholder: "Confirm Password",
                 ),
               ],
             ),
@@ -196,15 +80,10 @@ class _SettingsManageAccountScreenState
         }));
 
     detailOne = SettingsCardDetail(
-        title: "Personal Information",
+        title: "Security",
         bgColor: white,
         borderColor: ContraColors.woodSmoke,
         items: detailsOne);
-    detailTwo = SettingsCardDetail(
-        title: "Contact",
-        bgColor: white,
-        borderColor: ContraColors.woodSmoke,
-        items: detailsTwo);
   }
 
   Future<void> _showModalSheet({
@@ -225,7 +104,6 @@ class _SettingsManageAccountScreenState
         action: Row(children: <Widget>[
           ClipOval(
             child: Material(
-              color: Colors.transparent,
               child: IconButton(
                   onPressed: () async {
                     ScaffoldMessenger.of(context)
@@ -338,9 +216,6 @@ class _SettingsManageAccountScreenState
           children: <Widget>[
             SettingsListCardItem(
               detail: detailOne,
-            ),
-            SettingsListCardItem(
-              detail: detailTwo,
             ),
           ],
         ),

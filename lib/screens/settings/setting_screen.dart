@@ -1,5 +1,6 @@
 import 'package:borong/models/settings.dart';
 import 'package:borong/screens/settings/settings_manage_account_screen.dart';
+import 'package:borong/screens/settings/settings_manage_privacy_screen.dart';
 import 'package:borong/screens/signin_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import 'package:borong/widgets/contra/button_round_with_shadow.dart';
@@ -47,7 +48,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         textColor: ContraColors.woodSmoke));
     detailsOne.add(SettingsCardItemDetail(
         onTap: () {
-          developer.log("Pressed");
+          Navigator.pushNamed(context, SettingsManagePrivacyScreen.routeName);
         },
         title: "Privacy",
         color: ContraColors.lighteningYellow,
