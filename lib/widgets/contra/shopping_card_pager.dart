@@ -99,8 +99,6 @@ class _ShoppingCardPagerState extends State<ShoppingCardPager> {
   }
 
   void animatePage(int page) {
-    print('page is $page');
-
     currentPageValue = page;
 
     if (previousPageValue == 0) {

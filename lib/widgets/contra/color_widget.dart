@@ -8,11 +8,13 @@ class ColorWidget extends StatelessWidget {
   final VoidCallback onTap;
 
   const ColorWidget(
-      {required this.borderColor,
+      {Key? key,
+      required this.borderColor,
       required this.bgColor,
       required this.shadowColor,
       required this.selected,
-      required this.onTap});
+      required this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

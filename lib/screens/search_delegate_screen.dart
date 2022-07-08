@@ -9,6 +9,7 @@ import 'package:uuid/uuid.dart';
 class ShoppingSearchDelegate extends SearchDelegate {
   var uuid = const Uuid();
   final List<ShopItem> _items = <ShopItem>[];
+  // ignore: unused_field
   final List<ShopItem> _suggestion = <ShopItem>[];
 
   @override

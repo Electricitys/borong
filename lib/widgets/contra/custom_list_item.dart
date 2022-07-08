@@ -1,31 +1,30 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomListItem extends StatelessWidget {
   final List<String> list;
 
-  const CustomListItem({required this.list});
+  const CustomListItem({Key? key, required this.list}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        padding: EdgeInsets.symmetric(vertical: 24),
+        padding: const EdgeInsets.symmetric(vertical: 24),
         shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         reverse: false,
         itemCount: list.length,
         itemBuilder: (context, index) {
           return Container(
-            padding: EdgeInsets.symmetric(vertical: 8),
+            padding: const EdgeInsets.symmetric(vertical: 8),
             child: Row(
               children: <Widget>[
-                Icon(
+                const Icon(
                   Icons.check,
                   color: Colors.white,
                 ),
                 Text(
                   list[index],
-                  style: TextStyle(color: Colors.white, fontSize: 21),
+                  style: const TextStyle(color: Colors.white, fontSize: 21),
                 )
               ],
             ),

@@ -11,27 +11,29 @@ class ContraButtonRound extends StatelessWidget {
   final double? size;
 
   const ContraButtonRound(
-      {required this.borderColor,
+      {Key? key,
+      required this.borderColor,
       required this.shadowColor,
       required this.color,
       this.iconColor,
       required this.iconPath,
       this.size,
-      required this.callback});
+      required this.callback})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: callback,
       child: Container(
-        height: size == null ? null : size,
-        width: size == null ? null : size,
+        height: size,
+        width: size,
         padding: EdgeInsets.all(size != null ? 8 : 16),
         decoration: ShapeDecoration(
             shadows: [
               BoxShadow(
                 color: shadowColor,
-                offset: Offset(
+                offset: const Offset(
                   0.0, // Move to right 10  horizontally
                   4.0, // Move to bottom 5 Vertically
                 ),

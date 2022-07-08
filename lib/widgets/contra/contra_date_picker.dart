@@ -310,19 +310,20 @@ class _ContraTimePickerSpinnerState extends State<ContraTimePickerSpinner> {
   }
 
   Widget spinner(
-      ScrollController controller,
-      int max,
-      int selectedIndex,
-      bool isScrolling,
-      int interval,
-      SelectedIndexCallback onUpdateSelectedIndex,
-      VoidCallback onScrollEnd) {
+    ScrollController controller,
+    int max,
+    int selectedIndex,
+    bool isScrolling,
+    int interval,
+    SelectedIndexCallback onUpdateSelectedIndex,
+    VoidCallback onScrollEnd,
+  ) {
     /// wrapping the spinner with stack and add container above it when it's scrolling
     /// this thing is to prevent an error causing by some weird stuff like this
     /// flutter: Another exception was thrown: 'package:flutter/src/widgets/scrollable.dart': Failed assertion: line 469 pos 12: '_hold == null || _drag == null': is not true.
     /// maybe later we can find out why this error is happening
 
-    Widget _spinner = NotificationListener<ScrollNotification>(
+    Widget spinnerNotification = NotificationListener<ScrollNotification>(
       onNotification: (scrollNotification) {
         if (scrollNotification is UserScrollNotification) {
           if (scrollNotification.direction.toString() ==
@@ -388,7 +389,7 @@ class _ContraTimePickerSpinnerState extends State<ContraTimePickerSpinner> {
 
     return Stack(
       children: <Widget>[
-        Positioned.fill(child: _spinner),
+        Positioned.fill(child: spinnerNotification),
         isScrolling
             ? Positioned.fill(
                 child: Container(
@@ -400,7 +401,7 @@ class _ContraTimePickerSpinnerState extends State<ContraTimePickerSpinner> {
   }
 
   Widget apSpinner() {
-    Widget _spinner = NotificationListener<ScrollNotification>(
+    Widget spinnerNotification = NotificationListener<ScrollNotification>(
       onNotification: (scrollNotification) {
         if (scrollNotification is UserScrollNotification) {
           if (scrollNotification.direction.toString() ==
@@ -444,7 +445,7 @@ class _ContraTimePickerSpinnerState extends State<ContraTimePickerSpinner> {
 
     return Stack(
       children: <Widget>[
-        Positioned.fill(child: _spinner),
+        Positioned.fill(child: spinnerNotification),
         isAPScrolling ? Positioned.fill(child: Container()) : Container()
       ],
     );

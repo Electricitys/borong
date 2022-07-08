@@ -9,11 +9,13 @@ class SizeWidget extends StatelessWidget {
   final VoidCallback onTap;
 
   const SizeWidget(
-      {required this.borderColor,
+      {Key? key,
+      required this.borderColor,
       required this.shadowColor,
       required this.selected,
       required this.text,
-      required this.onTap});
+      required this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,13 +37,13 @@ class SizeWidget extends StatelessWidget {
             color:
                 selected ? ContraColors.lighteningYellow : ContraColors.white,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(16)),
+                borderRadius: const BorderRadius.all(Radius.circular(16)),
                 side: BorderSide(color: borderColor, width: 2))),
         child: Center(
           child: Text(
             text,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
                 fontWeight: FontWeight.w800,
                 fontSize: 24,
                 color: ContraColors.woodSmoke),

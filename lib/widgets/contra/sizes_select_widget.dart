@@ -6,9 +6,10 @@ import 'package:flutter/material.dart';
 class SizesSelectWidget extends StatefulWidget {
   final List<String> filters;
 
-  const SizesSelectWidget({required this.filters});
+  const SizesSelectWidget({Key? key, required this.filters}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _SizesSelectWidgetState createState() => _SizesSelectWidgetState();
 }
 

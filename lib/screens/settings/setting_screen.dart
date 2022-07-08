@@ -1,4 +1,5 @@
 import 'package:borong/models/settings.dart';
+import 'package:borong/screens/settings/add_alarm_page.dart';
 import 'package:borong/screens/settings/settings_manage_account_screen.dart';
 import 'package:borong/screens/settings/settings_manage_privacy_screen.dart';
 import 'package:borong/screens/signin_screen.dart';
@@ -89,7 +90,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
     detailsTwo.add(SettingsCardItemDetail(
         onTap: () {
-          developer.log("Pressed");
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AddAlarmPage(),
+            ),
+          );
         },
         title: "Orders",
         color: ContraColors.lighteningYellow,

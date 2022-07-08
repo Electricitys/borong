@@ -6,9 +6,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 class PagerImageView extends StatefulWidget {
   final List<String> images;
 
-  const PagerImageView({required this.images});
+  const PagerImageView({Key? key, required this.images}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _PagerImageViewState createState() => _PagerImageViewState();
 }
 
@@ -90,7 +91,6 @@ class _PagerImageViewState extends State<PagerImageView> {
   }
 
   void animatePage(int page) {
-    print('page is $page');
     currentPageValue = page;
     if (previousPageValue == 0) {
       previousPageValue = currentPageValue;

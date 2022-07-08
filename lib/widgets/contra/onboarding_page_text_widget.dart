@@ -6,12 +6,14 @@ class OnboardingPageTextWidget extends StatelessWidget {
   final Alignment alignment;
 
   const OnboardingPageTextWidget(
-      {required this.title, required this.detail, required this.alignment});
+      {Key? key,
+      required this.title,
+      required this.detail,
+      required this.alignment})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text(title),
-    );
+    return Text(title);
   }
 }

@@ -4,25 +4,27 @@ import 'package:flutter/material.dart';
 import 'contra_text.dart';
 
 class CustomHeader extends StatelessWidget {
-  String lineOneText;
-  String lineTwotext;
-  Color fg_color;
-  Color bg_color;
-  Color color;
-  bool isTwoLines;
+  final String lineOneText;
+  final String lineTwotext;
+  final Color fgColor;
+  final Color bgColor;
+  final Color color;
+  final bool isTwoLines;
 
-  CustomHeader(
-      {required this.lineOneText,
+  const CustomHeader(
+      {Key? key,
+      required this.lineOneText,
       required this.lineTwotext,
       required this.color,
       this.isTwoLines = true,
-      required this.fg_color,
-      required this.bg_color});
+      required this.fgColor,
+      required this.bgColor})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(24),
+      padding: const EdgeInsets.all(24),
       child: isTwoLines
           ? Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +41,7 @@ class CustomHeader extends StatelessWidget {
                         foreground: Paint()
                           ..style = PaintingStyle.stroke
                           ..strokeWidth = 1
-                          ..color = fg_color,
+                          ..color = fgColor,
                       ),
                     ),
                     // Solid text as fill.
@@ -47,7 +49,7 @@ class CustomHeader extends StatelessWidget {
                       lineOneText,
                       style: TextStyle(
                           fontSize: 44,
-                          color: bg_color,
+                          color: bgColor,
                           fontWeight: FontWeight.w800),
                     ),
                   ],
@@ -75,7 +77,7 @@ class CustomHeader extends StatelessWidget {
                         foreground: Paint()
                           ..style = PaintingStyle.stroke
                           ..strokeWidth = 1
-                          ..color = fg_color,
+                          ..color = fgColor,
                       ),
                     ),
                     // Solid text as fill.
@@ -83,12 +85,12 @@ class CustomHeader extends StatelessWidget {
                       lineOneText,
                       style: TextStyle(
                           fontSize: 44,
-                          color: bg_color,
+                          color: bgColor,
                           fontWeight: FontWeight.w800),
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
                 ContraText(

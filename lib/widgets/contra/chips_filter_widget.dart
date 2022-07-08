@@ -1,5 +1,4 @@
 import 'package:borong/widgets/contra/chip_widget.dart';
-import 'package:borong/utilities/contra/colors.dart';
 import 'package:flutter/material.dart';
 
 class ChipsFilterWidget extends StatefulWidget {

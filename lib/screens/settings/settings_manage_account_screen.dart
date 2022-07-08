@@ -2,9 +2,9 @@ import 'package:borong/models/settings.dart';
 import 'package:borong/screens/settings/contra_sheet.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import 'package:borong/widgets/contra/button_round_with_shadow.dart';
-import 'package:borong/widgets/contra/contra_input_box.dart';
 import 'package:borong/widgets/contra/contra_input_text.dart';
 import 'package:borong/widgets/contra/contra_text.dart';
+import 'package:borong/widgets/contra/contra_time_picker.dart';
 import 'package:borong/widgets/contra/custom_app_bar.dart';
 import 'package:borong/widgets/contra/settings_list_card_item.dart';
 import 'package:flutter/cupertino.dart';
@@ -96,10 +96,20 @@ class _SettingsManageAccountScreenState
               return true;
             },
             child: Column(
-              children: [
-                ContraInputText(
-                  focusNode: fieldFocusNode,
-                  placeholder: "Birthday",
+              children: const [
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 24.0),
+                  child: ContraTimePickerSpinner(
+                    is24HourMode: true,
+                    highlightedTextStyle: TextStyle(
+                        color: ContraColors.woodSmoke,
+                        fontSize: 36,
+                        fontWeight: FontWeight.bold),
+                    normalTextStyle: TextStyle(
+                        color: ContraColors.santasGray,
+                        fontSize: 36,
+                        fontWeight: FontWeight.w800),
+                  ),
                 ),
               ],
             ),
