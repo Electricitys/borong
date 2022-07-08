@@ -1,4 +1,5 @@
 import 'package:borong/models/settings.dart';
+import 'package:borong/screens/orders_screen.dart';
 import 'package:borong/screens/settings/add_alarm_page.dart';
 import 'package:borong/screens/settings/settings_manage_account_screen.dart';
 import 'package:borong/screens/settings/settings_manage_privacy_screen.dart';
@@ -56,6 +57,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
         textColor: ContraColors.woodSmoke));
     detailsOne.add(SettingsCardItemDetail(
         onTap: () {
+          ScaffoldMessenger.of(context)
+            ..removeCurrentSnackBar()
+            ..showSnackBar(const SnackBar(
+              content: Text("Logging out"),
+              behavior: SnackBarBehavior.floating,
+            ));
           Navigator.pushAndRemoveUntil(
             context,
             PageRouteBuilder(
@@ -90,12 +97,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
     detailsTwo.add(SettingsCardItemDetail(
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const AddAlarmPage(),
-            ),
-          );
+          Navigator.pushNamed(context, OrderListScreen.routeName);
         },
         title: "Orders",
         color: ContraColors.lighteningYellow,

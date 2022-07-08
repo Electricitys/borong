@@ -1,3 +1,4 @@
+import 'package:borong/screens/orders_screen.dart';
 import 'package:borong/screens/profil_screen.dart';
 import 'package:borong/screens/settings/setting_screen.dart';
 import 'package:borong/screens/settings/settings_manage_account_screen.dart';
@@ -14,6 +15,9 @@ class Routes {
       SignInScreen.routeName: (context) => const SignInScreen(),
       SignUpScreen.routeName: (context) => const SignUpScreen(),
       ProfilePage.routeName: (context) => const ProfilePage(),
+
+      // Store
+      OrderListScreen.routeName: (context) => const OrderListScreen(),
 
       // Settings
       SettingsScreen.routeName: (context) => const SettingsScreen(),

@@ -29,13 +29,15 @@ class ButtonPlain extends StatelessWidget {
     return ButtonTheme(
       height: height != null ? height! : 48,
       minWidth: size != null ? size! : MediaQuery.of(context).size.width,
-      child: RaisedButton(
-        padding: const EdgeInsets.all(16),
-        color: color,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.all(16),
+          backgroundColor: color,
+          textStyle: TextStyle(color: textColor),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
+        ),
         onPressed: onTap,
-        textColor: textColor,
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
         child: Text(
           text,
           maxLines: 1,

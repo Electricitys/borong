@@ -1,10 +1,12 @@
 import 'package:borong/models/settings.dart';
+import 'package:borong/models/user.dart';
 import 'package:borong/screens/settings/contra_sheet.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import 'package:borong/widgets/contra/button_round_with_shadow.dart';
+import 'package:borong/widgets/contra/contra_date_picker.dart';
 import 'package:borong/widgets/contra/contra_input_text.dart';
+import 'package:borong/widgets/contra/contra_select.dart';
 import 'package:borong/widgets/contra/contra_text.dart';
-import 'package:borong/widgets/contra/contra_time_picker.dart';
 import 'package:borong/widgets/contra/custom_app_bar.dart';
 import 'package:borong/widgets/contra/settings_list_card_item.dart';
 import 'package:flutter/cupertino.dart';
@@ -82,6 +84,7 @@ class _SettingsManageAccountScreenState
         color: ContraColors.pastelPink,
         textColor: ContraColors.woodSmoke,
         onTap: () {
+          int currentYear = DateTime.now().year;
           FocusNode fieldFocusNode = FocusNode();
           _showModalSheet(
             title: "Edit Birthday",
@@ -96,21 +99,16 @@ class _SettingsManageAccountScreenState
               return true;
             },
             child: Column(
-              children: const [
+              children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 24.0),
-                  child: ContraTimePickerSpinner(
-                    is24HourMode: true,
-                    highlightedTextStyle: TextStyle(
-                        color: ContraColors.woodSmoke,
-                        fontSize: 36,
-                        fontWeight: FontWeight.bold),
-                    normalTextStyle: TextStyle(
-                        color: ContraColors.santasGray,
-                        fontSize: 36,
-                        fontWeight: FontWeight.w800),
+                  padding: const EdgeInsets.symmetric(vertical: 24.0),
+                  child: ContraDatePicker(
+                    initialDateTime: DateTime(currentYear - 19),
+                    minimumYear: currentYear - 70,
+                    maximumYear: currentYear - 18,
+                    onDateTimeChanged: (value) {},
                   ),
-                ),
+                )
               ],
             ),
           );
@@ -122,6 +120,10 @@ class _SettingsManageAccountScreenState
         textColor: ContraColors.woodSmoke,
         onTap: () {
           FocusNode fieldFocusNode = FocusNode();
+          List<SelectOptions> genderList = [
+            SelectOptions(label: UserGender.male, value: UserGender.male),
+            SelectOptions(label: UserGender.female, value: UserGender.female)
+          ];
           _showModalSheet(
             title: "Edit Gender",
             onInitState: () {
@@ -136,10 +138,13 @@ class _SettingsManageAccountScreenState
             },
             child: Column(
               children: [
-                ContraInputText(
-                  focusNode: fieldFocusNode,
-                  placeholder: "Gender",
-                ),
+                ContraSelect(
+                  height: 150,
+                  options: genderList,
+                  onChanged: ((value) {
+                    developer.log(value);
+                  }),
+                )
               ],
             ),
           );
