@@ -13,7 +13,7 @@ class SelectOptions {
 class ContraSelect extends StatelessWidget {
   final double? height;
   final List<SelectOptions> options;
-  final void Function(dynamic value) onChanged;
+  final void Function(int index, SelectOptions selected) onChanged;
 
   const ContraSelect({
     super.key,
@@ -28,13 +28,22 @@ class ContraSelect extends StatelessWidget {
       height: height,
       child: CupertinoPicker(
         itemExtent: 32.0,
+        magnification: 1.22,
         onSelectedItemChanged: (index) {
-          final selected = options[index].value;
-          onChanged(selected);
+          final selected = options[index];
+          onChanged(index, selected);
         },
         children: List<Widget>.generate(
           options.length,
-          (index) => Center(child: Text(options[index].label)),
+          (index) => Center(
+              child: Text(
+            options[index].label,
+            style: const TextStyle(
+              fontFamily: 'Montserrat',
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+            ),
+          )),
         ),
       ),
     );

@@ -141,8 +141,8 @@ class _SettingsManageAccountScreenState
                 ContraSelect(
                   height: 150,
                   options: genderList,
-                  onChanged: ((value) {
-                    developer.log(value);
+                  onChanged: ((index, selected) {
+                    developer.log(selected.value);
                   }),
                 )
               ],

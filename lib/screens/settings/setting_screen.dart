@@ -1,6 +1,5 @@
 import 'package:borong/models/settings.dart';
 import 'package:borong/screens/orders_screen.dart';
-import 'package:borong/screens/settings/add_alarm_page.dart';
 import 'package:borong/screens/settings/settings_manage_account_screen.dart';
 import 'package:borong/screens/settings/settings_manage_privacy_screen.dart';
 import 'package:borong/screens/signin_screen.dart';

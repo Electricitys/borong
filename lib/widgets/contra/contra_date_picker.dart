@@ -26,23 +26,12 @@ class _ContraDatePickerState extends State<ContraDatePicker> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: widget.height,
-      child: CupertinoTheme(
-        data: const CupertinoThemeData(
-          textTheme: CupertinoTextThemeData(
-            dateTimePickerTextStyle: TextStyle(
-              fontFamily: 'Montserrat',
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        child: CupertinoDatePicker(
-          initialDateTime: widget.initialDateTime,
-          minimumYear: widget.minimumYear,
-          maximumYear: widget.maximumYear,
-          mode: CupertinoDatePickerMode.date,
-          onDateTimeChanged: widget.onDateTimeChanged,
-        ),
+      child: CupertinoDatePicker(
+        initialDateTime: widget.initialDateTime,
+        minimumYear: widget.minimumYear,
+        maximumYear: widget.maximumYear,
+        mode: CupertinoDatePickerMode.date,
+        onDateTimeChanged: widget.onDateTimeChanged,
       ),
     );
   }

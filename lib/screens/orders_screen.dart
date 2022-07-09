@@ -99,46 +99,59 @@ class _OrderListScreenState extends State<OrderListScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double statusBarHeight = MediaQuery.of(context).padding.top;
     return Scaffold(
       backgroundColor: ContraColors.white,
       appBar: CustomAppBar(
-        height: 92,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        height: kToolbarHeight + statusBarHeight,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Expanded(
-              flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 24.0),
-                child: Align(
-                  alignment: Alignment.bottomLeft,
-                  child: ButtonRoundWithShadow(
-                      size: 48,
-                      borderColor: ContraColors.woodSmoke,
-                      color: ContraColors.white,
-                      callback: () {
-                        Navigator.pop(context);
-                      },
-                      shadowColor: ContraColors.woodSmoke,
-                      iconPath: "assets/icons/arrow_back.svg"),
-                ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 12.0,
+                vertical: 16.0,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Expanded(
+                    flex: 1,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 12.0),
+                      child: Align(
+                        alignment: Alignment.bottomLeft,
+                        child: ButtonRoundWithShadow(
+                            size: 48,
+                            borderColor: ContraColors.woodSmoke,
+                            color: ContraColors.white,
+                            callback: () {
+                              Navigator.pop(context);
+                            },
+                            shadowColor: ContraColors.woodSmoke,
+                            iconPath: "assets/icons/arrow_back.svg"),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: ContraText(
+                      size: 27,
+                      alignment: Alignment.center,
+                      text: widget.title,
+                    ),
+                  ),
+                  const Expanded(
+                    flex: 1,
+                    child: SizedBox(
+                      width: 20,
+                    ),
+                  )
+                ],
               ),
             ),
-            Expanded(
-              flex: 1,
-              child: ContraText(
-                size: 27,
-                alignment: Alignment.bottomCenter,
-                text: widget.title,
-              ),
-            ),
-            const Expanded(
-              flex: 1,
-              child: SizedBox(
-                width: 20,
-              ),
-            )
           ],
         ),
       ),
