@@ -19,6 +19,34 @@ class ContraSheet extends StatefulWidget {
 
   @override
   State<ContraSheet> createState() => _ContraSheetState();
+
+  static Future<void> showModalSheet(
+    BuildContext context, {
+    required String title,
+    Widget? action,
+    VoidCallback? onInitState,
+    VoidCallback? onDispose,
+    required Future<void> Function() onSubmit,
+    required Widget child,
+  }) async {
+    showModalBottomSheet(
+      backgroundColor: Colors.transparent,
+      context: context,
+      isScrollControlled: true,
+      builder: (context) => ContraSheet(
+        onInitState: onInitState,
+        onDispose: onDispose,
+        title: title,
+        action: action,
+        child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24.0,
+              vertical: 12.0,
+            ),
+            child: child),
+      ),
+    );
+  }
 }
 
 class _ContraSheetState extends State<ContraSheet> {
@@ -68,7 +96,8 @@ class _ContraSheetState extends State<ContraSheet> {
                           size: 24,
                         ),
                       ),
-                      Flexible(flex: 0, child: widget.action!)
+                      if (widget.action != null)
+                        Flexible(flex: 0, child: widget.action!)
                     ],
                   ),
                 ),
@@ -76,7 +105,7 @@ class _ContraSheetState extends State<ContraSheet> {
               SingleChildScrollView(
                 child: widget.child,
               ),
-              SizedBox(height: keyboardPadding),
+              SizedBox(height: keyboardPadding > 0 ? keyboardPadding : 24),
             ],
           )),
         ),

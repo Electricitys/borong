@@ -21,6 +21,12 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+def mapsApiKey = localProperties.getProperty('maps.api_key')
+if(mapsApiKey == null){
+    mapsApiKey = ""
+    project.logger.error('Google Maps Api Key not configured. Set it in `local.properties` or in the environment variable `maps.api_key`')
+}
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
@@ -45,12 +51,19 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.example.borong"
+
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 20
+        // minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+
+        manifestPlaceholders = [
+            mapApiKey: mapsApiKey, 
+            applicationName: "android.app.Application"
+        ]
     }
 
     buildTypes {

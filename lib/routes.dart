@@ -1,3 +1,7 @@
+import 'package:borong/screens/address_screen.dart';
+import 'package:borong/screens/maps/location_detail.dart';
+import 'package:borong/screens/maps/location_listing.dart';
+import 'package:borong/screens/maps/map_main_page.dart';
 import 'package:borong/screens/orders_screen.dart';
 import 'package:borong/screens/profil_screen.dart';
 import 'package:borong/screens/settings/setting_screen.dart';
@@ -15,6 +19,11 @@ class Routes {
       SignInScreen.routeName: (context) => const SignInScreen(),
       SignUpScreen.routeName: (context) => const SignUpScreen(),
       ProfilePage.routeName: (context) => const ProfilePage(),
+
+      AddressScreen.routeName: (_) => const AddressScreen(),
+      LocationMapMainPage.routeName: (_) => const LocationMapMainPage(),
+      LocationDetailPage.routeName: (_) => const LocationDetailPage(),
+      LocationListingPage.routeName: (_) => const LocationListingPage(),
 
       // Store
       OrderListScreen.routeName: (context) => const OrderListScreen(),

@@ -20,6 +20,8 @@ class ShopListItemWidget extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(24),
         child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Expanded(
                 flex: 1,
@@ -36,7 +38,7 @@ class ShopListItemWidget extends StatelessWidget {
                     child: SvgPicture.asset(
                       shopItem.image,
                       width: 100,
-                      height: 120,
+                      height: 100,
                     ),
                   ),
                 )),
@@ -46,6 +48,7 @@ class ShopListItemWidget extends StatelessWidget {
             Expanded(
               flex: 2,
               child: Column(
+                mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Column(
@@ -89,7 +92,9 @@ class ShopListItemWidget extends StatelessWidget {
                             fontSize: 24,
                             fontWeight: FontWeight.w800),
                       ),
-                      const CartAddRemoveButton()
+                      CartAddRemoveButton(
+                        onChange: (value) {},
+                      )
                     ],
                   )
                 ],

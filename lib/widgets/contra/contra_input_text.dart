@@ -8,6 +8,8 @@ class ContraInputText extends StatefulWidget {
   final TextInputAction? textInputAction;
 
   final bool? obscureText;
+  final int? maxLines;
+  final TextInputType? keyboardType;
 
   final FocusNode? focusNode;
   final TextEditingController? controller;
@@ -25,6 +27,8 @@ class ContraInputText extends StatefulWidget {
     this.onChanged,
     this.initialValue,
     this.obscureText = false,
+    this.maxLines,
+    this.keyboardType,
   }) : super(key: key);
 
   @override
@@ -48,6 +52,8 @@ class _ContraInputTextState extends State<ContraInputText> {
     );
 
     return TextFormField(
+      maxLines: widget.maxLines,
+      keyboardType: widget.keyboardType,
       initialValue: widget.initialValue,
       controller: widget.controller,
       focusNode: widget.focusNode,

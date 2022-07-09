@@ -167,8 +167,8 @@ class _ShoppingDetailPageState extends State<ShoppingDetailPage> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.end,
-                              children: const <Widget>[
-                                Padding(
+                              children: <Widget>[
+                                const Padding(
                                   padding: EdgeInsets.only(left: 4.0),
                                   child: ContraText(
                                     alignment: Alignment.centerLeft,
@@ -179,9 +179,12 @@ class _ShoppingDetailPageState extends State<ShoppingDetailPage> {
                                 Align(
                                   alignment: Alignment.centerLeft,
                                   child: Padding(
-                                    padding:
-                                        EdgeInsets.only(top: 20.0, left: 4),
-                                    child: CartAddRemoveButton(),
+                                    padding: const EdgeInsets.only(
+                                        top: 20.0, left: 4),
+                                    child: CartAddRemoveButton(
+                                      width: 128,
+                                      onChange: ((value) {}),
+                                    ),
                                   ),
                                 ),
                               ],

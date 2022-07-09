@@ -1,4 +1,5 @@
 import 'package:borong/screens/cart_screen.dart';
+import 'package:borong/screens/maps/map_main_page.dart';
 import 'package:borong/screens/profil_screen.dart';
 import 'package:borong/screens/search_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';
@@ -38,6 +39,8 @@ class _MainScreenState extends State<MainScreen> {
         child: _childrenWidgets.elementAt(_currentIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
         items: [
           const BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           const BottomNavigationBarItem(
@@ -47,15 +50,6 @@ class _MainScreenState extends State<MainScreen> {
               clipBehavior: Clip.none,
               children: <Widget>[
                 const Icon(Icons.shopping_basket),
-                // const Positioned(
-                //   top: 0.0,
-                //   right: 0.0,
-                //   child: Icon(
-                //     Icons.brightness_1,
-                //     size: 8.0,
-                //     color: Colors.redAccent,
-                //   ),
-                // ),
                 Positioned(
                   top: 0.0,
                   right: -4.0,

@@ -1,9 +1,32 @@
 import 'package:borong/utilities/contra/colors.dart';
 import 'package:flutter/material.dart';
-import 'dart:developer' as developer;
+
+const TextStyle _kTextStyle = TextStyle(
+  color: ContraColors.woodSmoke,
+  fontWeight: FontWeight.w800,
+  fontSize: 18,
+);
+
+const double _kIconSize = 24;
 
 class CartAddRemoveButton extends StatefulWidget {
-  const CartAddRemoveButton({Key? key}) : super(key: key);
+  final double height;
+  final double width;
+  final int initialValue;
+  final int min;
+  final int max;
+  final void Function(int value) onChange;
+  final void Function()? onRemove;
+  const CartAddRemoveButton({
+    super.key,
+    this.initialValue = 0,
+    this.min = 0,
+    this.max = 99,
+    this.onRemove,
+    required this.onChange,
+    this.height = 40,
+    this.width = 96,
+  });
 
   @override
   // ignore: library_private_types_in_public_api
@@ -20,28 +43,29 @@ class _CartAddRemoveButtonState extends State<CartAddRemoveButton> {
   }
 
   void onAddClicked() {
-    if (count < 4) {
+    if (count < widget.max) {
       setState(() {
         count = count + 1;
-        developer.log("add clicked $count");
+        widget.onChange(count);
       });
     }
   }
 
   void onRemoveClicked() {
-    if (count > 0) {
+    if (count > widget.min) {
       setState(() {
         count = count - 1;
-        developer.log("remove clicked $count");
+        widget.onChange(count);
       });
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final bool isZero = (count == 0);
     return Container(
-      width: 96,
-      height: 40,
+      width: widget.width,
+      height: widget.height,
       decoration: const ShapeDecoration(
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -50,78 +74,80 @@ class _CartAddRemoveButtonState extends State<CartAddRemoveButton> {
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          count == 0
-              ? const SizedBox()
-              : Expanded(
-                  flex: 1,
-                  child: GestureDetector(
-                    onTap: () {
-                      onRemoveClicked();
-                    },
-                    child: IconButton(
-                      icon: const Icon(
-                        Icons.remove,
-                        size: 24,
-                      ),
-                      onPressed: () {
-                        onRemoveClicked();
-                      },
+          Expanded(
+            flex: 30,
+            child: IconButton(
+              padding: const EdgeInsets.all(0),
+              icon: (isZero)
+                  ? const Icon(
+                      Icons.close,
+                      size: _kIconSize,
+                    )
+                  : const Icon(
+                      Icons.remove,
+                      size: _kIconSize,
                     ),
-                  ),
-                ),
-          count == 0
-              ? Expanded(
-                  flex: 2,
-                  child: Container(
+              onPressed: () {
+                if (isZero && widget.onRemove != null) {
+                  widget.onRemove!();
+                } else {
+                  onRemoveClicked();
+                }
+              },
+            ),
+          ),
+          Expanded(
+            flex: 40,
+            child: count == 0
+                ? GestureDetector(
+                    onTap: () {
+                      onAddClicked();
+                    },
+                    child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 8),
                       alignment: Alignment.center,
                       height: MediaQuery.of(context).size.height,
                       decoration: const ShapeDecoration(
                         color: ContraColors.lighteningYellow,
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(10),
-                                bottomLeft: Radius.circular(10))),
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(8),
+                            bottomRight: Radius.circular(8),
+                          ),
+                        ),
                       ),
                       child: const Text(
                         "Add",
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: ContraColors.woodSmoke,
-                            fontWeight: FontWeight.w800,
-                            fontSize: 18),
-                      )))
-              : Expanded(
-                  flex: 1,
-                  child: Container(
+                        style: _kTextStyle,
+                      ),
+                    ),
+                  )
+                : GestureDetector(
+                    onTap: () {},
+                    child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 8),
                       alignment: Alignment.center,
                       height: MediaQuery.of(context).size.height,
                       color: ContraColors.lighteningYellow,
-                      child: Text(
-                        count.toString(),
-                        style: const TextStyle(
-                            color: ContraColors.woodSmoke,
-                            fontWeight: FontWeight.w800,
-                            fontSize: 18),
-                      ))),
-          Expanded(
-            flex: 1,
-            child: GestureDetector(
-              onTap: () {
-                onAddClicked();
-              },
+                      child: Text(count.toString(), style: _kTextStyle),
+                    ),
+                  ),
+          ),
+          if (!isZero)
+            Expanded(
+              flex: 30,
               child: IconButton(
+                padding: const EdgeInsets.all(0),
                 icon: const Icon(
                   Icons.add,
-                  size: 24,
+                  size: _kIconSize,
                 ),
                 onPressed: () {
                   onAddClicked();
                 },
               ),
-            ),
-          )
+            )
         ],
       ),
     );

@@ -7,19 +7,23 @@ class ContraText extends StatelessWidget {
   final double? size;
   final Color? color;
   final TextOverflow? overflow;
+  final int? maxLine;
+  final bool? softWrap;
   final FontWeight? weight;
   final TextAlign? textAlign;
 
-  const ContraText(
-      {Key? key,
-      required this.alignment,
-      required this.text,
-      this.size,
-      this.color,
-      this.weight,
-      this.textAlign,
-      this.overflow})
-      : super(key: key);
+  const ContraText({
+    Key? key,
+    required this.alignment,
+    required this.text,
+    this.size,
+    this.color,
+    this.weight,
+    this.textAlign,
+    this.overflow,
+    this.maxLine,
+    this.softWrap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +33,8 @@ class ContraText extends StatelessWidget {
         text,
         textAlign: textAlign ?? TextAlign.start,
         overflow: overflow,
-        maxLines: 1,
+        maxLines: maxLine,
+        softWrap: softWrap,
         style: TextStyle(
             fontSize: size ?? 36,
             fontWeight: weight ?? FontWeight.w800,
