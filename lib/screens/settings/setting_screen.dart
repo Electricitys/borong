@@ -15,7 +15,7 @@ import 'dart:developer' as developer;
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
 
-  static String routeName = "/settings-screen";
+  static const String routeName = "/settings-screen";
 
   @override
   // ignore: library_private_types_in_public_api

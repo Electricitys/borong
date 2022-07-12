@@ -81,7 +81,8 @@ class SignInScreen extends StatelessWidget {
                               ButtonSolid.Icon("assets/icons/arrow_next.svg"),
                           text: "Sign in",
                           callback: () {
-                            Navigator.pushNamed(context, MainScreen.routeName);
+                            Navigator.pushReplacementNamed(
+                                context, MainScreen.routeName);
                           },
                         ),
                         const SizedBox(

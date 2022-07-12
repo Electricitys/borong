@@ -18,7 +18,7 @@ class OrderListScreen extends StatefulWidget {
     this.title = "Orders",
   }) : super(key: key);
 
-  static String routeName = "/settings-orders-screen";
+  static const String routeName = "/settings-orders-screen";
 
   @override
   // ignore: library_private_types_in_public_api

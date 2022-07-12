@@ -21,7 +21,7 @@ class SettingsManageAccountScreen extends StatefulWidget {
     this.title = "Account",
   }) : super(key: key);
 
-  static String routeName = "/settings-manage-account-screen";
+  static const String routeName = "/settings-manage-account-screen";
 
   @override
   // ignore: library_private_types_in_public_api

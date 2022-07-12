@@ -27,8 +27,8 @@ class ContraInputText extends StatefulWidget {
     this.onChanged,
     this.initialValue,
     this.obscureText = false,
-    this.maxLines,
-    this.keyboardType,
+    this.maxLines = 1,
+    this.keyboardType = TextInputType.text,
   }) : super(key: key);
 
   @override

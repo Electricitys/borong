@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ButtonPlainWithIcon extends StatelessWidget {
+  final bool disabled;
   final String text;
   final String iconPath;
   final VoidCallback callback;
@@ -12,16 +13,18 @@ class ButtonPlainWithIcon extends StatelessWidget {
   final Color textColor;
   final double? size;
 
-  const ButtonPlainWithIcon(
-      {super.key,
-      required this.text,
-      required this.callback,
-      required this.isPrefix,
-      required this.isSuffix,
-      required this.iconPath,
-      required this.color,
-      this.size,
-      required this.textColor});
+  const ButtonPlainWithIcon({
+    super.key,
+    required this.text,
+    required this.callback,
+    required this.isPrefix,
+    required this.isSuffix,
+    required this.iconPath,
+    required this.color,
+    this.size,
+    required this.textColor,
+    this.disabled = false,
+  });
 
   @override
   Widget build(BuildContext context) {

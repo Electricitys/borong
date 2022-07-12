@@ -18,7 +18,7 @@ class SettingsManagePrivacyScreen extends StatefulWidget {
     this.title = "Privacy",
   }) : super(key: key);
 
-  static String routeName = "/settings-manage-privacy-screen";
+  static const String routeName = "/settings-manage-privacy-screen";
 
   @override
   // ignore: library_private_types_in_public_api
@@ -66,12 +66,14 @@ class _SettingsManagePrivacyScreenState
             child: Column(
               children: [
                 ContraInputText(
+                  keyboardType: TextInputType.visiblePassword,
                   obscureText: true,
                   focusNode: fieldFocusNode,
                   placeholder: "New Password",
                 ),
                 const SizedBox(height: 16),
                 const ContraInputText(
+                  keyboardType: TextInputType.visiblePassword,
                   obscureText: true,
                   placeholder: "Confirm Password",
                 ),

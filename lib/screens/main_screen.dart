@@ -1,5 +1,4 @@
 import 'package:borong/screens/cart_screen.dart';
-import 'package:borong/screens/maps/map_main_page.dart';
 import 'package:borong/screens/profil_screen.dart';
 import 'package:borong/screens/search_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';

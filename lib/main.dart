@@ -2,6 +2,7 @@ import 'package:borong/routes.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         primaryColor: ContraColors.persianBlue,
       ),
       routes: Routes.getRoute(),
+      onGenerateRoute: ((settings) => Routes.onGenerateRoute(settings)),
     );
   }
 }
