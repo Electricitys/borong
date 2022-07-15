@@ -213,7 +213,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         int cumulativeBytesLoaded = 0;
                         double? value = 0;
                         if (loadingProgress != null &&
-                            loadingProgress!.expectedTotalBytes != null) {
+                            loadingProgress.expectedTotalBytes != null) {
                           expectedTotalBytes =
                               loadingProgress.expectedTotalBytes!;
                           cumulativeBytesLoaded =

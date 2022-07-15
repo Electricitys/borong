@@ -1,4 +1,4 @@
-import 'package:borong/models/user.dart';
+import 'package:borong/screens/order_detail_screen.dart';
 import 'package:borong/screens/settings/contra_sheet.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import 'package:borong/widgets/contra/button_round_with_shadow.dart';
@@ -16,7 +16,7 @@ class AddressScreen extends StatefulWidget {
   final String title;
   const AddressScreen({
     super.key,
-    this.title = "Set Address",
+    this.title = "Shipping",
   });
 
   static const String routeName = "/address_screen";
@@ -191,7 +191,7 @@ class _AddressScreen extends State<AddressScreen> {
                             size: 48,
                             borderColor: ContraColors.lighteningYellow,
                             color: ContraColors.lighteningYellow,
-                            callback: () {
+                            callback: () async {
                               Navigator.pop(context);
                             },
                             shadowColor: ContraColors.woodSmoke,
@@ -332,7 +332,11 @@ class _AddressScreen extends State<AddressScreen> {
                             child: ContraButtonSolid(
                               subtle: !isValid,
                               text: "Send",
-                              onPressed: () {},
+                              onPressed: () {
+                                // if (!isValid) return;
+                                Navigator.pushNamed(
+                                    context, OrderDetailScreen.routeName);
+                              },
                               suffixIcon: SvgPicture.asset(
                                 "assets/icons/ic_navigation_white.svg",
                                 color: ContraColors.white,

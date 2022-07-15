@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_svg/svg.dart';
 
 class ContraButtonRound extends StatelessWidget {
   final Color borderColor;

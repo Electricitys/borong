@@ -14,8 +14,8 @@ class ContraText extends StatelessWidget {
 
   const ContraText({
     Key? key,
-    required this.alignment,
     required this.text,
+    this.alignment = Alignment.centerLeft,
     this.size,
     this.color,
     this.weight,

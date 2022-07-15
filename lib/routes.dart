@@ -1,4 +1,5 @@
 import 'package:borong/screens/address_screen.dart';
+import 'package:borong/screens/order_detail_screen.dart';
 import 'package:borong/screens/orders_screen.dart';
 import 'package:borong/screens/profil_screen.dart';
 import 'package:borong/screens/settings/setting_screen.dart';
@@ -39,6 +40,11 @@ class Routes {
           child: const AddressScreen(),
           type: PageTransitionType.bottomToTop,
         );
+      case OrderDetailScreen.routeName:
+        return defaultTransition(
+          child: const OrderDetailScreen(),
+          type: PageTransitionType.bottomToTop,
+        );
       case OrderListScreen.routeName:
         return defaultTransition(
           child: const OrderListScreen(),
@@ -70,8 +76,8 @@ class Routes {
       child: child,
       type: type ?? PageTransitionType.rightToLeftWithFade,
       curve: curve ?? Curves.easeInOut,
-      duration: duration ?? const Duration(milliseconds: 300),
-      reverseDuration: reverseDuration ?? const Duration(milliseconds: 200),
+      duration: duration ?? const Duration(milliseconds: 750),
+      reverseDuration: reverseDuration ?? const Duration(milliseconds: 400),
     );
   }
 }
