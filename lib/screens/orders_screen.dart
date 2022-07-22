@@ -15,7 +15,7 @@ class OrderListScreen extends StatefulWidget {
 
   const OrderListScreen({
     Key? key,
-    this.title = "Orders",
+    this.title = "Transaction",
   }) : super(key: key);
 
   static const String routeName = "/settings-orders-screen";

@@ -208,28 +208,28 @@ class _ProfilePageState extends State<ProfilePage> {
                       "https://i.pravatar.cc/300?u=fake@pravatar.com",
                       width: 128,
                       height: 128,
-                      loadingBuilder: (context, child, loadingProgress) {
-                        int expectedTotalBytes = 0;
-                        int cumulativeBytesLoaded = 0;
-                        double? value = 0;
-                        if (loadingProgress != null &&
-                            loadingProgress.expectedTotalBytes != null) {
-                          expectedTotalBytes =
-                              loadingProgress.expectedTotalBytes!;
-                          cumulativeBytesLoaded =
-                              loadingProgress.cumulativeBytesLoaded;
-                          value = cumulativeBytesLoaded / expectedTotalBytes;
-                        }
-                        return SizedBox(
-                          height: 128,
-                          width: 128,
-                          child: Center(
-                            child: CircularProgressIndicator(
-                              value: value,
-                            ),
-                          ),
-                        );
-                      },
+                      // loadingBuilder: (context, child, loadingProgress) {
+                      //   int expectedTotalBytes = 0;
+                      //   int cumulativeBytesLoaded = 0;
+                      //   double? value = 0;
+                      //   if (loadingProgress != null &&
+                      //       loadingProgress.expectedTotalBytes != null) {
+                      //     expectedTotalBytes =
+                      //         loadingProgress.expectedTotalBytes!;
+                      //     cumulativeBytesLoaded =
+                      //         loadingProgress.cumulativeBytesLoaded;
+                      //     value = cumulativeBytesLoaded / expectedTotalBytes;
+                      //   }
+                      //   return SizedBox(
+                      //     height: 128,
+                      //     width: 128,
+                      //     child: Center(
+                      //       child: CircularProgressIndicator(
+                      //         value: value,
+                      //       ),
+                      //     ),
+                      //   );
+                      // },
                       errorBuilder: (context, exception, stackTrace) {
                         //   ScaffoldMessenger.of(context).showSnackBar(
                         //     SnackBar(

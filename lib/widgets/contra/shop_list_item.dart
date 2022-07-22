@@ -24,24 +24,25 @@ class ShopListItemWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Expanded(
-                flex: 1,
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  decoration: ShapeDecoration(
-                      color: shopItem.bgColor,
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(16)),
-                          side: BorderSide(
-                              color: ContraColors.woodSmoke, width: 2))),
-                  child: Hero(
-                    tag: 'hero-${shopItem.id}',
-                    child: SvgPicture.asset(
-                      shopItem.image,
-                      width: 100,
-                      height: 100,
-                    ),
+              flex: 1,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                decoration: ShapeDecoration(
+                    color: shopItem.bgColor,
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(16)),
+                        side: BorderSide(
+                            color: ContraColors.woodSmoke, width: 2))),
+                child: Hero(
+                  tag: 'hero-${shopItem.id}',
+                  child: SvgPicture.asset(
+                    shopItem.image,
+                    width: 100,
+                    height: 100,
                   ),
-                )),
+                ),
+              ),
+            ),
             const SizedBox(
               width: 16,
             ),

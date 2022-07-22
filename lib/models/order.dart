@@ -12,14 +12,14 @@ enum OrderType {
   sell,
 }
 
-class OrderDetail extends DataEntity {
+class OrderDetailEntity extends DataEntity {
   final String userId;
   final int total;
   final String shippingAddress;
   final String consignee;
   final OrderType type;
   final OrderStatus status;
-  OrderDetail({
+  OrderDetailEntity({
     required this.userId,
     required this.total,
     required this.shippingAddress,
@@ -32,14 +32,14 @@ class OrderDetail extends DataEntity {
   });
 }
 
-class OrderItem extends DataEntity {
+class OrderItemEntity extends DataEntity {
   final String name;
   final double price;
   final int quantity;
   final String productId;
   final String orderId;
 
-  OrderItem({
+  OrderItemEntity({
     required this.name,
     required this.price,
     required this.quantity,

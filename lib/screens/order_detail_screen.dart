@@ -34,6 +34,24 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
       quantity: 2,
       total: 10000 * 2,
     ));
+    orderItems.add(_OrderItem(
+      name: "Kaos Denium",
+      price: 10000,
+      quantity: 2,
+      total: 10000 * 2,
+    ));
+    orderItems.add(_OrderItem(
+      name: "Kaos Denium",
+      price: 25000,
+      quantity: 2,
+      total: 25000 * 2,
+    ));
+    orderItems.add(_OrderItem(
+      name: "Kaos Denium",
+      price: 10000,
+      quantity: 2,
+      total: 10000 * 2,
+    ));
 
     orderDetail.subtotal =
         orderItems.fold<double>(0, (value, element) => element.total + value);

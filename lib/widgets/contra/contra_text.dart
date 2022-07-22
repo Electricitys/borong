@@ -25,19 +25,33 @@ class ContraText extends StatelessWidget {
     this.softWrap,
   }) : super(key: key);
 
+  static const TextStyle style = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    color: ContraColors.black,
+    fontFamily: "Montserrat",
+  );
+
+  static const TextStyle bold = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w800,
+    color: ContraColors.black,
+    fontFamily: "Montserrat",
+  );
+
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: alignment,
       child: Text(
         text,
-        textAlign: textAlign ?? TextAlign.start,
+        textAlign: textAlign ?? TextAlign.left,
         overflow: overflow,
         maxLines: maxLine,
         softWrap: softWrap,
-        style: TextStyle(
+        style: ContraText.style.copyWith(
             fontSize: size ?? 36,
-            fontWeight: weight ?? FontWeight.w800,
+            fontWeight: weight,
             color: color ?? ContraColors.black),
       ),
     );

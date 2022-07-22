@@ -5,6 +5,7 @@ import 'package:borong/screens/profil_screen.dart';
 import 'package:borong/screens/settings/setting_screen.dart';
 import 'package:borong/screens/settings/settings_manage_account_screen.dart';
 import 'package:borong/screens/settings/settings_manage_privacy_screen.dart';
+import 'package:borong/screens/transactions/transactions_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:borong/screens/signup_screen.dart';
 import 'package:borong/screens/signin_screen.dart';
@@ -44,6 +45,10 @@ class Routes {
         return defaultTransition(
           child: const OrderDetailScreen(),
           type: PageTransitionType.bottomToTop,
+        );
+      case TransactionsScreen.routeName:
+        return defaultTransition(
+          child: const TransactionsScreen(),
         );
       case OrderListScreen.routeName:
         return defaultTransition(
