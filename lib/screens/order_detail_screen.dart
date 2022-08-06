@@ -1,10 +1,11 @@
-import 'package:borong/models/order.dart';
+import 'package:borong/screens/cart_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import 'package:borong/widgets/contra/contra_appbar.dart';
 import 'package:borong/widgets/contra/contra_box.dart';
 import 'package:borong/widgets/contra/contra_button_solid.dart';
 import 'package:borong/widgets/contra/contra_divider.dart';
 import 'package:borong/widgets/contra/contra_text.dart';
+import 'package:borong/widgets/contra/contra_toast_screen.dart';
 import 'package:borong/widgets/contra/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
@@ -110,21 +111,21 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                         size: 16,
                         weight: FontWeight.normal,
                       ),
-                      SizedBox(height: 12.0),
-                      ContraText(
-                        alignment: Alignment.centerLeft,
-                        text: "Payment Method",
-                        color: ContraColors.white,
-                        size: 16,
-                      ),
-                      SizedBox(height: 8.0),
-                      ContraText(
-                        alignment: Alignment.centerLeft,
-                        text: "Cash on Delivery",
-                        color: ContraColors.white,
-                        size: 16,
-                        weight: FontWeight.normal,
-                      )
+                      // SizedBox(height: 12.0),
+                      // ContraText(
+                      //   alignment: Alignment.centerLeft,
+                      //   text: "Payment Method",
+                      //   color: ContraColors.white,
+                      //   size: 16,
+                      // ),
+                      // SizedBox(height: 8.0),
+                      // ContraText(
+                      //   alignment: Alignment.centerLeft,
+                      //   text: "Cash on Delivery",
+                      //   color: ContraColors.white,
+                      //   size: 16,
+                      //   weight: FontWeight.normal,
+                      // )
                     ],
                   ),
                 ),
@@ -192,7 +193,23 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                               horizontal: 24.0, vertical: 12.0),
                           child: ContraButtonSolid(
                             text: "Order",
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ContraToastScreen(
+                                    title: "Complete",
+                                    type: ContraToastType.success,
+                                    subtitle: 'Order has been placed',
+                                    onDismiss: () {
+                                      // Navigator.pop(context);
+                                      Navigator.pushReplacementNamed(context,
+                                          ShoppingCartScreen.routeName);
+                                    },
+                                  ),
+                                ),
+                              );
+                            },
                           ),
                         ),
                       ],

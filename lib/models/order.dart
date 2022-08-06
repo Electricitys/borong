@@ -1,9 +1,19 @@
 import 'package:borong/models/data.dart';
 
 enum OrderStatus {
+  /// Waiting to pay
+  waiting,
+
+  /// Waiting to get confirmation from the seller
   pending,
+
+  /// Waiting to be shipped
   processing,
+
+  /// Completed
   completed,
+
+  /// Canceled
   canceled,
 }
 

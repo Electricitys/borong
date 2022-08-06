@@ -44,7 +44,7 @@ class _ShoppingHomePageState extends State<ShoppingHomePage> {
         image: "assets/images/shopping/shirt_and_coat.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: ContraColors.carribeanGreen,
+        bgColor: ContraColors.caribbeanGreen,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),

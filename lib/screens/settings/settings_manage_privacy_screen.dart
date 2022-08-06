@@ -47,7 +47,7 @@ class _SettingsManagePrivacyScreenState
     _initPackageInfo();
     detailsOne.add(SettingsCardItemDetail(
         title: "Password",
-        color: ContraColors.caribbeanColor,
+        color: ContraColors.caribbeanGreen,
         textColor: ContraColors.woodSmoke,
         onTap: () {
           FocusNode fieldFocusNode = FocusNode();

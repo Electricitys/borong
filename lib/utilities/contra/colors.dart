@@ -5,8 +5,7 @@ class ContraColors {
   static const Color athensGray = Color(0xFFF4F5F7);
   static const Color bareleyWhite = Color(0xFFFFF4CC);
   static const Color black = Color(0xFF000000);
-  static const Color carribeanGreen = Color(0xFF00C6AE);
-  static const Color caribbeanColor = Color(0xFF00C6AE);
+  static const Color caribbeanGreen = Color(0xFF00C6AE);
   static const Color dandelion = Color(0xFFFFD465);
   static const Color fairPink = Color(0xFFFFE8E8);
   static const Color flamingo = Color(0xFFF95A2C);

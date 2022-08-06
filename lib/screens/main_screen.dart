@@ -3,7 +3,8 @@ import 'package:borong/screens/profil_screen.dart';
 import 'package:borong/screens/search_screen.dart';
 import 'package:borong/screens/transactions/transactions_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
+import 'dart:developer' as developer;
 
 import 'home_screen.dart';
 
@@ -19,15 +20,34 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
-  final List<Widget> _childrenWidgets = [
-    const ShoppingHomePage(),
-    const ShoppingSearchPage(),
-    const ShoppingCartScreen(),
-    const TransactionsScreen(),
-    const ProfilePage(),
-  ];
+  final List<int> _indexTrail = [0];
+  List<Widget> _childrenWidgets(BuildContext context) {
+    Widget wrapper(Widget child) => WillPopScope(
+          onWillPop: () async {
+            if (_indexTrail.length <= 1) return true;
+            _changeTab(_indexTrail.elementAt(1));
+            _indexTrail.removeAt(0);
+            return false;
+          },
+          child: child,
+        );
+    return [
+      wrapper(const ShoppingHomePage()),
+      wrapper(const ShoppingSearchPage()),
+      wrapper(const ShoppingCartScreen()),
+      wrapper(const TransactionsScreen()),
+      wrapper(const ProfilePage()),
+    ];
+  }
 
   void _onItemTapped(int index) {
+    if (_indexTrail.first != index) {
+      _indexTrail.insert(0, index);
+      _changeTab(index);
+    }
+  }
+
+  void _changeTab(int index) {
     setState(() {
       _currentIndex = index;
     });
@@ -36,9 +56,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: _childrenWidgets.elementAt(_currentIndex),
-      ),
+      body: _childrenWidgets(context).elementAt(_currentIndex),
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0,
         backgroundColor: Colors.white,

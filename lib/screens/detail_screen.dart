@@ -35,7 +35,7 @@ class _ShoppingDetailPageState extends State<ShoppingDetailPage> {
     _filters.add("L");
     _colors.add(ContraColors.flamingo);
     _colors.add(ContraColors.lighteningYellow);
-    _colors.add(ContraColors.carribeanGreen);
+    _colors.add(ContraColors.caribbeanGreen);
     super.initState();
   }
 

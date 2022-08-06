@@ -50,7 +50,7 @@ class _ProfilePageState extends State<ProfilePage> {
         image: "assets/images/shopping/shirt_and_coat.svg",
         name: "Flash tee",
         price: "189",
-        bgColor: ContraColors.carribeanGreen,
+        bgColor: ContraColors.caribbeanGreen,
         by: "Company name"));
     _items.add(ShopItem(
         id: uuid.v1(),
@@ -124,7 +124,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     List<_KeyVal> profileStats = [
-      _KeyVal(label: "Followers", value: (10).toString()),
+      _KeyVal(label: "Product Sold", value: "${(10).toString()}k"),
       _KeyVal(label: "Products", value: (125).toString()),
       _KeyVal(label: "Rate", value: (5.0).toString()),
     ];

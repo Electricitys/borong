@@ -51,7 +51,7 @@ class _SettingsManageAccountScreenState
     detailsOne.add(SettingsCardItemDetail(
         title: "Name",
         value: "Imanuel Pundoko",
-        color: ContraColors.caribbeanColor,
+        color: ContraColors.caribbeanGreen,
         textColor: ContraColors.woodSmoke,
         onTap: () {
           FocusNode fieldFocusNode = FocusNode();
@@ -120,9 +120,9 @@ class _SettingsManageAccountScreenState
         textColor: ContraColors.woodSmoke,
         onTap: () {
           FocusNode fieldFocusNode = FocusNode();
-          List<SelectOptions> genderList = [
-            SelectOptions(label: UserGender.male, value: UserGender.male),
-            SelectOptions(label: UserGender.female, value: UserGender.female)
+          List<SelectOption> genderList = [
+            SelectOption(label: UserGender.male, value: UserGender.male),
+            SelectOption(label: UserGender.female, value: UserGender.female)
           ];
           _showModalSheet(
             title: "Edit Gender",
@@ -183,7 +183,7 @@ class _SettingsManageAccountScreenState
     detailsTwo.add(SettingsCardItemDetail(
         title: "Phone number",
         value: "+62 852-9948-2331",
-        color: ContraColors.caribbeanColor,
+        color: ContraColors.caribbeanGreen,
         textColor: ContraColors.woodSmoke,
         onTap: () {
           FocusNode fieldFocusNode = FocusNode();

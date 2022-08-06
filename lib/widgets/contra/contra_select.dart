@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 
-class SelectOptions {
+class SelectOption {
   final String label;
   final dynamic value;
 
-  SelectOptions({
+  SelectOption({
     required this.label,
     required this.value,
   });
@@ -12,14 +12,16 @@ class SelectOptions {
 
 class ContraSelect extends StatelessWidget {
   final double? height;
-  final List<SelectOptions> options;
-  final void Function(int index, SelectOptions selected) onChanged;
+  final List<SelectOption> options;
+  final void Function(int index, SelectOption selected) onChanged;
+  final int initialItem;
 
   const ContraSelect({
     super.key,
     required this.options,
     required this.onChanged,
     this.height = 200,
+    this.initialItem = 0,
   });
 
   @override
@@ -27,6 +29,7 @@ class ContraSelect extends StatelessWidget {
     return SizedBox(
       height: height,
       child: CupertinoPicker(
+        scrollController: FixedExtentScrollController(initialItem: initialItem),
         itemExtent: 32.0,
         magnification: 1.22,
         onSelectedItemChanged: (index) {
