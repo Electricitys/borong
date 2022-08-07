@@ -13,6 +13,7 @@ enum ContraToastType {
 class ContraToastScreen extends StatelessWidget {
   final String title;
   final String subtitle;
+  final String actionText;
   final ContraToastType type;
   final void Function() onDismiss;
 
@@ -21,6 +22,7 @@ class ContraToastScreen extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.onDismiss,
+    this.actionText = "Okay",
     this.type = ContraToastType.info,
   }) : super(key: key);
 
@@ -64,12 +66,12 @@ class ContraToastScreen extends StatelessWidget {
                 size: 46,
               ),
             ),
-            SizedBox(height: 36),
+            const SizedBox(height: 36),
             ContraText(
               alignment: Alignment.center,
               text: title,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             ContraText(
               alignment: Alignment.center,
               textAlign: TextAlign.center,
@@ -78,11 +80,11 @@ class ContraToastScreen extends StatelessWidget {
               size: 21,
               weight: FontWeight.normal,
             ),
-            SizedBox(height: 36),
+            const SizedBox(height: 36),
             SizedBox(
               width: 136,
               child: ContraButtonSolid(
-                  text: "Okay",
+                  text: actionText,
                   onPressed: (() {
                     dismiss();
                   })),

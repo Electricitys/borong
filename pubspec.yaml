@@ -47,8 +47,9 @@ dependencies:
   flutter_swiper: ^1.1.6
   google_maps_flutter: ^2.1.8
   location: ^4.4.0
-  permission_handler: ^10.0.0
+  permission_handler: ^9.2.0
   intl: ^0.17.0
+  image_picker: ^0.8.5+3
 
 dev_dependencies:
   flutter_test:

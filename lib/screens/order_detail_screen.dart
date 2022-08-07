@@ -202,13 +202,25 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                     type: ContraToastType.success,
                                     subtitle: 'Order has been placed',
                                     onDismiss: () {
-                                      // Navigator.pop(context);
-                                      Navigator.pushReplacementNamed(context,
-                                          ShoppingCartScreen.routeName);
+                                      Navigator.pushNamedAndRemoveUntil(
+                                          context, '/', (_) => false);
                                     },
                                   ),
                                 ),
                               );
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //     builder: (context) => ContraToastScreen(
+                              //       title: "Error",
+                              //       type: ContraToastType.error,
+                              //       subtitle: 'Order has been canceled',
+                              //       onDismiss: () {
+                              //         Navigator.pop(context);
+                              //       },
+                              //     ),
+                              //   ),
+                              // );
                             },
                           ),
                         ),

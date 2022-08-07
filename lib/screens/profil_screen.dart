@@ -1,6 +1,7 @@
 import 'package:borong/models/category_item.dart';
 import 'package:borong/models/shop_item.dart';
 import 'package:borong/screens/detail_screen.dart';
+import 'package:borong/screens/products/add_product_screen.dart';
 import 'package:borong/screens/settings/setting_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import 'package:borong/widgets/contra/contra_text.dart';
@@ -145,8 +146,14 @@ class _ProfilePageState extends State<ProfilePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  const SizedBox(
-                    width: 48,
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, AddProductScreen.routeName);
+                    },
+                    icon: const Icon(
+                      Icons.add_box_outlined,
+                      color: ContraColors.woodSmoke,
+                    ),
                   ),
                   const Expanded(
                     flex: 1,
