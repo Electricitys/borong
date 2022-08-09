@@ -66,6 +66,7 @@ class _SettingsManagePrivacyScreenState
             child: Column(
               children: [
                 ContraInputText(
+                  textInputAction: TextInputAction.next,
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: true,
                   focusNode: fieldFocusNode,

@@ -19,9 +19,9 @@ class ContraImagePicker extends StatefulWidget {
 }
 
 class _ContraImagePickerState extends State<ContraImagePicker> {
-  List<XFile>? _imageFileList;
+  XFile? _imageFile;
   void _setImageFileListFromFile(XFile? value) {
-    _imageFileList = value == null ? null : <XFile>[value];
+    _imageFile = value;
   }
 
   dynamic _pickImageError;
@@ -73,18 +73,12 @@ class _ContraImagePickerState extends State<ContraImagePicker> {
     if (retrieveError != null) {
       return retrieveError;
     }
-    if (_imageFileList != null) {
+    if (_imageFile != null) {
       return Semantics(
         label: 'image_picker_example_picked_images',
-        child: ListView.builder(
-          key: UniqueKey(),
-          itemBuilder: (BuildContext context, int index) {
-            return Semantics(
-              label: 'image_picker_example_picked_image',
-              child: Image.file(File(_imageFileList![index].path)),
-            );
-          },
-          itemCount: _imageFileList!.length,
+        child: FittedBox(
+          fit: BoxFit.fill,
+          child: Image.file(File(_imageFile!.path)),
         ),
       );
     } else if (_pickImageError != null) {
@@ -188,46 +182,51 @@ class _ContraImagePickerState extends State<ContraImagePicker> {
           ),
         )
       ]),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          // horizontal: 24.0,
-          vertical: 12.0,
-        ),
-        child: Row(
-          children: _availabelSource
-              .map((source) => Padding(
-                    padding: const EdgeInsets.only(right: 16.0),
-                    child: GestureDetector(
-                      onTap: (() {
-                        onPick(source.type);
-                        Navigator.pop(context);
-                      }),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black, width: 2),
-                          borderRadius: BorderRadius.circular(16),
-                          gradient: LinearGradient(
-                            begin: Alignment.bottomLeft,
-                            end: Alignment.topRight,
-                            colors: [
-                              Colors.grey.shade300,
-                              Colors.grey.shade200,
-                            ],
+      child: Column(
+        children: [
+          if (_imageFile != null) Image.file(File(_imageFile!.path)),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24.0,
+              vertical: 24.0,
+            ),
+            child: Row(
+              children: _availabelSource
+                  .map((source) => Padding(
+                        padding: const EdgeInsets.only(right: 16.0),
+                        child: GestureDetector(
+                          onTap: (() {
+                            onPick(source.type);
+                            Navigator.pop(context);
+                          }),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black, width: 2),
+                              borderRadius: BorderRadius.circular(16),
+                              gradient: LinearGradient(
+                                begin: Alignment.bottomLeft,
+                                end: Alignment.topRight,
+                                colors: [
+                                  Colors.grey.shade300,
+                                  Colors.grey.shade200,
+                                ],
+                              ),
+                            ),
+                            child: SizedBox(
+                              height: 76,
+                              width: 76,
+                              child: Icon(
+                                source.icon,
+                                size: 36,
+                              ),
+                            ),
                           ),
                         ),
-                        child: SizedBox(
-                          height: 76,
-                          width: 76,
-                          child: Icon(
-                            source.icon,
-                            size: 36,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ))
-              .toList(),
-        ),
+                      ))
+                  .toList(),
+            ),
+          ),
+        ],
       ),
     );
   }
