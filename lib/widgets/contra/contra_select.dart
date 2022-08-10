@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 
-class SelectOption {
+class SelectOption<T> {
   final String label;
-  final dynamic value;
+  final T value;
 
   SelectOption({
     required this.label,
@@ -10,10 +10,10 @@ class SelectOption {
   });
 }
 
-class ContraSelect extends StatelessWidget {
+class ContraSelect<T> extends StatelessWidget {
   final double? height;
-  final List<SelectOption> options;
-  final void Function(int index, SelectOption selected) onChanged;
+  final List<SelectOption<T>> options;
+  final void Function(int index, SelectOption<T> selected) onChanged;
   final int initialItem;
 
   const ContraSelect({
@@ -23,6 +23,10 @@ class ContraSelect extends StatelessWidget {
     this.height = 200,
     this.initialItem = 0,
   });
+
+  static option<T>(String label, T value) {
+    return SelectOption(label: label, value: value);
+  }
 
   @override
   Widget build(BuildContext context) {

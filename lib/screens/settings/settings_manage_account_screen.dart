@@ -120,7 +120,7 @@ class _SettingsManageAccountScreenState
         textColor: ContraColors.woodSmoke,
         onTap: () {
           FocusNode fieldFocusNode = FocusNode();
-          List<SelectOption> genderList = [
+          List<SelectOption<String>> genderList = [
             SelectOption(label: UserGender.male, value: UserGender.male),
             SelectOption(label: UserGender.female, value: UserGender.female)
           ];
@@ -138,7 +138,7 @@ class _SettingsManageAccountScreenState
             },
             child: Column(
               children: [
-                ContraSelect(
+                ContraSelect<String>(
                   height: 150,
                   options: genderList,
                   onChanged: ((index, selected) {

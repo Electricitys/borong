@@ -1,4 +1,3 @@
-import 'package:borong/screens/cart_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import 'package:borong/widgets/contra/contra_appbar.dart';
 import 'package:borong/widgets/contra/contra_box.dart';

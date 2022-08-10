@@ -48,24 +48,26 @@ class SettingsListCardItem extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       child: Row(
                         children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 24),
-                            child: Container(
-                              decoration: ShapeDecoration(
-                                  shape: const CircleBorder(),
-                                  color: detail.borderColor),
-                              child: Padding(
-                                padding: const EdgeInsets.all(2.0),
-                                child: Container(
-                                  decoration: ShapeDecoration(
-                                      shape: const CircleBorder(),
-                                      color: item.color),
-                                  width: 24,
-                                  height: 24,
+                          if (item.color != null)
+                            Padding(
+                              padding: const EdgeInsets.only(left: 24.0),
+                              child: Container(
+                                decoration: ShapeDecoration(
+                                    shape: const CircleBorder(),
+                                    color: detail.borderColor),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Container(
+                                    decoration: ShapeDecoration(
+                                        shape: const CircleBorder(),
+                                        color: item.color),
+                                    width: 24,
+                                    height: 24,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
+                          const SizedBox(width: 24.0),
                           Expanded(
                             flex: 1,
                             child: Column(

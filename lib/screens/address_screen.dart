@@ -63,7 +63,6 @@ class _AddressScreen extends State<AddressScreen> {
       onDispose: () {
         fieldFocusNode.dispose();
       },
-      onSubmit: (value) async {},
       title: "Set information",
       action: Row(children: <Widget>[
         ClipOval(

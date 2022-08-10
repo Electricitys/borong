@@ -29,7 +29,6 @@ class _TransactionFilterButtonState extends State<TransactionFilterButton> {
     int initialValue = widget.options.indexOf(selectedValue);
     ContraSheet.showModalSheet(context,
         title: "Set filter",
-        onSubmit: (value) async {},
         action: Row(children: <Widget>[
           ClipOval(
             child: Material(

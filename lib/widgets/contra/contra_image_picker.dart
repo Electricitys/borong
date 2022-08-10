@@ -141,7 +141,6 @@ class _ContraImagePickerState extends State<ContraImagePicker> {
     return ContraSheet.showModalSheet(
       context,
       title: 'Choose an image',
-      onSubmit: (value) async {},
       action: Row(children: <Widget>[
         ClipOval(
           child: Material(

@@ -2,17 +2,23 @@ import 'package:borong/models/settings.dart';
 import 'package:borong/screens/settings/contra_sheet.dart';
 import 'package:borong/screens/settings/setting_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';
+import 'package:borong/utilities/currency_formatter.dart';
 import 'package:borong/widgets/contra/button_round_with_shadow.dart';
+import 'package:borong/widgets/contra/contra_button_solid.dart';
 import 'package:borong/widgets/contra/contra_date_picker.dart';
 import 'package:borong/widgets/contra/contra_image_picker.dart';
 import 'package:borong/widgets/contra/contra_input_text.dart';
+import 'package:borong/widgets/contra/contra_list_card.dart';
 import 'package:borong/widgets/contra/contra_select.dart';
 import 'package:borong/widgets/contra/contra_text.dart';
 import 'package:borong/widgets/contra/custom_app_bar.dart';
 import 'package:borong/widgets/contra/settings_list_card_item.dart';
+import 'package:borong/widgets/contra/settings_list_card_item_input_select.dart';
+import 'package:borong/widgets/contra/settings_list_card_item_input_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 
 class AddProductScreen extends StatefulWidget {
   const AddProductScreen({super.key});
@@ -24,180 +30,19 @@ class AddProductScreen extends StatefulWidget {
 }
 
 class _AddProductScreenState extends State<AddProductScreen> {
-  late List<XFile> _imageList = <XFile>[];
+  late final List<XFile> _imageList = <XFile>[];
 
-  late SettingsCardDetail detailOne;
-  late SettingsCardDetail detailTwo;
-
-  List<SettingsCardItemDetail> detailsOne = <SettingsCardItemDetail>[];
-  List<SettingsCardItemDetail> detailsTwo = <SettingsCardItemDetail>[];
+  late List<SelectOption<String>> category = <SelectOption<String>>[
+    SelectOption(label: "Category 1", value: "1"),
+    SelectOption(label: "Category 2", value: "2"),
+    SelectOption(label: "Category 3", value: "3"),
+    SelectOption(label: "Category 4", value: "4"),
+    SelectOption(label: "Category 5", value: "5"),
+  ];
 
   @override
   void initState() {
     super.initState();
-    detailsOne.add(SettingsCardItemDetail(
-        title: "Name",
-        value: "Imanuel Pundoko",
-        color: ContraColors.caribbeanGreen,
-        textColor: ContraColors.woodSmoke,
-        onTap: () {
-          FocusNode fieldFocusNode = FocusNode();
-          _showModalSheet(
-            title: "Edit Fullname",
-            onInitState: () {
-              fieldFocusNode.requestFocus();
-            },
-            onDispose: () {
-              fieldFocusNode.dispose();
-            },
-            onSubmit: () async {
-              return true;
-            },
-            child: Column(
-              children: [
-                ContraInputText(
-                  initialValue: "Imanuel Pundoko",
-                  focusNode: fieldFocusNode,
-                  placeholder: "Fullname",
-                ),
-              ],
-            ),
-          );
-        }));
-    detailsOne.add(SettingsCardItemDetail(
-        title: "Birthday",
-        value: "May 7, 1999",
-        color: ContraColors.pastelPink,
-        textColor: ContraColors.woodSmoke,
-        onTap: () {
-          int currentYear = DateTime.now().year;
-          FocusNode fieldFocusNode = FocusNode();
-          _showModalSheet(
-            title: "Edit Birthday",
-            onInitState: () {
-              fieldFocusNode.requestFocus();
-            },
-            onDispose: () {
-              fieldFocusNode.dispose();
-            },
-            onSubmit: () async {
-              return true;
-            },
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 24.0),
-                  child: ContraDatePicker(
-                    initialDateTime: DateTime(currentYear - 19),
-                    minimumYear: currentYear - 70,
-                    maximumYear: currentYear - 18,
-                    onDateTimeChanged: (value) {},
-                  ),
-                )
-              ],
-            ),
-          );
-        }));
-    detailsOne.add(SettingsCardItemDetail(
-        title: "Gender",
-        value: "Male",
-        color: ContraColors.foam,
-        textColor: ContraColors.woodSmoke,
-        onTap: () {
-          FocusNode fieldFocusNode = FocusNode();
-          List<SelectOption> genderList = [];
-          _showModalSheet(
-            title: "Edit Gender",
-            onInitState: () {
-              fieldFocusNode.requestFocus();
-            },
-            onDispose: () {
-              fieldFocusNode.dispose();
-            },
-            onSubmit: () async {
-              return true;
-            },
-            child: Column(
-              children: [
-                ContraSelect(
-                  height: 150,
-                  options: genderList,
-                  onChanged: ((index, selected) {}),
-                )
-              ],
-            ),
-          );
-        }));
-
-    detailsTwo.add(SettingsCardItemDetail(
-        title: "Email",
-        value: "ilomon10@gmail.com",
-        color: ContraColors.lighteningYellow,
-        textColor: ContraColors.woodSmoke,
-        onTap: () {
-          FocusNode fieldFocusNode = FocusNode();
-          _showModalSheet(
-            title: "Edit Edit",
-            onInitState: () {
-              fieldFocusNode.requestFocus();
-            },
-            onDispose: () {
-              fieldFocusNode.dispose();
-            },
-            onSubmit: () async {
-              return true;
-            },
-            child: Column(
-              children: [
-                ContraInputText(
-                  initialValue: "ilomon10@gmail.com",
-                  focusNode: fieldFocusNode,
-                  placeholder: "Edit",
-                ),
-              ],
-            ),
-          );
-        }));
-    detailsTwo.add(SettingsCardItemDetail(
-        title: "Phone number",
-        value: "+62 852-9948-2331",
-        color: ContraColors.caribbeanGreen,
-        textColor: ContraColors.woodSmoke,
-        onTap: () {
-          FocusNode fieldFocusNode = FocusNode();
-          _showModalSheet(
-            title: "Edit Phone Number",
-            onInitState: () {
-              fieldFocusNode.requestFocus();
-            },
-            onDispose: () {
-              fieldFocusNode.dispose();
-            },
-            onSubmit: () async {
-              return true;
-            },
-            child: Column(
-              children: [
-                ContraInputText(
-                  initialValue: "+62 852-9948-2331",
-                  focusNode: fieldFocusNode,
-                  placeholder: "Phone Number",
-                ),
-              ],
-            ),
-          );
-        }));
-
-    detailOne = SettingsCardDetail(
-        title: "Product Information",
-        bgColor: CupertinoColors.white,
-        borderColor: ContraColors.woodSmoke,
-        items: detailsOne);
-    detailTwo = SettingsCardDetail(
-        title: "Product Description",
-        bgColor: CupertinoColors.white,
-        borderColor: ContraColors.woodSmoke,
-        items: detailsTwo);
   }
 
   Future<void> _showModalSheet({
@@ -211,8 +56,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
       context,
       onInitState: onInitState,
       onDispose: onDispose,
-      onSubmit: (value) async {},
-      title: "Set information",
+      title: title,
       action: Row(children: <Widget>[
         ClipOval(
           child: Material(
@@ -325,11 +169,11 @@ class _AddProductScreenState extends State<AddProductScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             const SizedBox(height: 16),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: ContraText(
                 color: ContraColors.trout,
-                text: "Product Photos",
+                text: "Product Photos (${_imageList.length}/5)",
                 textAlign: TextAlign.left,
                 weight: FontWeight.bold,
                 size: 21,
@@ -344,10 +188,12 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 physics: const ClampingScrollPhysics(),
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
-                itemCount: _imageList.length + 1,
+                itemCount: _imageList.length < 5
+                    ? _imageList.length + 1
+                    : _imageList.length,
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 itemBuilder: (context, index) {
-                  if (index > _imageList.length - 1) {
+                  if (_imageList.length < 5 && index > _imageList.length - 1) {
                     return ContraImagePicker(
                       onImageSelected: (file) {
                         setState(() {
@@ -370,12 +216,73 @@ class _AddProductScreenState extends State<AddProductScreen> {
               ),
             ),
             const SizedBox(height: 16),
-            SettingsListCardItem(
-              detail: detailOne,
+            ContraListCard(
+              title: "Product Information",
+              child: Column(
+                children: <Widget>[
+                  SettingsListCardItemInputText(
+                      title: "Name",
+                      sheetTitle: "Edit Name",
+                      initialValue: "...",
+                      onChanged: ((value) {})),
+                  SettingsListCardItemInputTextSelect<String>(
+                      title: "Category",
+                      initialValue: category[2],
+                      options: category,
+                      onChanged: ((index, value) {})),
+                  SettingsListCardItemInputText(
+                      title: "Price",
+                      keyboardType: TextInputType.number,
+                      helperTextCallback: (value) =>
+                          CurrencyFormatter.format(value),
+                      sheetTitle: "Edit Price",
+                      initialValue: "0",
+                      valueFormatter: (value) =>
+                          CurrencyFormatter.format(value),
+                      onChanged: ((value) {})),
+                  SettingsListCardItemInputText(
+                      title: "Stock",
+                      keyboardType: TextInputType.number,
+                      sheetTitle: "Edit Stock",
+                      initialValue: "1",
+                      onChanged: ((value) {})),
+                ],
+              ),
             ),
-            SettingsListCardItem(
-              detail: detailTwo,
+            ContraListCard(
+              title: "Product Detail",
+              child: Column(
+                children: <Widget>[
+                  SettingsListCardItemInputTextSelect<bool>(
+                      title: "Condition",
+                      initialValue: SelectOption(label: "New", value: true),
+                      options: [
+                        SelectOption(label: "New", value: true),
+                        SelectOption(label: "Second", value: false),
+                      ],
+                      onChanged: ((index, value) {})),
+                  SettingsListCardItemInputText(
+                      title: "Description",
+                      sheetTitle: "Edit Description",
+                      valueFormatter: ((value) =>
+                          value.isEmpty ? "..." : value),
+                      onChanged: ((value) {}),
+                      textInputAction: TextInputAction.newline,
+                      keyboardType: TextInputType.multiline,
+                      placeholder:
+                          "Sepatu Sneakers Pria Tokostore Kanvas Hitam Seri C28B\n-Model simple\n-Nyaman Digunakan\n-Tersedia warna hitam\n\nBahan:\nUpper: Polyester,\nLower: Polyester\nUkuran: 36",
+                      maxLines: null,
+                      minLines: 10,
+                      maxLength: 512),
+                ],
+              ),
             ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
+              child: ContraButtonSolid(text: "Publish", onPressed: (() {})),
+            ),
+            const SizedBox(height: 24.0)
           ],
         ),
       ),

@@ -27,7 +27,6 @@ class ContraSheet extends StatefulWidget {
     Widget? action,
     VoidCallback? onInitState,
     VoidCallback? onDispose,
-    required Future<void> Function(dynamic value) onSubmit,
     required Widget child,
   }) async {
     showModalBottomSheet(
