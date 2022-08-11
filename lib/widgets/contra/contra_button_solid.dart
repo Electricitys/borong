@@ -57,6 +57,8 @@ class ContraButtonSolid extends StatelessWidget {
   final ContraButtonStyle? style;
   final bool withShadow;
   final bool withBorder;
+  final bool isLoading;
+  final bool isDisabled;
 
   const ContraButtonSolid({
     super.key,
@@ -69,6 +71,8 @@ class ContraButtonSolid extends StatelessWidget {
     this.style = ContraButtonSolid.large,
     this.withShadow = false,
     this.withBorder = false,
+    this.isLoading = false,
+    this.isDisabled = false,
   });
 
   static const ContraButtonStyle small = ContraButtonStyle(
@@ -146,7 +150,7 @@ class ContraButtonSolid extends StatelessWidget {
                         )
                       : BorderSide.none)),
           child: ElevatedButton(
-            onPressed: onPressed,
+            onPressed: isDisabled == true ? null : onPressed,
             style: buttonStyle.copyWith(
               elevation: MaterialStateProperty.all(0.0),
               padding: MaterialStateProperty.all(style.padding),
@@ -163,15 +167,25 @@ class ContraButtonSolid extends StatelessWidget {
                         child: prefixIcon,
                       )
                     : const SizedBox(),
-                Text(
-                  text,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: style.textSize,
-                    fontWeight: FontWeight.w800,
-                    fontFamily: "Montserrat",
-                  ).merge(style.textStyle),
-                ),
+                if (isLoading == true)
+                  Container(
+                    margin: const EdgeInsets.only(right: 8.0),
+                    height: 24,
+                    width: 24,
+                    child: CircularProgressIndicator(
+                      color: style.color,
+                    ),
+                  )
+                else
+                  Text(
+                    text,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: style.textSize,
+                      fontWeight: FontWeight.w800,
+                      fontFamily: "Montserrat",
+                    ).merge(style.textStyle),
+                  ),
                 suffixIcon != null
                     ? Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),

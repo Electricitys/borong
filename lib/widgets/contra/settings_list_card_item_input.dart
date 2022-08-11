@@ -28,7 +28,6 @@ class SettingsListCardItemInput extends StatelessWidget {
   }) : super();
 
   void _onSubmit(BuildContext context) {
-    developer.log("_onSubmit");
     ScaffoldMessenger.of(context)
       ..removeCurrentSnackBar()
       ..showSnackBar(const SnackBar(
@@ -99,7 +98,11 @@ class SettingsListCardItemInput extends StatelessWidget {
     return ContraListCardItemBase(
       title: title,
       value: _valueFormatter(),
-      onTap: () => _showModalSheet(context),
+      onTap: () {
+        Future.delayed(const Duration(milliseconds: 175), () {
+          _showModalSheet(context);
+        });
+      },
       rightElement: Container(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 4),
         height: 36,

@@ -26,6 +26,33 @@ class ContraToastScreen extends StatelessWidget {
     this.type = ContraToastType.info,
   }) : super(key: key);
 
+  static void pushToastScreen(
+    BuildContext context, {
+    required String title,
+    required String subtitle,
+    String actionText = "Okay",
+    ContraToastType type = ContraToastType.info,
+    required void Function() onDismiss,
+  }) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => WillPopScope(
+          onWillPop: () async {
+            onDismiss();
+            return false;
+          },
+          child: ContraToastScreen(
+            title: title,
+            type: type,
+            subtitle: subtitle,
+            onDismiss: onDismiss,
+          ),
+        ),
+      ),
+    );
+  }
+
   dismiss() {
     // Navigator.pop(context);
     onDismiss();
@@ -86,7 +113,9 @@ class ContraToastScreen extends StatelessWidget {
               child: ContraButtonSolid(
                   text: actionText,
                   onPressed: (() {
-                    dismiss();
+                    Future.delayed(const Duration(milliseconds: 200), () {
+                      dismiss();
+                    });
                   })),
             )
           ],

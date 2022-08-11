@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 class ContraListCard extends StatelessWidget {
   final String title;
   final Color? color;
-  final Color? borderColor;
+  final Color borderColor;
+  final Color shadowColor;
 
   final Widget child;
 
@@ -14,7 +15,8 @@ class ContraListCard extends StatelessWidget {
     super.key,
     required this.title,
     this.color = Colors.white,
-    this.borderColor,
+    this.borderColor = ContraColors.woodSmoke,
+    this.shadowColor = ContraColors.woodSmoke,
     required this.child,
   }) : super();
 
@@ -39,10 +41,12 @@ class ContraListCard extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 16),
             decoration: ShapeDecoration(
                 color: color,
-                shadows: const [BoxShadow(offset: Offset(0, 4))],
+                shadows: [
+                  BoxShadow(color: shadowColor, offset: const Offset(0, 4))
+                ],
                 shape: RoundedRectangleBorder(
                     side: BorderSide(
-                      color: borderColor ?? ContraColors.woodSmoke,
+                      color: borderColor,
                       width: 2,
                     ),
                     borderRadius: const BorderRadius.all(Radius.circular(16)))),

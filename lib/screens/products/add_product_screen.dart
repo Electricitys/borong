@@ -1,24 +1,19 @@
-import 'package:borong/models/settings.dart';
 import 'package:borong/screens/settings/contra_sheet.dart';
-import 'package:borong/screens/settings/setting_screen.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import 'package:borong/utilities/currency_formatter.dart';
 import 'package:borong/widgets/contra/button_round_with_shadow.dart';
 import 'package:borong/widgets/contra/contra_button_solid.dart';
-import 'package:borong/widgets/contra/contra_date_picker.dart';
 import 'package:borong/widgets/contra/contra_image_picker.dart';
-import 'package:borong/widgets/contra/contra_input_text.dart';
 import 'package:borong/widgets/contra/contra_list_card.dart';
 import 'package:borong/widgets/contra/contra_select.dart';
 import 'package:borong/widgets/contra/contra_text.dart';
+import 'package:borong/widgets/contra/contra_toast_screen.dart';
 import 'package:borong/widgets/contra/custom_app_bar.dart';
-import 'package:borong/widgets/contra/settings_list_card_item.dart';
 import 'package:borong/widgets/contra/settings_list_card_item_input_select.dart';
 import 'package:borong/widgets/contra/settings_list_card_item_input_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:intl/intl.dart';
+import 'dart:developer' as developer;
 
 class AddProductScreen extends StatefulWidget {
   const AddProductScreen({super.key});
@@ -31,6 +26,8 @@ class AddProductScreen extends StatefulWidget {
 
 class _AddProductScreenState extends State<AddProductScreen> {
   late final List<XFile> _imageList = <XFile>[];
+
+  late bool isSubmitting = false;
 
   late List<SelectOption<String>> category = <SelectOption<String>>[
     SelectOption(label: "Category 1", value: "1"),
@@ -106,6 +103,23 @@ class _AddProductScreenState extends State<AddProductScreen> {
     );
   }
 
+  void _onSubmit(context) {
+    setState(() {
+      isSubmitting = true;
+    });
+    Future.delayed(const Duration(seconds: 2), () {
+      ContraToastScreen.pushToastScreen(
+        context,
+        title: "Complete",
+        type: ContraToastType.success,
+        subtitle: 'Product has been published',
+        onDismiss: () {
+          Navigator.pushNamedAndRemoveUntil(context, '/', (_) => false);
+        },
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -148,15 +162,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                       text: "Add Product",
                     ),
                   ),
-                  IconButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, SettingsScreen.routeName);
-                    },
-                    icon: const Icon(
-                      Icons.menu,
-                      color: ContraColors.woodSmoke,
-                    ),
-                  )
+                  const SizedBox(width: 36),
                 ],
               ),
             ),
@@ -280,7 +286,11 @@ class _AddProductScreenState extends State<AddProductScreen> {
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
-              child: ContraButtonSolid(text: "Publish", onPressed: (() {})),
+              child: ContraButtonSolid(
+                  isLoading: isSubmitting,
+                  isDisabled: isSubmitting,
+                  text: "Publish",
+                  onPressed: (() => _onSubmit(context))),
             ),
             const SizedBox(height: 24.0)
           ],
