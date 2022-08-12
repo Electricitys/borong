@@ -1,8 +1,10 @@
+import 'package:borong/screens/products/product_list_variant_form.dart';
 import 'package:borong/screens/settings/contra_sheet.dart';
 import 'package:borong/utilities/contra/colors.dart';
 import 'package:borong/utilities/currency_formatter.dart';
 import 'package:borong/widgets/contra/button_round_with_shadow.dart';
 import 'package:borong/widgets/contra/contra_button_solid.dart';
+import 'package:borong/widgets/contra/contra_divider.dart';
 import 'package:borong/widgets/contra/contra_image_picker.dart';
 import 'package:borong/widgets/contra/contra_list_card.dart';
 import 'package:borong/widgets/contra/contra_select.dart';
@@ -27,7 +29,16 @@ class AddProductScreen extends StatefulWidget {
 class _AddProductScreenState extends State<AddProductScreen> {
   late final List<XFile> _imageList = <XFile>[];
 
+  late String _name;
+  late String _category;
+  late bool _condition;
+  late String _description;
+
+  late List<ProductVariant> _productVariants = <ProductVariant>[];
+
   late bool isSubmitting = false;
+
+  late bool isValid = false;
 
   late List<SelectOption<String>> category = <SelectOption<String>>[
     SelectOption(label: "Category 1", value: "1"),
@@ -37,9 +48,39 @@ class _AddProductScreenState extends State<AddProductScreen> {
     SelectOption(label: "Category 5", value: "5"),
   ];
 
+  _validate() {
+    if (_imageList.isEmpty) {
+      return false;
+    }
+    if (_name == null || _name.isEmpty || _name.length < 3) {
+      return false;
+    }
+    if (_description == null ||
+        _description.isEmpty ||
+        _description.length < 3) {
+      return false;
+    }
+    if (_productVariants.isEmpty) {
+      return false;
+    }
+    return true;
+  }
+
+  _handleChange() {
+    setState(() {
+      isValid = _validate();
+    });
+  }
+
   @override
   void initState() {
     super.initState();
+
+    _productVariants.add(ProductVariant(
+      name: "Default",
+      price: 0,
+      stock: 0,
+    ));
   }
 
   Future<void> _showModalSheet({
@@ -230,28 +271,18 @@ class _AddProductScreenState extends State<AddProductScreen> {
                       title: "Name",
                       sheetTitle: "Edit Name",
                       initialValue: "...",
-                      onChanged: ((value) {})),
+                      onChanged: ((value) {
+                        _name = value;
+                        _handleChange();
+                      })),
                   SettingsListCardItemInputTextSelect<String>(
                       title: "Category",
                       initialValue: category[2],
                       options: category,
-                      onChanged: ((index, value) {})),
-                  SettingsListCardItemInputText(
-                      title: "Price",
-                      keyboardType: TextInputType.number,
-                      helperTextCallback: (value) =>
-                          CurrencyFormatter.format(value),
-                      sheetTitle: "Edit Price",
-                      initialValue: "0",
-                      valueFormatter: (value) =>
-                          CurrencyFormatter.format(value),
-                      onChanged: ((value) {})),
-                  SettingsListCardItemInputText(
-                      title: "Stock",
-                      keyboardType: TextInputType.number,
-                      sheetTitle: "Edit Stock",
-                      initialValue: "1",
-                      onChanged: ((value) {})),
+                      onChanged: ((index, value) {
+                        _category = value.value;
+                        _handleChange();
+                      })),
                 ],
               ),
             ),
@@ -266,13 +297,19 @@ class _AddProductScreenState extends State<AddProductScreen> {
                         SelectOption(label: "New", value: true),
                         SelectOption(label: "Second", value: false),
                       ],
-                      onChanged: ((index, value) {})),
+                      onChanged: ((index, value) {
+                        _condition = value.value;
+                        _handleChange();
+                      })),
                   SettingsListCardItemInputText(
                       title: "Description",
                       sheetTitle: "Edit Description",
                       valueFormatter: ((value) =>
                           value.isEmpty ? "..." : value),
-                      onChanged: ((value) {}),
+                      onChanged: ((value) {
+                        _description = value;
+                        _handleChange();
+                      }),
                       textInputAction: TextInputAction.newline,
                       keyboardType: TextInputType.multiline,
                       placeholder:
@@ -283,12 +320,19 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 ],
               ),
             ),
+            ProductListVariantForm(
+              productVariants: _productVariants,
+              onChange: (List<ProductVariant> productVariants) {
+                _productVariants = productVariants;
+              },
+            ),
+            const SizedBox(height: 24.0),
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
               child: ContraButtonSolid(
                   isLoading: isSubmitting,
-                  isDisabled: isSubmitting,
+                  isDisabled: !isValid || isSubmitting,
                   text: "Publish",
                   onPressed: (() => _onSubmit(context))),
             ),

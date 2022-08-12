@@ -9,6 +9,7 @@ class SettingsListCardItemInputText extends StatefulWidget {
   final String initialValue;
   final String Function(String value)? valueFormatter;
   final void Function(String value) onChanged;
+  final void Function(String value)? onSubmit;
 
   final TextInputAction? textInputAction;
   final TextInputType? keyboardType;
@@ -26,6 +27,7 @@ class SettingsListCardItemInputText extends StatefulWidget {
     this.sheetTitle,
     this.initialValue = "",
     required this.onChanged,
+    this.onSubmit,
     this.keyboardType,
     this.helperTextCallback,
     this.valueFormatter,
@@ -48,14 +50,13 @@ class _SettingsListCardItemInputTextState
   late String _value = widget.initialValue;
   late String _tempValue = _value;
 
-  final FocusNode focusNode = FocusNode();
-
   _onChanged(String value) {
     widget.onChanged(value);
     _tempValue = value;
   }
 
   Future<void> _onSubmit() async {
+    widget.onSubmit?.call(_tempValue);
     setState(() {
       _value = _tempValue;
     });
@@ -69,15 +70,11 @@ class _SettingsListCardItemInputTextState
         value: _value,
         valueFormatter: widget.valueFormatter,
         onSubmit: _onSubmit,
-        onInitState: () => focusNode.requestFocus(),
-        onDispose: () => focusNode.unfocus(),
         child: (handleSubmit) => ContraInputText(
               onFieldSubmitted: ((p0) {
                 _onSubmit();
                 handleSubmit();
-                focusNode.unfocus();
               }),
-              focusNode: focusNode,
               placeholder: widget.placeholder,
               textInputAction: widget.textInputAction,
               helperTextCallback: widget.helperTextCallback,

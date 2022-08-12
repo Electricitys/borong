@@ -87,6 +87,7 @@ class ContraButtonSolid extends StatelessWidget {
 
   static const ContraButtonStyle medium = ContraButtonStyle(
     textSize: 16,
+    textStyle: TextStyle(),
     padding: EdgeInsets.all(8.0),
     radiusSize: 12,
     shadowColor: ContraColors.woodSmoke,
@@ -96,6 +97,7 @@ class ContraButtonSolid extends StatelessWidget {
 
   static const ContraButtonStyle large = ContraButtonStyle(
     textSize: 21,
+    textStyle: TextStyle(),
     padding: EdgeInsets.all(16.0),
     radiusSize: 16,
     shadowColor: ContraColors.woodSmoke,
@@ -106,13 +108,19 @@ class ContraButtonSolid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     late ContraButtonStyle style = this.style ?? ContraButtonSolid.large;
-    late ButtonStyle buttonStyle = ElevatedButton.styleFrom(
-      textStyle: TextStyle(
-        color: textColor ?? ContraColors.white,
-      ),
-      backgroundColor: style.color ?? ContraColors.woodSmoke,
-      shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(16))),
+    late ButtonStyle buttonStyle = ButtonStyle(
+      textStyle: MaterialStateProperty.resolveWith<TextStyle>((states) {
+        return states.contains(MaterialState.disabled)
+            ? const TextStyle(color: ContraColors.black)
+            : TextStyle(color: textColor ?? ContraColors.white);
+      }),
+      backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
+        return states.contains(MaterialState.disabled)
+            ? ContraColors.santasGrayLight
+            : style.color ?? ContraColors.woodSmoke;
+      }),
+      shape: MaterialStateProperty.all(const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(16)))),
     );
     if (subtle) {
       buttonStyle = ElevatedButton.styleFrom(
@@ -131,7 +139,9 @@ class ContraButtonSolid extends StatelessWidget {
               shadows: [
                 BoxShadow(
                   color: withShadow == true
-                      ? style.shadowColor ?? Colors.transparent
+                      ? isDisabled
+                          ? Colors.transparent
+                          : style.shadowColor ?? Colors.transparent
                       : Colors.transparent,
                   offset: Offset(
                     0.0, // Move to right 10  horizontally
@@ -144,7 +154,9 @@ class ContraButtonSolid extends StatelessWidget {
                       BorderRadius.all(Radius.circular(style.radiusSize! + 2)),
                   side: withBorder == true
                       ? BorderSide(
-                          color: style.borderColor ?? Colors.transparent,
+                          color: isDisabled
+                              ? ContraColors.santasGray10
+                              : style.borderColor ?? Colors.transparent,
                           width: 2,
                           strokeAlign: StrokeAlign.inside,
                         )
@@ -181,10 +193,15 @@ class ContraButtonSolid extends StatelessWidget {
                     text,
                     textAlign: TextAlign.center,
                     style: TextStyle(
+                      inherit: false,
                       fontSize: style.textSize,
                       fontWeight: FontWeight.w800,
                       fontFamily: "Montserrat",
-                    ).merge(style.textStyle),
+                    ).merge(style.textStyle?.copyWith(
+                      color: isDisabled
+                          ? ContraColors.santasGray10
+                          : textColor ?? style.textStyle?.color,
+                    )),
                   ),
                 suffixIcon != null
                     ? Padding(

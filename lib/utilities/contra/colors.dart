@@ -19,6 +19,7 @@ class ContraColors {
   static const Color santasGray = Color(0xFF969BAB);
   static const Color selago = Color(0xFFE9E7FC);
   static const Color santasGray10 = Color(0xFF9FA4B4);
+  static const Color santasGrayLight = Color.fromARGB(255, 204, 207, 218);
   static const Color trout = Color(0xFF474A57);
   static const Color turquoiseBlue = Color(0xFF61E4C5);
   static const Color white = Color(0xFFFFFFFF);
