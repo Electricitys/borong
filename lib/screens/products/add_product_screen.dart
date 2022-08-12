@@ -52,12 +52,10 @@ class _AddProductScreenState extends State<AddProductScreen> {
     if (_imageList.isEmpty) {
       return false;
     }
-    if (_name == null || _name.isEmpty || _name.length < 3) {
+    if (_name.isEmpty || _name.length < 3) {
       return false;
     }
-    if (_description == null ||
-        _description.isEmpty ||
-        _description.length < 3) {
+    if (_description.isEmpty || _description.length < 3) {
       return false;
     }
     if (_productVariants.isEmpty) {
@@ -83,67 +81,6 @@ class _AddProductScreenState extends State<AddProductScreen> {
     ));
   }
 
-  Future<void> _showModalSheet({
-    required Future<bool> Function() onSubmit,
-    required Widget child,
-    required String title,
-    VoidCallback? onInitState,
-    VoidCallback? onDispose,
-  }) async {
-    ContraSheet.showModalSheet(
-      context,
-      onInitState: onInitState,
-      onDispose: onDispose,
-      title: title,
-      action: Row(children: <Widget>[
-        ClipOval(
-          child: Material(
-            color: Colors.transparent,
-            child: IconButton(
-                onPressed: () async {
-                  ScaffoldMessenger.of(context)
-                    ..removeCurrentSnackBar()
-                    ..showSnackBar(const SnackBar(
-                      content: Text("Sending..."),
-                      behavior: SnackBarBehavior.floating,
-                    ));
-                  ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                  try {
-                    await onSubmit();
-                    if (!mounted) return;
-                    Navigator.pop(context);
-                    ScaffoldMessenger.of(context)
-                      ..removeCurrentSnackBar()
-                      ..showSnackBar(const SnackBar(
-                        content: Text("Changed"),
-                        behavior: SnackBarBehavior.floating,
-                      ));
-                    return;
-                  } catch (err) {
-                    ScaffoldMessenger.of(context)
-                      ..removeCurrentSnackBar()
-                      ..showSnackBar(const SnackBar(
-                        content: Text("Error"),
-                        behavior: SnackBarBehavior.floating,
-                      ));
-                  }
-                },
-                color: ContraColors.persianBlue,
-                icon: const Icon(
-                  Icons.check,
-                )),
-          ),
-        )
-      ]),
-      child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 24.0,
-            vertical: 12.0,
-          ),
-          child: child),
-    );
-  }
-
   void _onSubmit(context) {
     setState(() {
       isSubmitting = true;
@@ -164,6 +101,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ContraColors.bareleyWhite,
       appBar: CustomAppBar(
         height: 72,
         child: Column(
@@ -249,13 +187,42 @@ class _AddProductScreenState extends State<AddProductScreen> {
                       },
                     );
                   }
-                  return ContraImagePicker(
-                    initialValue: _imageList[index],
-                    onImageSelected: (file) {
-                      setState(() {
-                        _imageList[index] = file;
-                      });
-                    },
+                  return Stack(
+                    children: <Widget>[
+                      ContraImagePicker(
+                        initialValue: _imageList[index],
+                        onImageSelected: (file) {
+                          setState(() {
+                            _imageList[index] = file;
+                          });
+                        },
+                      ),
+                      Positioned(
+                        top: -8,
+                        right: -8,
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _imageList.removeAt(index);
+                            });
+                          },
+                          child: Container(
+                            height: 36,
+                            width: 36,
+                            decoration: BoxDecoration(
+                                color: ContraColors.bareleyWhite,
+                                border:
+                                    Border.all(color: Colors.black, width: 2),
+                                borderRadius: const BorderRadius.only(
+                                    bottomLeft: Radius.circular(18))),
+                            child: const Icon(
+                              Icons.close,
+                              color: ContraColors.flamingo,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
                   );
                 },
                 separatorBuilder: (BuildContext context, int index) =>

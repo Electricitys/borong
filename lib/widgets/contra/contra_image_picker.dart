@@ -77,7 +77,7 @@ class _ContraImagePickerState extends State<ContraImagePicker> {
       return Semantics(
         label: 'image_picker_example_picked_images',
         child: FittedBox(
-          fit: BoxFit.fill,
+          fit: BoxFit.cover,
           child: Image.file(File(_imageFile!.path)),
         ),
       );
